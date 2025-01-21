@@ -48,6 +48,7 @@ services:
         DATABASE_VERSION: $DATABASE_VERSION
     tty: true
     stdin_open: true
+    user: root
     env_file: .env
     working_dir: /var/lib/mysql
     environment:
