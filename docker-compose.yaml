@@ -1,5 +1,6 @@
 services:
   nginx:
+    container_name: nginx
     depends_on:
       - php
     build:
@@ -17,6 +18,7 @@ services:
       - $SERVER_PORT:80
 
   php:
+    container_name: php
     depends_on:
       - mariadb
     build:
@@ -36,6 +38,7 @@ services:
       - ./sources:$PHP_USER_HOME_DIRECTORY
 
   mariadb:
+    container_name: mariadb
     build:
       context: docker/mariadb
       args:
