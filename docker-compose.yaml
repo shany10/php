@@ -39,6 +39,27 @@ services:
     volumes:
       - ./sources:$PHP_USER_HOME_DIRECTORY
 
+  migration:
+    container_name: migration
+    restart: unless-stopped
+    depends_on:
+      - mariadb
+    build:
+      context: docker/php
+      args:
+        PHP_VERSION: $PHP_VERSION
+        PHP_USER_NAME: $PHP_USER_NAME
+        PHP_USER_IDENTIFIER: $PHP_USER_IDENTIFIER
+        PHP_USER_SHELL: $PHP_USER_SHELL
+        PHP_USER_HOME_DIRECTORY: $PHP_USER_HOME_DIRECTORY
+    tty: true
+    stdin_open: true
+    env_file: .env
+    working_dir: $PHP_USER_HOME_DIRECTORY
+    user: php
+    volumes:
+      - ./db:$PHP_USER_HOME_DIRECTORY
+
   mariadb:
     container_name: mariadb
     restart: unless-stopped

@@ -2,8 +2,8 @@
 
 class RegisterController
 {
-  public static function register()
+  public static function index(): void
   {
-    require_once __DIR__ . "/../views/register.php";
+    require_once __DIR__ . "/../views/register/index.php";
   }
 }

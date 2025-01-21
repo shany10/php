@@ -29,15 +29,15 @@ class Router
     ];
   }
 
-  public function start()
+  public function start(): void
   {
     $method = $_SERVER["REQUEST_METHOD"];
-    $uri = $_SERVER["REQUEST_URI"];
+    $path = $_SERVER["REQUEST_URI"];
 
     foreach ($this->routes as $route) {
-      if ($method === $route["method"] && $uri === $route["path"]) {
-        $controllerName = $route["controllerName"];
+      if ($method === $route["method"] && $path === $route["path"]) {
         $methodName = $route["methodName"];
+        $controllerName = $route["controllerName"];
 
         $controllerName::$methodName();
       }

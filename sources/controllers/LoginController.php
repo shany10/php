@@ -1,50 +1,30 @@
 <?php
 
-require_once __DIR__ . "/../core/Request.php";
+require_once __DIR__ . "/../models/User.php";
+require_once __DIR__ . "/../requests/LoginRequest.php";
 
 class LoginController
 {
-  public static function index()
+  public static function index(): void
   {
     require_once __DIR__ . "/../views/login/index.php";
   }
 
-  public static function login()
+  public static function post(): void
   {
-    $request = new Request();
-    $email = $request->input("email", "unknown@domain.com");
-    $password = $request->input("password");
-
-    $databaseConnection = new PDO(
-      "mysql:host=mariadb;dbname=database",
-      "user",
-      "password"
-    );
-
-    // SELECT password FROM users WHERE email = :email
-
-    $getUserQuery = $databaseConnection->prepare("SELECT password FROM users WHERE email = :email");
-
-    $getUserQuery->execute([
-      "email" => $email
-    ]);
-
-    $user = $getUserQuery->fetch();
+    $request = new LoginRequest();
+    $user = User::findOneByEmail($request->email);
 
     if (!$user) {
-      echo "TODO: renvoyer sur la page du formulaire avec une erreur";
+      echo "L'adresse email ou le mot de passe sont incorrects.";
       die();
     }
 
-    $isPasswordValid = password_verify($password, $user["password"]);
-
-    if (!$isPasswordValid) {
-      echo "TODO: renvoyer sur la page du formulaire avec une erreur";
+    if (!$user->isValidPassword($request->password)) {
+      echo "L'adresse email ou le mot de passe sont incorrects.";
       die();
     }
 
-    // TODO: enregistrer une session pour cet utilisateur
-
-    // TODO: renvoyer sur une page de profil (ou page de création de photos)
+    echo "Envoyer une session";
   }
 }
