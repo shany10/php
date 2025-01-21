@@ -1,6 +1,7 @@
 services:
   nginx:
     container_name: nginx
+    restart: unless-stopped
     depends_on:
       - php
     build:
@@ -19,6 +20,7 @@ services:
 
   php:
     container_name: php
+    restart: unless-stopped
     depends_on:
       - mariadb
     build:
@@ -39,6 +41,7 @@ services:
 
   mariadb:
     container_name: mariadb
+    restart: unless-stopped
     build:
       context: docker/mariadb
       args:
