@@ -1,13 +1,17 @@
 <?php
 
-$databaseName = $_ENV["DATABASE_NAME"];
-$databaseUser = $_ENV["DATABASE_USER"];
-$databasePassword = $_ENV["DATABASE_PASSWORD"];
+// TODO: utiliser la casse ReflectionClass
+// https://www.php.net/manual/fr/class.reflection.php
 
-$database = new PDO("mysql:host=mariadb;dbname=$databaseName", $databaseUser, $databasePassword);
+require_once __DIR__ . "/core/Router.php";
 
-$query = $database->query("SELECT 1 + 1");
+require_once __DIR__ . "/controllers/LoginController.php";
+require_once __DIR__ . "/controllers/RegisterController.php";
 
-$result = $query->fetch();
+$router = new Router();
 
-var_dump($result);
+$router->get("/register", RegisterController::class, "register");
+$router->get("/login", LoginController::class, "index");
+$router->post("/login", LoginController::class, "login");
+
+$router->start();
