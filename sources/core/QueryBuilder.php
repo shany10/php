@@ -53,7 +53,7 @@ class QueryBuilder
       $this->sql .= " VALUES (" . implode(", ", $placeholders) . ")";
 
       foreach ($data as $column => $value) {
-          $this->params[":" . $column] = $value;
+          $this->parameters[":" . $column] = $value;
       }
 
       return $this;
@@ -67,7 +67,7 @@ class QueryBuilder
       foreach ($data as $column => $value) {
           $paramName = ":set_" . $column;
           $updates[] = $column . " = " . $paramName;
-          $this->params[$paramName] = $value;
+          $this->parameters[$paramName] = $value;
       }
 
       $this->sql .= implode(", ", $updates);
@@ -115,7 +115,7 @@ class QueryBuilder
 
     return $statement->execute($this->parameters);
   }
-  
+
   private function getConnection(): PDO
   {
       return new PDO("mysql:host=mariadb;dbname=database", "user", "password");
