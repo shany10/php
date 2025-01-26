@@ -1,17 +1,21 @@
 <?php
 
-var_dump($_ENV);
+require_once '../../sources/core/QueryBuilder.php';
+require_once '../../sources/core/DatabaseConnection.php';
 
-// $databaseConnection = new PDO(
-//   "mysql:host=mariadb;dbname=database",
-//   "user",
-//   "password"
-// );
+$queryBuilder = new QueryBuilder();
 
-// $databaseConnection->query("
-//   CREATE TABLE users(
-//     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-//     email VARCHAR(30) NOT NULL UNIQUE,
-//     password CHAR(60) NOT NULL
-//   );
-// ");
+$queryBuilder
+    ->createTable(
+        "users",
+        [
+            "id" => "INT AUTO_INCREMENT PRIMARY KEY",
+            "email" => "VARCHAR(255) NOT NULL UNIQUE",
+            "password" => "VARCHAR(255) NOT NULL",
+            "created_at" => "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+        ],
+        ["ENGINE=InnoDB", "DEFAULT CHARSET=utf8mb4"]
+    )
+    ->execute();
+
+echo "Table 'users' created successfully.";
