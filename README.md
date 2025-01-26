@@ -71,4 +71,4 @@ docker compose exec mariadb mariadb --version
 
 > *Note: replace `--version` with the MariaDB argument of your choice.*
 
-INIT
+INIT 
