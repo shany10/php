@@ -7,7 +7,7 @@ class LoginController
 {
   public static function index(): void
   {
-    require_once __DIR__ . "/../views/login/index.php";
+    require_once __DIR__ . "/../views/User/login/index.php";
   }
 
   public static function post(): void
