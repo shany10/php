@@ -1,37 +1,78 @@
 <?php
 
-// TODO: utiliser prepare au lieu de query !!!
-
 class QueryBuilder
 {
   private string $sql;
+  private array $parameters;
 
   public function __construct()
   {
     $this->sql = "";
+    $this->parameters = [];
   }
 
   public function select(array $columns)
   {
-    $this->sql = $this->sql . "SELECT " . implode(", ", $columns);
+    $this->sql = "SELECT " . implode(", ", $columns);
 
     return $this;
   }
 
   public function from(string $tableName)
   {
-    $this->sql = $this->sql . " FROM " . $tableName;
+    $this->sql .= " FROM " . $tableName;
 
     return $this;
   }
 
-  public function where(string $columnName, string $columnValue)
+  public function where(string $columnName, $columnValue)
   {
-    $this->sql = $this->sql . " WHERE " . $columnName . " = " . $columnValue;
+    // Utiliser un paramètre nommé pour éviter l'injection SQL
+    $paramName = ":where_" . $columnName;
+    $this->sql .= " WHERE " . $columnName . " = " . $paramName;
+
+    // Ajouter la valeur à la liste des paramètres
+    $this->parameters[$paramName] = $columnValue;
 
     return $this;
   }
 
+  
+  public function delete(string $tableName): self
+  {
+      $this->sql = "DELETE FROM " . $tableName;
+      return $this;
+  }
+
+  public function insert(string $tableName, array $data): self
+  {
+      $columns = array_keys($data);
+      $placeholders = array_map(fn($column) => ":" . $column, $columns);
+
+      $this->sql = "INSERT INTO " . $tableName . " (" . implode(", ", $columns) . ")";
+      $this->sql .= " VALUES (" . implode(", ", $placeholders) . ")";
+
+      foreach ($data as $column => $value) {
+          $this->params[":" . $column] = $value;
+      }
+
+      return $this;
+  }
+
+  public function update(string $tableName, array $data): self
+  {
+      $this->sql = "UPDATE " . $tableName . " SET ";
+      $updates = [];
+
+      foreach ($data as $column => $value) {
+          $paramName = ":set_" . $column;
+          $updates[] = $column . " = " . $paramName;
+          $this->params[$paramName] = $value;
+      }
+
+      $this->sql .= implode(", ", $updates);
+      return $this;
+  }
   public function fetch()
   {
     $databaseConnection = new PDO(
@@ -40,24 +81,57 @@ class QueryBuilder
       "password"
     );
 
-    $query = $databaseConnection->query($this->sql);
+    $statement = $databaseConnection->prepare($this->sql);
 
-    $result = $query->fetch(PDO::FETCH_ASSOC);
+    $statement->execute($this->parameters);
 
-    return $result;
+    return $statement->fetch(PDO::FETCH_ASSOC);
   }
 
-  public function fetchAll() {}
+  public function fetchAll()
+  {
+    $databaseConnection = new PDO(
+      "mysql:host=mariadb;dbname=database",
+      "user",
+      "password"
+    );
 
-  public function execute() {}
+    $statement = $databaseConnection->prepare($this->sql);
+
+    $statement->execute($this->parameters);
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function execute()
+  {
+    $databaseConnection = new PDO(
+      "mysql:host=mariadb;dbname=database",
+      "user",
+      "password"
+    );
+
+    $statement = $databaseConnection->prepare($this->sql);
+
+    return $statement->execute($this->parameters);
+  }
+  
+  private function getConnection(): PDO
+  {
+      return new PDO("mysql:host=mariadb;dbname=database", "user", "password");
+  }
 }
 
+
+// Exemple d'utilisation
 $queryBuilder = new QueryBuilder();
 
 $email = "anairi@esgi.fr";
 
-$queryBuilder
+$result = $queryBuilder
   ->select(["id", "password", "email"])
   ->from("users")
   ->where("email", $email)
   ->fetch();
+
+print_r($result);
