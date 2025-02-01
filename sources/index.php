@@ -12,7 +12,7 @@ $router = new Router();
 $router->get("/login", LoginController::class, "index");
 $router->post("/login", LoginController::class, "post");
 
-$router->get("/articles/{slug}", ArticleController::class, "index");
+$router->get("/user/{id}", UserEditController::class, "index");
 
 $router->get("/register", RegisterController::class, "index");
 
