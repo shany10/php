@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Core;
+
 class Router
 {
   private array $routes;
@@ -29,7 +31,22 @@ class Router
     ];
   }
 
-  public function start(): void
+  // public function start(): void
+  // {
+  //   $method = $_SERVER["REQUEST_METHOD"];
+  //   $path = $_SERVER["REQUEST_URI"];
+
+  //   foreach ($this->routes as $route) {
+  //     if ($method === $route["method"] && $path === $route["path"]) {
+  //       $methodName = $route["methodName"];
+  //       $controllerName = $route["controllerName"];
+
+  //       $controllerName::$methodName();
+  //     }
+  //   }
+  // }
+
+  public function __destruct()
   {
     $method = $_SERVER["REQUEST_METHOD"];
     $path = $_SERVER["REQUEST_URI"];
