@@ -1,14 +1,21 @@
 <?php
 
-require_once __DIR__ . "/DatabaseConnection.php";
+namespace App\Core;
+
+use PDO;
+use PDOStatement;
+use App\Core\DatabaseConnection;
+
 class QueryBuilder
 {
   private string $sql;
   private array $parameters;
+  private $db;
 
   public function __construct()
   {
     $this->reset();
+    $this->db = DatabaseConnection::getInstance();
   }
 
   public function select(array $columns): self
@@ -88,40 +95,45 @@ class QueryBuilder
   }
   public function fetch()
   {
-    $databaseConnection = new PDO(
-      "mysql:host=mariadb;dbname=database",
-      "user",
-      "password"
-    );
-
-    $statement = $databaseConnection->prepare($this->sql);
-
-    $statement->execute($this->parameters);
-
-    return $statement->fetch(PDO::FETCH_ASSOC);
+    $this->query()->execute($this->parameters);
+    return $this->query()->fetch(PDO::FETCH_ASSOC);
   }
 
   public function fetchAll(): array
   {
-    return $this->executeQuery()->fetchAll(PDO::FETCH_ASSOC);
+    $this->query()->execute($this->parameters);
+    return $this->query()->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function execute(): bool
+  public function executeAndGetId(): int
   {
-    return $this->executeQuery()->execute();
+    try {
+      $this->query()->execute($this->parameters);
+      return (int)$this->db->lastInsertId();
+    } catch (\Exception $e) {
+      return 0;
+    }
   }
 
-  private function executeQuery(): PDOStatement
+  public function execute()
+  {    
+    return $this->query()->execute($this->parameters);
+  }
+
+  private function query(): PDOStatement
   {
-    $pdo = DatabaseConnection::getInstance();
-    $stmt = $pdo->prepare($this->sql);
-    $stmt->execute($this->parameters);
+    $stmt = $this->db->prepare($this->sql);
     return $stmt;
   }
 
   private function getConnection(): PDO
   {
-    return new PDO("mysql:host=mariadb;dbname=database", "user", "password");
+    return new PDO("
+      mysql:host=mariadb;dbname=" 
+      . $_ENV["DATABASE_NAME"], 
+      $_ENV["DATABASE_USER"], 
+      $_ENV["DATABASE_PASSWORD"]
+    );
   }
 
   public function reset(): self
@@ -134,14 +146,14 @@ class QueryBuilder
 
 
 // Exemple d'utilisation
-$queryBuilder = new QueryBuilder();
+// $queryBuilder = new QueryBuilder();
 
-$email = "anairi@esgi.fr";
+// $email = "anairi@esgi.fr";
 
-$result = $queryBuilder
-  ->select(["id", "password", "email"])
-  ->from("users")
-  ->where("email", $email)
-  ->fetch();
+// $result = $queryBuilder
+//   ->select(["id", "password", "email"])
+//   ->from("users")
+//   ->where("email", $email)
+//   ->fetch();
 
-print_r($result);
+// print_r($result);
