@@ -1,6 +1,9 @@
 <?php
 
-require_once __DIR__ . "/../core/QueryBuilder.php";
+namespace App\Models;
+
+use App\Core\QueryBuilder;
+
 class User
 {
   private function __construct(
