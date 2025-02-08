@@ -54,4 +54,5 @@ class UserModel
       
         return $id;       
     }
+    
 }

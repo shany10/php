@@ -28,6 +28,7 @@ class User
 
     return new User($user["id"], $user["email"], $user["password"]);
   }
+  
 
   public function isValidPassword(string $password): bool
   {
