@@ -11,6 +11,7 @@ class QueryBuilder
   private string $sql;
   private array $parameters;
   private $db;
+  private bool $ifNotExists = false;
 
   public function __construct()
   {
@@ -25,6 +26,7 @@ class QueryBuilder
     return $this;
   }
 
+
   public function from(string $tableName): self
   {
     $this->sql .= " FROM " . $tableName;
@@ -34,15 +36,25 @@ class QueryBuilder
 
   public function where(string $columnName, $columnValue): self
   {
-    // Utiliser un paramètre nommé pour éviter l'injection SQL
     $paramName = ":where_" . $columnName;
-    $this->sql .= " WHERE " . $columnName . " = " . $paramName;
 
-    // Ajouter la valeur à la liste des paramètres
+    if (empty($this->parameters)) {
+      $this->sql .= " WHERE " . $columnName . " = " . $paramName;
+    } else {
+      $this->sql .= " AND " . $columnName . " = " . $paramName;
+    }
+
     $this->parameters[$paramName] = $columnValue;
 
     return $this;
   }
+
+  public function ifNotExists(bool $condition = true): self
+  {
+    $this->ifNotExists = $condition;
+    return $this;
+  }
+
 
   public function createTable(string $tableName, array $columns, array $options = []): self
   {
@@ -51,9 +63,11 @@ class QueryBuilder
       $columnDefinitions[] = "$name $definition";
     }
 
+    $ifNotExistsSQL = $this->ifNotExists ? "IF NOT EXISTS" : "";
+
     $optionsSQL = implode(" ", $options);
 
-    $this->sql = "CREATE TABLE $tableName (" . implode(", ", $columnDefinitions) . ") $optionsSQL";
+    $this->sql = "CREATE TABLE $ifNotExistsSQL $tableName (" . implode(", ", $columnDefinitions) . ") $optionsSQL";
 
     return $this;
   }
@@ -93,6 +107,12 @@ class QueryBuilder
     $this->sql .= implode(", ", $updates);
     return $this;
   }
+
+  public function addForeignKey(string $tableName, string $columnName, string $foreignTableName, string $foreignColumnName): self
+  {
+      $this->sql = "ALTER TABLE " . $tableName . " ADD FOREIGN KEY (" . $columnName . ") REFERENCES " . $foreignTableName . "(" . $foreignColumnName . ")";
+      return $this;
+  }
   public function fetch()
   {
     $this->query()->execute($this->parameters);
@@ -109,14 +129,14 @@ class QueryBuilder
   {
     try {
       $this->query()->execute($this->parameters);
-      return (int)$this->db->lastInsertId();
+      return (int) $this->db->lastInsertId();
     } catch (\Exception $e) {
       return 0;
     }
   }
 
   public function execute()
-  {    
+  {
     return $this->query()->execute($this->parameters);
   }
 
@@ -129,9 +149,9 @@ class QueryBuilder
   private function getConnection(): PDO
   {
     return new PDO("
-      mysql:host=mariadb;dbname=" 
-      . $_ENV["DATABASE_NAME"], 
-      $_ENV["DATABASE_USER"], 
+      mysql:host=mariadb;dbname="
+      . $_ENV["DATABASE_NAME"],
+      $_ENV["DATABASE_USER"],
       $_ENV["DATABASE_PASSWORD"]
     );
   }

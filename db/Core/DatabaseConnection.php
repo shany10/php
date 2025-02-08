@@ -1,9 +1,5 @@
 <?php
 
-namespace App\Core;
-
-use PDO;
-
 class DatabaseConnection
 {
     private static ?PDO $instance = null;
@@ -12,7 +8,7 @@ class DatabaseConnection
     {
         if (self::$instance === null) {
             self::$instance = new PDO(
-                "mysql:host=mariadb;dbname=". $_ENV["DATABASE_NAME"],
+                "mysql:host=mariadb;dbname=" . $_ENV["DATABASE_NAME"],
                 $_ENV["DATABASE_USER"],
                 $_ENV["DATABASE_PASSWORD"],
                 [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
