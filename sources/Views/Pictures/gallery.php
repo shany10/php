@@ -1,6 +1,5 @@
 <h1>Ma galerie de photos</h1>
 
-<?php echo $pictures; ?>
 
 <?php if (isset($pictures) && $pictures > 0): ?>
     <div class="gallery">
@@ -8,7 +7,10 @@
             <div class="picture">
                 <img src="<?= htmlspecialchars($picture['file_path']) ?>" alt="<?= htmlspecialchars($photo['file_name']) ?>" />
                 <p><?= htmlspecialchars($picture['file_name']) ?></p>
-                <a href="/pictures/delete/<?= htmlspecialchars($picture['id']) ?>">Supprimer</a>
+                <form action="/delete/<?= $picture['id'] ?>" method="POST"
+                    onsubmit="return confirm('Supprimer cette photo ?');">
+                    <button type="submit">🗑️ Supprimer</button>
+                </form>
             </div>
         <?php endforeach; ?>
     </div>
