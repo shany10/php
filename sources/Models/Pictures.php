@@ -38,4 +38,15 @@ class Pictures
             ->where('id', $pictureId)
             ->execute();
     }
+
+    public static function getOneById($pictureId)
+    {
+        $queryBuilder = new QueryBuilder();
+
+        return $queryBuilder
+            ->select(['id', 'file_name', 'file_path'])
+            ->from('pictures')
+            ->where('id', $pictureId)
+            ->fetch();
+    }
 }

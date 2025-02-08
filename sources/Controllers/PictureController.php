@@ -9,7 +9,7 @@ class PictureController
     {
         // Vérification si la méthode est POST et si un fichier photo est soumis
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["photo"])) {
-            $uploadDir = "uploads/";
+            $uploadDir = "public/uploads/";
             $file = $_FILES["photo"];
             $message = "";
 
@@ -52,7 +52,18 @@ class PictureController
 
     public static function delete($pictureId)
     {
+        Pictures::getOneById($pictureId);
+        if (!$pictureId) {
+            $_SESSION['message'] = "Photo introuvable.";
+            header("Location: /gallery");
+            exit;
+        }
+        $filePath = __DIR__ . "/../public/uploads/" . $pictureId['file_name'];
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
         Pictures::delete($pictureId);
+        $_SESSION['message'] = "Photo supprimée.";
         header("Location: /gallery");
         exit();
     }
