@@ -1,6 +1,7 @@
 <?php
 
-require_once __DIR__ . "/../core/QueryBuilder.php";
+use App\Core\QueryBuilder;
+
 
 $queryBuilder = new QueryBuilder();
 
