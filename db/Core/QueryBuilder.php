@@ -18,30 +18,20 @@ class QueryBuilder
     public function select(array $columns): self
     {
         $this->sql = "SELECT " . implode(", ", $columns);
-
         return $this;
     }
-
 
     public function from(string $tableName): self
     {
         $this->sql .= " FROM " . $tableName;
-
         return $this;
     }
 
     public function where(string $columnName, $columnValue): self
     {
         $paramName = ":where_" . $columnName;
-
-        if (empty($this->parameters)) {
-            $this->sql .= " WHERE " . $columnName . " = " . $paramName;
-        } else {
-            $this->sql .= " AND " . $columnName . " = " . $paramName;
-        }
-
+        $this->sql .= (strpos($this->sql, "WHERE") === false ? " WHERE " : " AND ") . "$columnName = $paramName";
         $this->parameters[$paramName] = $columnValue;
-
         return $this;
     }
 
@@ -51,7 +41,6 @@ class QueryBuilder
         return $this;
     }
 
-
     public function createTable(string $tableName, array $columns, array $options = []): self
     {
         $columnDefinitions = [];
@@ -60,11 +49,9 @@ class QueryBuilder
         }
 
         $ifNotExistsSQL = $this->ifNotExists ? "IF NOT EXISTS" : "";
-
         $optionsSQL = implode(" ", $options);
 
         $this->sql = "CREATE TABLE $ifNotExistsSQL $tableName (" . implode(", ", $columnDefinitions) . ") $optionsSQL";
-
         return $this;
     }
 
@@ -109,22 +96,44 @@ class QueryBuilder
         $this->sql = "ALTER TABLE " . $tableName . " ADD FOREIGN KEY (" . $columnName . ") REFERENCES " . $foreignTableName . "(" . $foreignColumnName . ")";
         return $this;
     }
+
+    public function join(string $table, string $onClause, string $type = "INNER"): self
+    {
+        $this->sql .= " $type JOIN " . $table . " ON " . $onClause;
+        return $this;
+    }
+
+    public function orderBy(string $column, string $direction = "ASC"): self
+    {
+        $this->sql .= " ORDER BY " . $column . " " . strtoupper($direction);
+        return $this;
+    }
+
+    public function limit(int $limit): self
+    {
+        $this->sql .= " LIMIT " . $limit;
+        return $this;
+    }
+
     public function fetch()
     {
-        $this->query()->execute($this->parameters);
-        return $this->query()->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->query();
+        $stmt->execute($this->parameters);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function fetchAll(): array
     {
-        $this->query()->execute($this->parameters);
-        return $this->query()->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $this->query();
+        $stmt->execute($this->parameters);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function executeAndGetId(): int
     {
         try {
-            $this->query()->execute($this->parameters);
+            $stmt = $this->query();
+            $stmt->execute($this->parameters);
             return (int) $this->db->lastInsertId();
         } catch (\Exception $e) {
             return 0;
@@ -138,18 +147,7 @@ class QueryBuilder
 
     private function query(): PDOStatement
     {
-        $stmt = $this->db->prepare($this->sql);
-        return $stmt;
-    }
-
-    private function getConnection(): PDO
-    {
-        return new PDO("
-      mysql:host=mariadb;dbname="
-            . $_ENV["DATABASE_NAME"],
-            $_ENV["DATABASE_USER"],
-            $_ENV["DATABASE_PASSWORD"]
-        );
+        return $this->db->prepare($this->sql);
     }
 
     public function reset(): self
@@ -159,7 +157,6 @@ class QueryBuilder
         return $this;
     }
 }
-
 
 // Exemple d'utilisation
 // $queryBuilder = new QueryBuilder();

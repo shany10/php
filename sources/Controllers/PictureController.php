@@ -5,7 +5,7 @@ use App\Models\Pictures;
 
 class PictureController
 {
-    public static function upload()
+    public static function upload(): void
     {
         // Vérification si la méthode est POST et si un fichier photo est soumis
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["photo"])) {
@@ -50,9 +50,9 @@ class PictureController
         return;
     }
 
-    public static function delete($pictureId)
+    public static function delete($pictureId, $userId, $group_id, $isOwner): void
     {
-        Pictures::getOneById($pictureId);
+        Pictures::getPictureById($pictureId);
         if (!$pictureId) {
             $_SESSION['message'] = "Photo introuvable.";
             header("Location: /gallery");
@@ -62,7 +62,7 @@ class PictureController
         if (file_exists($filePath)) {
             unlink($filePath);
         }
-        Pictures::delete($pictureId);
+        Pictures::deletePicture($pictureId, $userId, $group_id, $isOwner);
         $_SESSION['message'] = "Photo supprimée.";
         header("Location: /gallery");
         exit();
