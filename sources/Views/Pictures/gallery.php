@@ -1,19 +1,18 @@
-<h1>Ma galerie de photos</h1>
-
-
-<?php if (isset($pictures) && $pictures > 0): ?>
+<h2>Galerie du groupe</h2>
+<?php if (!empty($pictures)): ?>
     <div class="gallery">
         <?php foreach ($pictures as $picture): ?>
-            <div class="picture">
-                <img src="<?= htmlspecialchars($picture['file_path']) ?>" alt="<?= htmlspecialchars($photo['file_name']) ?>" />
-                <p><?= htmlspecialchars($picture['file_name']) ?></p>
-                <form action="/delete/<?= $picture['id'] ?>" method="POST"
-                    onsubmit="return confirm('Supprimer cette photo ?');">
-                    <button type="submit">🗑️ Supprimer</button>
-                </form>
+            <div class="photo">
+                <img src="<?= $picture['file_path'] ?>" alt="Photo de groupe">
+                <?php if ($_SESSION['user_id'] == $picture['user_id'] || $_SESSION['user_role'] === 'owner'): ?>
+                    <form action="/delete" method="post">
+                        <input type="hidden" name="photo_id" value="<?= $picture['id'] ?>">
+                        <button type="submit">Supprimer</button>
+                    </form>
+                <?php endif; ?>
             </div>
         <?php endforeach; ?>
     </div>
 <?php else: ?>
-    <p>Aucune photo téléchargée.</p>
+    <p>Aucune photo trouvée.</p>
 <?php endif; ?>

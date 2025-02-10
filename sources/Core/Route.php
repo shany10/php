@@ -16,11 +16,11 @@ $router->post("/forgotPassword", ForgotPasswdController::class, "requestReset");
 $router->get("/resetPassword", ResetPasswdController::class, "index");
 $router->get("/login", LoginController::class, "index");
 $router->post("/login", LoginController::class, "index");
-$router->get("/upload", PictureController::class, "upload");
+$router->get("/upload", PictureController::class, "showForm");
 $router->post("/upload", PictureController::class, "upload");
 $router->post('/delete/{id}', PictureController::class, 'delete');
-$router->get("/gallery", GalleryController::class, "show");
-$router->post("/gallery", GalleryController::class, "show");
+$router->get("/gallery/{groupId}", GalleryController::class, "show");
+$router->post("/gallery/{groupId}", GalleryController::class, "show");
 
 
 

@@ -6,9 +6,13 @@
 <form action="/upload" method="post" enctype="multipart/form-data">
     <label for="photo">Sélectionnez une photo :</label>
     <input type="file" name="photo" id="photo" accept="image/*" required>
-    
+
     <label for="groupe">Choisissez un groupe :</label>
     <select name="groupe" required>
+        <?php foreach ($groups as $group): ?>
+            <option value="<?= $group['id'] ?>"><?= htmlspecialchars($group['group_name']) ?></option>
+        <?php endforeach; ?>
+        <option value="0">Aucun groupe</option>
     </select>
 
     <label for="partage">Niveau de partage :</label>
