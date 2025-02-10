@@ -116,7 +116,7 @@ class QueryBuilder
   }
 
   public function execute()
-  {    
+  {
     return $this->query()->execute($this->parameters);
   }
 
@@ -128,10 +128,11 @@ class QueryBuilder
 
   private function getConnection(): PDO
   {
-    return new PDO("
-      mysql:host=mariadb;dbname=" 
-      . $_ENV["DATABASE_NAME"], 
-      $_ENV["DATABASE_USER"], 
+    return new PDO(
+      "
+      mysql:host=mariadb;dbname="
+        . $_ENV["DATABASE_NAME"],
+      $_ENV["DATABASE_USER"],
       $_ENV["DATABASE_PASSWORD"]
     );
   }

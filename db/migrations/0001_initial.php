@@ -2,6 +2,9 @@
 
 use App\Core\QueryBuilder;
 
+require_once __DIR__ . "/../../sources/Core/QueryBuilder.php";
+
+
 
 
 $queryBuilder = new QueryBuilder();
