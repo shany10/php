@@ -6,9 +6,9 @@ use App\Models\Pictures;
 
 class GalleryController
 {
-    public static function show()
+    public static function show($groupId)
     {
-        $pictures = pictures::getAll();
+        $pictures = pictures::getPicturesByGroup($groupId);
         $view = new View("Pictures/gallery.php", "front.php");
         $view->addData("pictures", $pictures);
         return;
