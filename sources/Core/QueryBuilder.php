@@ -137,6 +137,7 @@ class QueryBuilder
 
   public function execute()
   {
+  {
     return $this->query()->execute($this->parameters);
   }
 

@@ -49,10 +49,10 @@ class Router
   public function __destruct()
   {
     $method = $_SERVER["REQUEST_METHOD"];
-    $path = $_SERVER["REQUEST_URI"];
+    $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH); 
 
     foreach ($this->routes as $route) {
-      if ($method === $route["method"] && $path === $route["path"]) {
+      if ($method === $route["method"] && strpos($path, $route["path"]) === 0){
         $methodName = $route["methodName"];
         $controllerName = $route["controllerName"];
 
