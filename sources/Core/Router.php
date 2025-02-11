@@ -11,6 +11,7 @@ class Router
     $this->routes = [];
   }
 
+  // Méthode pour enregistrer les routes GET
   public function get(string $path, string $controllerName, string $methodName): void
   {
     $this->routes[] = [
@@ -21,6 +22,7 @@ class Router
     ];
   }
 
+  // Méthode pour enregistrer les routes POST
   public function post(string $path, string $controllerName, string $methodName): void
   {
     $this->routes[] = [
@@ -31,32 +33,28 @@ class Router
     ];
   }
 
-  // public function start(): void
-  // {
-  //   $method = $_SERVER["REQUEST_METHOD"];
-  //   $path = $_SERVER["REQUEST_URI"];
-
-  //   foreach ($this->routes as $route) {
-  //     if ($method === $route["method"] && $path === $route["path"]) {
-  //       $methodName = $route["methodName"];
-  //       $controllerName = $route["controllerName"];
-
-  //       $controllerName::$methodName();
-  //     }
-  //   }
-  // }
-
+  // Recherche la route correspondant à la requête
   public function __destruct()
   {
     $method = $_SERVER["REQUEST_METHOD"];
-    $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH); 
+    $url = $_SERVER["REQUEST_URI"];
+
+    // Extraction du chemin de l'URL (avant le ?)
+    $path = parse_url($url, PHP_URL_PATH);
+
+    // Extraction des paramètres GET (après le ?)
+    $queryParams = [];
+    parse_str(parse_url($url, PHP_URL_QUERY), $queryParams);
 
     foreach ($this->routes as $route) {
-      if ($method === $route["method"] && strpos($path, $route["path"]) === 0){
+      if ($method === $route["method"] && $path === $route["path"]) {
+        // Si la route correspond, récupérer la méthode du contrôleur et appeler le contrôleur
         $methodName = $route["methodName"];
         $controllerName = $route["controllerName"];
 
-        $controllerName::$methodName();
+        // Appel de la méthode du contrôleur et passage des paramètres GET
+        $controllerName::$methodName($queryParams);
+        return; // Si la route est trouvée, on arrête la recherche
       }
     }
   }

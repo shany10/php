@@ -13,21 +13,7 @@ class User
   ) {
   }
 
-  public static function findOneByEmail(string $email): User|null
-  {
-    $queryBuilder = new QueryBuilder();
-    $user = $queryBuilder
-      ->select(["email", "password", "id"])
-      ->from("users")
-      ->where("email", $email)
-      ->fetch();
-
-    if (!$user) {
-      return null;
-    }
-
-    return new User($user["id"], $user["email"], $user["password"]);
-  }
+  
 
   public function isValidPassword(string $password): bool
   {

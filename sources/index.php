@@ -1,5 +1,5 @@
 <?php
 
-session_start();
+// session_start();
 require_once "./Core/Autoloader.php";
 require_once "./Core/Route.php";

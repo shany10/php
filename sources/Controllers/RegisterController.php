@@ -7,49 +7,87 @@ use App\Models\UserModel;
 use App\Session\UserSession;
 use App\Validator\UserValidator;
 use App\Validator\DataPostValidator;
+use App\Controllers\SendMailController;
+use Exception;
 
 class RegisterController
 {
-  public static function index(): void
-  {
-    $response = DataPostValidator::validate(
-        $_POST,
-        [
-            'email',
-            'password',
-            'passwordConfirm',
-        ],
-    ); //Verifie si les champs existe et le nombre d'agument requise
+   public static function index(): void
+   {
+      $response = [
+         "error" => false,
+         "msg" => []
+      ];
 
-    if ($response["error"] === false) {
-      
-        $user = new UserModel(); // la table user le champ email est unique, voir userMigration.php et le ficher Readme
-        $user->setEmail($_POST['email']);
-        $user->setPwd($_POST['password']);
-     
-        $validator = new UserValidator($user, $_POST['passwordConfirm']); //valide les données de chaque champ
-       
-        if (empty($validator->getErrors())) {
+      // Vérification des champs requis
+      $validationResult = DataPostValidator::validate(
+         $_POST,
+         ['email', 'password', 'passwordConfirm']
+      );
 
-            $user_id = $user->save(); //retur un id
-           
-            if ($user_id != 0) {
+      if ($validationResult["error"]) {
+         $response["error"] = true;
+         $response["msg"] = $validationResult["msg"];
+      } else {
+         $email = trim($_POST['email']);
+         $password = $_POST['password'];
+         $passwordConfirm = $_POST['passwordConfirm'];
+         $verificationCode = random_int(100000, 999999); // Code de validation à 6 chiffres
 
-                $isStarted = UserSession::startUserSession($user_id, $user->getEmail());
-                if($isStarted) {
-                    header("Location: /");
-                    return;
-                }
-                $response['msg'][] = "Problème de session";
+         try {
+            $user = new UserModel();
+
+            // Vérifier si l'utilisateur existe déjà
+            if ($user->findOneByEmail($email)) {
+               $response["error"] = true;
+               $response["msg"][] = "Cet email est déjà utilisé.";
+            } else {
+               // Création de l'utilisateur
+               $user->setEmail($email);
+               $user->setPwd($password);
+               $user->setVerificationCode($verificationCode);
+               $user->setIsVerified(false); // L'utilisateur n'est pas encore vérifié
+
+               // Validation des données utilisateur
+               $validator = new UserValidator($user, $passwordConfirm);
+
+               if (!empty($validator->getErrors())) {
+                  $response["error"] = true;
+                  $response["msg"] = $validator->getErrors();
+               } else {
+                  // Enregistrement de l'utilisateur avec le code de validation
+                  $user_id = $user->save();
+
+                  if ($user_id) {
+                     // Envoi de l'email de validation
+                     $mailController = new SendMailController();
+                     $subject = "Validation de votre compte";
+                     $message = "Bonjour,<br><br>Votre code de validation est : <b>$verificationCode</b>.<br>
+                                        Veuillez entrer ce code pour activer votre compte.<br><br>
+                                        Merci,<br>L'équipe.";
+
+                     if ($mailController->sendMail($email, $subject, $message)) {
+                        // **Redirection vers la page de vérification**
+                        header("Location: /?verify?email=" . urlencode($email));
+                        // exit();
+                     } else {
+                        $response["error"] = true;
+                        $response["msg"][] = "Erreur lors de l'envoi du mail de validation.";
+                     }
+                  } else {
+                     $response["error"] = true;
+                     $response["msg"][] = "Erreur lors de l'enregistrement de l'utilisateur.";
+                  }
+               }
             }
+         } catch (Exception $e) {
+            $response["error"] = true;
+            $response["msg"][] = "Erreur système : " . $e->getMessage();
+         }
+      }
 
-            $response['msg'][] = "Mail est déjà utilser";
-        } else {
-          $response['msg'] = $validator->getErrors();
-        }
-    }
-    $view = new View("User/register.php", "front.php");
-    $view->addData('errors', $response["msg"]);
-    return;
-  }
+      // Affichage de la vue d'inscription si erreur
+      $view = new View("User/register.php", "front.php");
+      $view->addData('response', $response);
+   }
 }

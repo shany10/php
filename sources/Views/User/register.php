@@ -7,7 +7,7 @@
 <?php endif; ?>
 
 <form action="/register" method="POST">
-  <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+  <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
   <input type="email" name="email" placeholder="Votre email" required><br>
   <input type="password" name="password" placeholder="Votre mot de passe" required minlength="6"><br>
   <input type="password" name="passwordConfirm" placeholder="Confirmation" required minlength="6"><br>
