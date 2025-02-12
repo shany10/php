@@ -34,13 +34,9 @@ class QueryBuilder
 
    public function where(string $columnName, $columnValue): self
    {
-      // Utiliser un paramètre nommé pour éviter l'injection SQL
       $paramName = ":where_" . $columnName;
-      $this->sql .= " WHERE " . $columnName . " = " . $paramName;
-
-      // Ajouter la valeur à la liste des paramètres
+      $this->sql .= (strpos($this->sql, "WHERE") === false ? " WHERE " : " AND ") . "$columnName = $paramName";
       $this->parameters[$paramName] = $columnValue;
-
       return $this;
    }
 
