@@ -32,12 +32,11 @@ class RegisterController
          $email = trim($_POST['email']);
          $password = $_POST['password'];
          $passwordConfirm = $_POST['passwordConfirm'];
-         $verificationCode = random_int(100000, 999999); // Code de validation à 6 chiffres
+         $verificationCode = random_int(100000, 999999);
 
          try {
             $user = new UserModel();
 
-            // Vérifier si l'utilisateur existe déjà
             if ($user->findOneByEmail($email)) {
                $response["error"] = true;
                $response["msg"][] = "Cet email est déjà utilisé.";
@@ -46,7 +45,7 @@ class RegisterController
                $user->setEmail($email);
                $user->setPwd($password);
                $user->setVerificationCode($verificationCode);
-               $user->setIsVerified(false); // L'utilisateur n'est pas encore vérifié
+               $user->setIsVerified(false); 
 
                // Validation des données utilisateur
                $validator = new UserValidator($user, $passwordConfirm);
@@ -56,7 +55,7 @@ class RegisterController
                   $response["msg"] = $validator->getErrors();
                } else {
                   // Enregistrement de l'utilisateur avec le code de validation
-                  $user_id = $user->save();
+                  $user_id = $user->saveUser();
 
                   if ($user_id) {
                      // Envoi de l'email de validation
@@ -67,8 +66,7 @@ class RegisterController
                                         Merci,<br>L'équipe.";
 
                      if ($mailController->sendMail($email, $subject, $message)) {
-                        // **Redirection vers la page de vérification**
-                        header("Location: /?verify?email=" . urlencode($email));
+                        header("Location: /verify?email=" . urlencode($email));
                         // exit();
                      } else {
                         $response["error"] = true;

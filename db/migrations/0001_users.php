@@ -17,7 +17,7 @@ $queryBuilder
             "lastname" => "VARCHAR(255) NOT NULL",
             "country" => "VARCHAR(255) NOT NULL",
             "role" => "ENUM('user', 'admin') DEFAULT 'user'",
-            "verification_code" => "INT NULL", 
+            "verification_code" => "VARCHAR(255)", 
             "is_verified" => "BOOLEAN DEFAULT FALSE", 
             "created_at" => "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
         ],

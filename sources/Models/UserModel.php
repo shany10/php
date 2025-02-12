@@ -3,17 +3,16 @@
 namespace App\Models;
 
 use App\Core\QueryBuilder;
-use PDOException;
 
 class UserModel
 {
     private ?int $id;
     private string $email;
     private string $pwd;
-    private ?int $verification_code;
+    private string $verification_code;
     private bool $is_verified;
 
-    public function __construct(?int $id = null, string $email = "", string $pwd = "", ?int $verification_code = null, bool $is_verified = false)
+    public function __construct(?int $id = null, string $email = "", string $pwd = "", string $verification_code = "", bool $is_verified = false)
     {
         $this->id = $id;
         $this->email = strtolower(trim($email));
@@ -47,14 +46,14 @@ class UserModel
         $this->pwd = password_hash($pwd, PASSWORD_BCRYPT);
     }
 
-    public function getVerificationCode(): ?int
+    public function getVerificationCode(): string
     {
         return $this->verification_code;
     }
 
-    public function setVerificationCode(int $code): void
+    public function setVerificationCode(string $code): void
     {
-        $this->verification_code = $code;
+        $this->verification_code = trim($code);
     }
 
     public function isVerified(): bool
@@ -69,7 +68,10 @@ class UserModel
 
     public static function findOneByEmail(string $email): ?self
     {
+        $email = strtolower(trim($email));
+
         $queryBuilder = new QueryBuilder();
+
         $user = $queryBuilder
             ->select(["id", "email", "password", "verification_code", "is_verified"])
             ->from("users")
@@ -84,19 +86,19 @@ class UserModel
             $user["id"],
             $user["email"],
             $user["password"],
-            $user["verification_code"] ?? null,
+            $user["verification_code"] ?? "",
             (bool) $user["is_verified"]
         );
     }
 
-    public function save(): int
+    public function saveUser(): int
     {
         $queryBuilder = new QueryBuilder();
         $id = $queryBuilder
             ->insert("users", [
                 "email" => $this->email,
                 "password" => $this->pwd,
-                "verification_code" => $this->verification_code,
+                "verification_code" => (string) $this->verification_code, // Conversion en string
                 "is_verified" => (int) $this->is_verified
             ])
             ->executeAndGetId();
@@ -112,9 +114,10 @@ class UserModel
         }
 
         $queryBuilder = new QueryBuilder();
+
         return $queryBuilder
             ->update("users", [
-                "verification_code" => $this->verification_code,
+                "verification_code" => $this->is_verified ? null : (string) $this->verification_code,
                 "is_verified" => (int) $this->is_verified
             ])
             ->where("id", $this->id)
