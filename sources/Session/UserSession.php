@@ -4,8 +4,9 @@ namespace App\Session;
 
 use Exception;
 
-class UserSession {
-    static public function startUserSession(int $id, string $email) : bool 
+class UserSession
+{
+    static public function startUserSession(int $id, string $email): bool
     {
         try {
             session_start();
@@ -16,6 +17,5 @@ class UserSession {
         } catch (Exception $e) {
             return false;
         }
-        return true;
     }
 }

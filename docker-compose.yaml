@@ -59,6 +59,9 @@ services:
     user: php
     volumes:
       - ./db:$PHP_USER_HOME_DIRECTORY
+      - ./db/Core/QueryBuilder.php:$PHP_USER_HOME_DIRECTORY/Core/QueryBuilder.php
+      - ./db/Core/DatabaseConnection.php:$PHP_USER_HOME_DIRECTORY/Core/DatabaseConnection.php
+
 
   mariadb:
     container_name: mariadb
@@ -89,4 +92,6 @@ services:
       PMA_USER: $DATABASE_USER
       PMA_PASSWORD: $DATABASE_PASSWORD
     ports:
-      - "8080:80"
+      - "8081:80"
+
+
