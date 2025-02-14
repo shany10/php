@@ -16,11 +16,14 @@ class RegisterController
         $_POST,
         [
             'email',
+            'firstname',
+            'lastname',
+            'country',
             'password',
             'passwordConfirm',
         ],
     ); //Verifie si les champs existe et le nombre d'agument requise
-
+   
     if ($response["error"] === false) {
       
         $user = new UserModel(); // la table user le champ email est unique, voir userMigration.php et le ficher Readme
