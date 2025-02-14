@@ -46,13 +46,28 @@
 		}
 	}
 
-	@each $element in v.$flex-utilities {
+
+	// colors proprieties
+
+	@each $element in v.$color-utilities {
 		@each $property, $class, $values in $element {
-		  @each $value in $values {
-				.flex-#{$class}-#{$value} {
-				#{$property}: $value;
-				}
+		  @each $nb, $value in $values {
+			.color-#{$property}-#{$nb} {
+			  #{$property}: $value;
 			}
+		  }
 		}
 	}
+	
+	// text properties
+	@each $element in v.$text-utilities {
+		@each $property, $class, $values in $element {
+		  @each $nb, $value in $values {
+			.text-#{$class}-#{$nb} {
+			  #{$property}: $value;
+			}
+		  }
+		}
+	  }
+	  
 }

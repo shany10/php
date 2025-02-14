@@ -1,6 +1,7 @@
 // Colors
 
 @use "sass:color";
+@use "sass:map";
 
 $colors: (
 	"red": #dc3545,
@@ -19,6 +20,32 @@ $colors: (
 	// pour l'exo...
 	"neutral": #f8f9fa,
 );
+
+
+// Theme colors
+
+$primary: map.get($colors, "primary");
+$secondary: map.get($colors, "secondary");
+$success: map.get($colors, "green");
+$info: map.get($colors, "blue");
+$warning: map.get($colors, "yellow");
+$danger: map.get($colors, "red");
+$light: map.get($colors, "white");
+$dark: map.get($colors, "black");
+
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+);
+
+// Shades
 
 $shades: (
 	950: 8%,
@@ -91,6 +118,8 @@ $letter-font-sizes: (
   6: $h6-font-size,
 );
 
+// Display font sizes
+
 $display-font-sizes: (
   1: 5rem,
   2: 4.5rem,
@@ -101,22 +130,36 @@ $display-font-sizes: (
 );
 
 
-// Flex utilities
 
-$flex-utilities: (
-  "flex-direction": (
-    flex-direction,
-    "direction",
-    row column row-reverse column-reverse,
+// Color utilities
+
+$color-utilities: (
+	"color": (
+		color,
+		"text",
+		map.merge($colors, $theme-colors),
+	),
+	"background-color": (
+		background-color,
+		"bg",
+		map.merge($colors, $theme-colors),
+	),
+);
+
+$text-utilities: (
+  "font-size": (
+    font-size,
+    "font-size",
+    $letter-font-sizes,
   ),
-  "justify-content": (
-    justify-content,
-    "justify-content",
-    flex-start flex-end center space-between space-around space-evenly,
-  ),
-  "align-items": (
-    align-items,
-    "align-items",
-    flex-start flex-end center baseline stretch,
+  "font-weight": (
+    font-weight,
+    "font-weight",
+    (
+      "lighter": lighter,
+      "normal": normal,
+      "bold": bold,
+      "bolder": bolder,
+    ),
   ),
 );

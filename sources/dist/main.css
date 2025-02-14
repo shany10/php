@@ -2516,50 +2516,155 @@ h6,
   .border-neutral {
     border-color: var(--neutral);
   }
-  .flex-direction-row {
-    flex-direction: row;
+  .color-color-red {
+    color: #dc3545;
   }
-  .flex-direction-column {
-    flex-direction: column;
+  .color-color-grey {
+    color: #6c757d;
   }
-  .flex-direction-row-reverse {
-    flex-direction: row-reverse;
+  .color-color-blue {
+    color: #0d6efd;
   }
-  .flex-direction-column-reverse {
-    flex-direction: column-reverse;
+  .color-color-white {
+    color: #fff;
   }
-  .flex-justify-content-flex-start {
-    justify-content: flex-start;
+  .color-color-black {
+    color: #000;
   }
-  .flex-justify-content-flex-end {
-    justify-content: flex-end;
+  .color-color-purple {
+    color: #c026d3;
   }
-  .flex-justify-content-center {
-    justify-content: center;
+  .color-color-yellow {
+    color: #f7f023;
   }
-  .flex-justify-content-space-between {
-    justify-content: space-between;
+  .color-color-green {
+    color: #09cb2c;
   }
-  .flex-justify-content-space-around {
-    justify-content: space-around;
+  .color-color-primary {
+    color: #0d6efd;
   }
-  .flex-justify-content-space-evenly {
-    justify-content: space-evenly;
+  .color-color-secondary {
+    color: #6c757d;
   }
-  .flex-align-items-flex-start {
-    align-items: flex-start;
+  .color-color-accent {
+    color: #dc3545;
   }
-  .flex-align-items-flex-end {
-    align-items: flex-end;
+  .color-color-text-color {
+    color: #3f3f46;
   }
-  .flex-align-items-center {
-    align-items: center;
+  .color-color-shadow-color {
+    color: rgba(0, 0, 0, 0.1);
   }
-  .flex-align-items-baseline {
-    align-items: baseline;
+  .color-color-neutral {
+    color: #f8f9fa;
   }
-  .flex-align-items-stretch {
-    align-items: stretch;
+  .color-color-success {
+    color: #09cb2c;
+  }
+  .color-color-info {
+    color: #0d6efd;
+  }
+  .color-color-warning {
+    color: #f7f023;
+  }
+  .color-color-danger {
+    color: #dc3545;
+  }
+  .color-color-light {
+    color: #fff;
+  }
+  .color-color-dark {
+    color: #000;
+  }
+  .color-background-color-red {
+    background-color: #dc3545;
+  }
+  .color-background-color-grey {
+    background-color: #6c757d;
+  }
+  .color-background-color-blue {
+    background-color: #0d6efd;
+  }
+  .color-background-color-white {
+    background-color: #fff;
+  }
+  .color-background-color-black {
+    background-color: #000;
+  }
+  .color-background-color-purple {
+    background-color: #c026d3;
+  }
+  .color-background-color-yellow {
+    background-color: #f7f023;
+  }
+  .color-background-color-green {
+    background-color: #09cb2c;
+  }
+  .color-background-color-primary {
+    background-color: #0d6efd;
+  }
+  .color-background-color-secondary {
+    background-color: #6c757d;
+  }
+  .color-background-color-accent {
+    background-color: #dc3545;
+  }
+  .color-background-color-text-color {
+    background-color: #3f3f46;
+  }
+  .color-background-color-shadow-color {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .color-background-color-neutral {
+    background-color: #f8f9fa;
+  }
+  .color-background-color-success {
+    background-color: #09cb2c;
+  }
+  .color-background-color-info {
+    background-color: #0d6efd;
+  }
+  .color-background-color-warning {
+    background-color: #f7f023;
+  }
+  .color-background-color-danger {
+    background-color: #dc3545;
+  }
+  .color-background-color-light {
+    background-color: #fff;
+  }
+  .color-background-color-dark {
+    background-color: #000;
+  }
+  .text-font-size-1 {
+    font-size: 2.5rem;
+  }
+  .text-font-size-2 {
+    font-size: 2rem;
+  }
+  .text-font-size-3 {
+    font-size: 1.75rem;
+  }
+  .text-font-size-4 {
+    font-size: 1.5rem;
+  }
+  .text-font-size-5 {
+    font-size: 1.25rem;
+  }
+  .text-font-size-6 {
+    font-size: 1rem;
+  }
+  .text-font-weight-lighter {
+    font-weight: lighter;
+  }
+  .text-font-weight-normal {
+    font-weight: normal;
+  }
+  .text-font-weight-bold {
+    font-weight: bold;
+  }
+  .text-font-weight-bolder {
+    font-weight: bolder;
   }
 }
 @layer components {
