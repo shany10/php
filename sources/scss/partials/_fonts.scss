@@ -1,0 +1,32 @@
+@use "variables" as v;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+
+$primary-font: "Inter", sans-serif;
+$secondary-font: "Roboto", sans-serif;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $primary-font;
+}
+p,
+span {
+  font-family: $secondary-font;
+}
+
+@each $number, $value in v.$letter-font-sizes {
+  h#{$number},
+  .h#{$number} {
+    font-size: $value;
+  }
+}
+
+@each $number, $value in v.$display-font-sizes {
+  .display-#{$number} {
+    font-size: $value;
+  }
+}
