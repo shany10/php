@@ -1,0 +1,165 @@
+// Colors
+
+@use "sass:color";
+@use "sass:map";
+
+$colors: (
+	"red": #dc3545,
+	"grey": #6c757d,
+	"blue": #0d6efd,
+	"white": #fff,
+	"black": #000,
+	"purple": #c026d3,
+	"yellow": #f7f023,
+	"green": #09cb2c,
+	"primary": #0d6efd,
+	"secondary": #6c757d,
+	"accent": #dc3545,
+	"text-color": #3f3f46,
+	"shadow-color": rgba(0, 0, 0, 0.1),
+	// pour l'exo...
+	"neutral": #f8f9fa,
+);
+
+
+// Theme colors
+
+$primary: map.get($colors, "primary");
+$secondary: map.get($colors, "secondary");
+$success: map.get($colors, "green");
+$info: map.get($colors, "blue");
+$warning: map.get($colors, "yellow");
+$danger: map.get($colors, "red");
+$light: map.get($colors, "white");
+$dark: map.get($colors, "black");
+
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+);
+
+// Shades
+
+$shades: (
+	950: 8%,
+	900: 16%,
+	800: 24%,
+	700: 32%,
+	600: 40%,
+	500: 48%,
+	400: 56%,
+	300: 64%,
+	200: 73%,
+	100: 82%,
+	50: 92%,
+);
+
+// Breakpoints
+
+$breakpoints: (
+	"sm": 576px,
+	"md": 768px,
+	"lg": 992px,
+	"xl": 1200px,
+	"xxl": 1400px,
+);
+
+
+// Spacing
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
+
+// Icons font sizes
+
+$icons-font-sizes: (
+  "10": 10px,
+  "12": 12px,
+  "14": 14px,
+  "16": 16px,
+  "20": 20px,
+  "24": 24px,
+  "34": 34px,
+  "48": 48px,
+  "60": 60px,
+  "96": 96px,
+);
+
+// Typography
+
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+$letter-font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+);
+
+// Display font sizes
+
+$display-font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.5rem,
+  5: 3rem,
+  6: 2.5rem,
+);
+
+
+
+// Color utilities
+
+$color-utilities: (
+	"color": (
+		color,
+		"text",
+		map.merge($colors, $theme-colors),
+	),
+	"background-color": (
+		background-color,
+		"bg",
+		map.merge($colors, $theme-colors),
+	),
+);
+
+$text-utilities: (
+  "font-size": (
+    font-size,
+    "font-size",
+    $letter-font-sizes,
+  ),
+  "font-weight": (
+    font-weight,
+    "font-weight",
+    (
+      "lighter": lighter,
+      "normal": normal,
+      "bold": bold,
+      "bolder": bolder,
+    ),
+  ),
+);
