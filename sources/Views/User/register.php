@@ -11,25 +11,25 @@
         type="email"
         name="email"
         placeholder="Votre email"
-        <?php echo ($_POST['email'] ? "value='" . $_POST['email'] . "'" : "") ?>
+        <?php echo (!empty($_POST['email']) ? "value='" . $_POST['email'] . "'" : "") ?>
         required><br>
     <input
         type="text"
         name="firstname"
         placeholder="Firstname..."
-        <?php echo ($_POST['firstname'] ? "value='" . $_POST['firstname'] . "'" : "") ?>
+        <?php echo (!empty($_POST['firstname']) ? "value='" . $_POST['firstname'] . "'" : "") ?>
         required><br>
     <input
         type="text"
         name="lastname"
         placeholder="Lastname..."
-        <?php echo ($_POST['lastname'] ? "value='" . $_POST['lastname'] . "'" : "") ?>
+        <?php echo (!empty($_POST['lastname']) ? "value='" . $_POST['lastname'] . "'" : "") ?>
         required><br>
     <input 
         type="text" 
         name="country" 
         placeholder="Country..." 
-        <?php echo ($_POST['country'] ? "value='" . $_POST['country'] . "'" : "") ?>        
+        <?php echo (!empty($_POST['country']) ? "value='" . $_POST['country'] . "'" : "") ?>        
         required><br>
     <input type="password" name="password" placeholder="Votre mot de passe" required minlength="6"><br>
     <input type="password" name="passwordConfirm" placeholder="Confirmation" required minlength="6"><br>

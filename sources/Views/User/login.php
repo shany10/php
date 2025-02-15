@@ -10,9 +10,12 @@
 <?php endif; ?>
 
 <form method="post" action="/login">
-    <!-- <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>"> -->
     <label>Email :</label>
-    <input type="email" name="email" required>
+    <input
+        type="email"
+        name="email"
+        <?php echo (!empty($_POST['email']) ? "value='" . $_POST['email'] . "'" : "") ?>
+        required>
     <label>Mot de passe :</label>
     <input type="password" name="password" required>
 
