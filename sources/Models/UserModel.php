@@ -143,7 +143,23 @@ class UserModel
                 "country" => $this->country,
             ])
             ->executeAndGetId();
-
+        $this->id = $id;
+        $this->role = "user";
         return $id;
+    }
+
+    public static function findOneByEmail(string $email): UserModel|null
+    {
+        $queryBuilder = new QueryBuilder();
+        $user = $queryBuilder
+          ->select(["id", "email", "firstname", "lastname", "country", "role", "password"])
+          ->from("users")
+          ->where("email", $email)
+          ->fetch();
+
+        if (!$user) {
+          return null;
+        }
+        return new UserModel($user["id"], $user["email"], $user["firstname"], $user["lastname"], $user["country"], $user["role"], $user["password"]);
     }
 }

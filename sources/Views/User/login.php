@@ -1,22 +1,16 @@
 <h2> Se connecter </h2>
 
-<?php if (!empty($_SESSION['errors'])): ?>
+<?php if (!empty($errors)): ?>
     <ul>
-        <?php foreach ($_SESSION['errors'] as $error): ?>
+        <?php foreach ($errors as $error): ?>
             <li><?= htmlspecialchars($error) ?></li>
         <?php endforeach; ?>
     </ul>
     <?php unset($_SESSION['errors']); ?>
 <?php endif; ?>
-<?php
-if (isset($_SESSION['success_message'])) {
-    echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
-    unset($_SESSION['success_message']);
-}
-?>
 
 <form method="post" action="/login">
-    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
+    <!-- <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>"> -->
     <label>Email :</label>
     <input type="email" name="email" required>
     <label>Mot de passe :</label>
