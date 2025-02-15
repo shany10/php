@@ -1,30 +1,30 @@
 <?php
+namespace App\Controllers;
+use App\Core\View;
+use App\Models\User;
 
-require_once __DIR__ . "/../models/User.php";
-// require_once __DIR__ . "/../requests/LoginRequest.php";
 
 class LoginController
 {
-  // public static function index(): void
-  // {
-  //   require_once __DIR__ . "/../views/User/login/index.php";
-  // }
+  public static function index()
+  {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+      $email = strtolower(trim(htmlspecialchars($_POST["email"])));
+      $password = $_POST["password"];
 
-  // public static function post(): void
-  // {
-  //   $request = new LoginRequest();
-  //   $user = User::findOneByEmail($request->email);
+      $user = User::findOneByEmail($email);
 
-  //   if (!$user) {
-  //     echo "L'adresse email ou le mot de passe sont incorrects.";
-  //     die();
-  //   }
+      if ($user && password_verify($password, $user->password)) {
+        $_SESSION["user"] = $user;
+        header("Location: /gallery");
+        exit();
+      } else {
+        echo "Invalid email or password.";
+      }
+    }
 
-  //   if (!$user->isValidPassword($request->password)) {
-  //     echo "L'adresse email ou le mot de passe sont incorrects.";
-  //     die();
-  //   }
-
-  //   echo "Envoyer une session";
-  // }
+    $view = new View("User/login.php", "front.php");
+    $view->addData("title", "Login");
+    return;
+  }
 }

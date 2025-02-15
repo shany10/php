@@ -1,10 +1,14 @@
 <?php
 
-require_once __DIR__ . "/../core/QueryBuilder.php";
+require_once __DIR__ . '/../Core/QueryBuilder.php';
+require_once __DIR__ . '/../Core/DatabaseConnection.php';
+
 
 $queryBuilder = new QueryBuilder();
 
+// Création de la table 'users'
 $queryBuilder
+    ->ifNotExists(true)
     ->createTable(
         "users",
         [
@@ -22,5 +26,3 @@ $queryBuilder
     ->execute();
 
 echo "Table 'users' created successfully.";
-
-

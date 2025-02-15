@@ -7,11 +7,100 @@ use PDOException;
 
 class UserModel
 {
-    private String $email;
-    private String $pwd;
-  
+
+
+    public function __construct(
+        private ?int $id = null,
+        private ?string $email = null,
+        private ?string $fristname = null,
+        private ?string $lastname = null,
+        private ?string $country = null,
+        private ?string $role = null,
+        private ?string $pwd = null,
+    ) {}
+
     /**
-     * @return String
+     * @return int|null
+     */
+    public function getId(): int|null
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->email = strtolower(trim($id));
+    }
+
+    /**
+     * @return String|null
+     */
+    public function getFirstname(): string|null
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param String $fristname
+     */
+    public function setFirstname(string $fristname): void
+    {
+        $this->fristname = strtolower(trim($fristname));
+    }
+
+    /**
+     * @return String|null
+     */
+    public function getLastname(): string|null
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param String $lastname
+     */
+    public function setLastname(string $fristname): void
+    {
+        $this->lastname = strtolower(trim($fristname));
+    }
+
+    /**
+     * @return String|null
+     */
+    public function getCountry(): string|null
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param String $country
+     */
+    public function setCountry(string $country): void
+    {
+        $this->country = strtolower(trim($country));
+    }
+
+    /**
+     * @return String|null
+     */
+    public function getRole(): string|null
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param String $role
+     */
+    public function setRole(string $role): void
+    {
+        $this->role = strtolower(trim($role));
+    }
+
+    /**
+     * @return String|null
      */
     public function getEmail(): string
     {
@@ -27,7 +116,7 @@ class UserModel
     }
 
     /**
-     * @return String
+     * @return String|null
      */
     public function getPwd(): string
     {
@@ -49,9 +138,12 @@ class UserModel
             ->insert("users", [
                 "email" => $this->email,
                 "password" => $this->pwd,
+                "firstname" => $this->fristname,
+                "lastname" => $this->lastname,
+                "country" => $this->country,
             ])
             ->executeAndGetId();
-      
-        return $id;       
+
+        return $id;
     }
 }

@@ -8,6 +8,9 @@
 
 <form action="/register" method="POST">
   <input type="email" name="email" placeholder="Votre email" required><br>
+  <input type="text" name="firstname" placeholder="Firstname..." required><br>
+  <input type="text" name="lastname" placeholder="Lastname..." required><br>
+  <input type="text" name="country" placeholder="Country..." required><br>
   <input type="password" name="password" placeholder="Votre mot de passe" required minlength="6"><br>
   <input type="password" name="passwordConfirm" placeholder="Confirmation" required minlength="6"><br>
   <input type="submit" value="S'inscrire"><br>

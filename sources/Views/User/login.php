@@ -26,6 +26,8 @@ if (isset($_SESSION['success_message'])) {
         <input type="checkbox" name="remember" value="1"> Se souvenir de moi
     </label>
 
+    <a href="/forgotPassword">Mot de passe oublié ?</a>
+
     <button type="submit">Se connecter</button>
 </form>
 
