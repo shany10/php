@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 use App\Core\View;
-use App\Models\Group;
+use App\Models\GroupModel;
 use App\Models\Pictures;
 
 class PictureController
@@ -54,12 +54,16 @@ class PictureController
                     $message = "Groupe invalide.";
                 } else {
                     $picture = new Pictures();
-                    $picture->uploadPicture($userId, $groupId, $filePath);
+                    $picture->uploadPicture($userId, $groupId, $filePath, $fileName);
+                    $isAlreadyLinked = GroupModel::findFriendIntoGroup($userId, $groupId);
+                    if (!$isAlreadyLinked) {
+                        GroupModel::linkFriendToGroup($userId, $groupId);
+                    }
                 }
             }
 
             // Passer le message à la vue avec addData
-            $groups = Group::getAllGroups();
+            $groups = GroupModel::getAllGroups();
             $view = new View("Pictures/upload.php", "front.php");
             $view->addData("message", $message);
             $view->addData("groups", $groups);
@@ -92,7 +96,12 @@ class PictureController
     public static function showForm()
     {
         // Récupérer tous les groupes
-        $groups = Group::getAllGroups();
+        if(empty($_SESSION['user'])) {
+            header("Location: /login");
+            return;
+        }
+        $user = unserialize($_SESSION["user"]);
+        $groups = GroupModel::getGroupsByUser($user->getId());
         $view = new View("Pictures/upload.php", "front.php");
         $view->addData("groups", $groups);
         return;
