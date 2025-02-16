@@ -11,7 +11,7 @@ class LoginController
 {
     public static function index()
     {
-        if (empty($_SESSION["user"])) {
+        if (!empty($_SESSION["user"])) {
             header("Location: /");
             return;
         }

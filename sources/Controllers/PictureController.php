@@ -10,8 +10,8 @@ class PictureController
     {
         // Vérification si la méthode est POST et si un fichier photo est soumis
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["photo"])) {
-            $uploadDir = __DIR__ . "/../../public/uploads/"; 
-            $groupId = $_POST["group_id"];
+            $uploadDir = __DIR__ . "/../public/uploads/";
+            $groupId = $_POST["groupe"];
             $user = unserialize($_SESSION["user"]);
             $userId = $user->getId();
             $file = $_FILES["photo"];
