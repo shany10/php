@@ -44,7 +44,7 @@ class RegisterController
         $user_id = $user->save(); //retur un id
 
         if ($user_id != 0) {
-          $_SESSION["user"] = $user;
+          $_SESSION["user"] = serialize($user);
           header("Location: /");
           return;
         }

@@ -30,7 +30,7 @@ class LoginController
             $user = UserModel::findOneByEmail($email);
 
             if ($user && password_verify($password, $user->getPwd())) {
-                $_SESSION["user"] = $user;
+                $_SESSION["user"] = serialize($user);
                 header("Location: /");
                 return;
             } else {

@@ -12,7 +12,8 @@ class PictureController
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["photo"])) {
             $uploadDir = __DIR__ . "/../../public/uploads/"; 
             $groupId = $_POST["group_id"];
-            $userId = $_SESSION["user"]["id"];
+            $user = unserialize($_SESSION["user"]);
+            $userId = $user->getId();
             $file = $_FILES["photo"];
             $message = "";
 
