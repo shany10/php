@@ -59,8 +59,10 @@ class PictureController
             }
 
             // Passer le message à la vue avec addData
+            $groups = Group::getAllGroups();
             $view = new View("Pictures/upload.php", "front.php");
             $view->addData("message", $message);
+            $view->addData("groups", $groups);
             return;
         }
 
