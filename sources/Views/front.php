@@ -11,7 +11,7 @@
 <body class="mb-8">
     <h1>Template du front</h1>
     <?php include $this->view; ?>
-    <nav class="navbar">
+    <!-- <nav class="navbar">
         <div class="container">
             <a href="#" class="navbar__title">Navbar</a>
             <ul>
@@ -87,7 +87,7 @@
         <section>
             <h1>.navbar</h1>
         </section>
-    </div>
+    </div> -->
 </body>
 
 </html>

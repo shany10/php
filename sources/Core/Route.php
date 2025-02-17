@@ -6,9 +6,11 @@ use App\Controllers\LoginController;
 use App\Controllers\PictureController;
 use App\Controllers\GalleryController;
 use App\Controllers\ForgotPasswdController;
+use App\Controllers\HomeController;
 use App\Controllers\ResetPasswdController;
 
 $router = new Router();
+$router->get("/home", HomeController::class, "index");
 $router->get("/register", RegisterController::class, "index");
 $router->post("/register", RegisterController::class, "index");
 $router->get("/forgotPassword", ForgotPasswdController::class, "index");
@@ -21,7 +23,6 @@ $router->post("/upload", PictureController::class, "upload");
 $router->post('/delete/{id}', PictureController::class, 'delete');
 $router->get("/gallery/{groupId}", GalleryController::class, "show");
 $router->post("/gallery/{groupId}", GalleryController::class, "show");
-
 
 
 
