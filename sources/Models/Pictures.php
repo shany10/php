@@ -7,7 +7,7 @@ use App\Core\QueryBuilder;
 class Pictures
 {
 
-    public static function uploadPicture($userId, $group_id, $filePath)
+    public static function uploadPicture(int $userId, int $group_id, string $filePath, string $fileName)
     {
         $queryBuilder = new QueryBuilder();
 
@@ -15,7 +15,8 @@ class Pictures
             ->insert('pictures', [
                 'user_id' => $userId,
                 'group_id' => $group_id,
-                'file_path' => $filePath
+                'file_path' => $filePath,
+                'file_name' => $fileName
             ])
             ->executeAndGetId();
     }

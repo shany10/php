@@ -12,7 +12,7 @@ class LoginController
     public static function index()
     {
         if (!empty($_SESSION["user"])) {
-            header("Location: /");
+            header("Location: /home");
             return;
         }
         $response = DataPostValidator::validate(

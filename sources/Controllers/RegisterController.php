@@ -12,7 +12,7 @@ class RegisterController
   public static function index(): void
   {
     if(!empty($_SESSION["user"])) {
-      header("Location: /");
+      header("Location: /home");
       return;
     }
     $response = DataPostValidator::validate(

@@ -12,6 +12,7 @@ $queryBuilder
         [
             "id" => "INT AUTO_INCREMENT PRIMARY KEY",
             "file_path" => "VARCHAR(255) NOT NULL",
+            "file_name" => "VARCHAR(100) NOT NULL",
             "user_id" => "INT NOT NULL",
             "group_id" => "INT NOT NULL",
             "created_at" => "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
