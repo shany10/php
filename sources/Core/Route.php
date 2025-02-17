@@ -28,6 +28,7 @@ $router->get("/createGroupe", GroupeController::class, "create");
 $router->post("/createGroupe", GroupeController::class, "create");
 $router->get("/addUserToGroup", GroupeController::class, "addUserToGroup");
 $router->post("/addUserToGroup", GroupeController::class, "addUserToGroup");
+$router->get("/logout", LoginController::class, "logout");
 
 // die();
 

@@ -31,7 +31,7 @@ class LoginController
 
             if ($user && password_verify($password, $user->getPwd())) {
                 $_SESSION["user"] = serialize($user);
-                header("Location: /");
+                header("Location: /home");
                 return;
             } else {
                 $response["msg"][] =  "Invalid email or password.";
@@ -43,4 +43,10 @@ class LoginController
         $view->addData('errors', $response["msg"]);
         return;
     }
+
+    public static function logout()
+    {
+        session_destroy();
+        header("Location: /login");
+    }   
 }
