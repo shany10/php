@@ -101,9 +101,9 @@ class QueryBuilder
     return $this;
   }
 
-  public function join(string $table, string $onClause, string $type = "INNER"): self
+  public function join(string $table, string $primaryTable, string $secondaryTable): self
   {
-    $this->sql .= " $type JOIN " . $table . " ON " . $onClause;
+    $this->sql .= " JOIN " . $table . " ON " . $primaryTable . " = " . $secondaryTable;
     return $this;
   }
 

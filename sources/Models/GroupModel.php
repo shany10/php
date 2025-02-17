@@ -51,4 +51,15 @@ class GroupModel
             ->insert('groups_keys', ["id_user" => $id_friend, "id_groupe" => $id_groupe])
             ->execute();
     }
+
+    public static function getAllGroupeLinked(int $id_user)
+    {
+        $queryBuilder = new QueryBuilder();
+        return $queryBuilder
+            ->select(['*'])
+            ->from('groups_keys')
+            ->join('groups', 'groups_keys.id_groupe', 'groups.id')
+            ->where('id_user', $id_user)
+            ->fetchAll();
+    }
 }
