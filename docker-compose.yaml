@@ -93,6 +93,6 @@ services:
       PMA_USER: $DATABASE_USER
       PMA_PASSWORD: $DATABASE_PASSWORD
     ports:
-      - "8081:80"
+      - "8081:81"
 
 
