@@ -44,14 +44,24 @@ class GroupModel
             ->fetch();
     }
 
-    public static function linkFriendToGroup(int $id_friend, int $id_groupe): bool
+    public static function linkFriendToGroup(int $id_user, int $id_groupe): bool
     {
         $queryBuilder = new QueryBuilder();
         return $queryBuilder
-            ->insert('groups_keys', ["id_user" => $id_friend, "id_groupe" => $id_groupe])
+            ->insert('groups_keys', ["id_user" => $id_user, "id_groupe" => $id_groupe])
             ->execute();
     }
 
+    public static function deleteGroup(int $id_user, int $id_groupe): bool
+    {
+        $queryBuilder = new QueryBuilder();
+        return $queryBuilder
+            ->delete('groups')
+            ->where('id', $id_groupe)
+            ->where('owner_id', $id_user)
+            ->execute();
+    }
+    
     public static function getAllGroupeLinked(int $id_user)
     {
         $queryBuilder = new QueryBuilder();
