@@ -23,11 +23,10 @@ $router->get("/upload", PictureController::class, "showForm");
 $router->post("/upload", PictureController::class, "upload");
 $router->post('/delete/{id}', PictureController::class, 'delete');
 $router->get("/gallery", GalleryController::class, "show");
-$router->post("/gallery/{groupId}", GalleryController::class, "show");
-$router->get("/createGroupe", GroupeController::class, "create");
+$router->get("/groupe", GroupeController::class, "index");
 $router->post("/createGroupe", GroupeController::class, "create");
-$router->get("/addUserToGroup", GroupeController::class, "addUserToGroup");
-$router->post("/addUserToGroup", GroupeController::class, "addUserToGroup");
+$router->post("/addUserToGroupe", GroupeController::class, "addUserToGroupe");
+$router->post("/deleteGroupe", GroupeController::class, "delete");
 $router->get("/logout", LoginController::class, "logout");
 
 // die();

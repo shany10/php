@@ -9,7 +9,7 @@
 </head>
 
 <body class="mb-8">
-    <h1>Template du front</h1>
+    <!-- <h1>Template du front</h1> -->
     <?php include $this->view; ?>
     <!-- <nav class="navbar">
         <div class="container">
