@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\View;
+use App\Models\GroupModel;
 
 class HomeController
 {
@@ -12,7 +13,10 @@ class HomeController
             header("Location: /login");
             return;
         }
+        $user = unserialize($_SESSION["user"]);
+        $groupes = GroupModel::getAllGroupeLinked($user->getId());
         $view = new View("home.php", "front.php");
-        $view->addData("title", "home page");
+        $view->addData("title", "Home");
+        $view->addData("groupes", $groupes);                
     }
 }
