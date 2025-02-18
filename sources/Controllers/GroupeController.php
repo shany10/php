@@ -35,7 +35,8 @@ class GroupeController
         if (!$response["error"]) {
             $user = unserialize($_SESSION['user']);
             $isInserted = GroupModel::creatGroupe($user->getId(), $_POST['group_name']);
-            if ($isInserted) $response["msg"][] = "Groupe créé avec succès";
+            $isLinked = GroupModel::linkFriendToGroup($user->getId(), $_POST['group_name']);
+            if ($isInserted && $isLinked) $response["msg"][] = "Groupe créé avec succès";
             else $response["msg"][] = "Erreur lors de la création du groupe";
         }
 

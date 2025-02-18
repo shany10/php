@@ -20,7 +20,7 @@
     <button type="submit">Supprimer</button>
 </form>
 <form action="/addUserToGroupe" method="post" enctype="multipart/form-data">
-    <h2>ajout d'utilisateur dans un groupe</h2>
+    <h2>Ajout d'utilisateur dans un groupe</h2>
     <label for="photo">Choisisez votre groupe :</label>
     <select name="id_groupe" required>
         <?php foreach ($groups as $group): ?>

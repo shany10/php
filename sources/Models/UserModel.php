@@ -40,7 +40,7 @@ class UserModel
      */
     public function getFirstname(): string|null
     {
-        return $this->email;
+        return $this->fristname;
     }
 
     /**
