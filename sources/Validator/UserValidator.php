@@ -2,7 +2,8 @@
 
 namespace App\Validator;
 
-class UserValidator{
+class UserValidator
+{
 
     public Object $user;
 
@@ -15,7 +16,7 @@ class UserValidator{
         $this->user = $user;
         $this->pwdConfirm = $pwdConfirm;
 
-        if( !filter_var($user->getEmail(),FILTER_VALIDATE_EMAIL)){
+        if (!filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)) {
             $this->errors[] = "Email est invalide";
         }
 
@@ -25,16 +26,16 @@ class UserValidator{
             $this->errors[] = "Les emails temporaires ou jetables sont interdits.";
         }
 
-        if(strlen($this->pwdConfirm)<8 ||
+        if (
+            strlen($this->pwdConfirm) < 8 ||
             !preg_match("/[a-z]/", $this->pwdConfirm) ||
             !preg_match("/[0-9]/", $this->pwdConfirm) ||
             !preg_match("/[A-Z]/", $this->pwdConfirm)
-        ){
+        ) {
             $this->errors[] = "Le mot de passe doit faire au min 8 caractère avec min maj chiffres";
-        }else if( !password_verify($this->pwdConfirm,$user->getPwd())){
+        } else if (!password_verify($this->pwdConfirm, $user->getPwd())) {
             $this->errors[] = "Le mot de passe de confirmation ne correspond pas";
         }
-
     }
 
 
@@ -54,6 +55,4 @@ class UserValidator{
     {
         $this->errors = $errors;
     }
-
-
 }

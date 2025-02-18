@@ -1,7 +1,7 @@
-<h2> Se connecter </h2>
+<h2 class="text-center">Se connecter</h2>
 
 <?php if (!empty($errors)): ?>
-    <ul>
+    <ul class="error-list">
         <?php foreach ($errors as $error): ?>
             <li><?= htmlspecialchars($error) ?></li>
         <?php endforeach; ?>
@@ -9,24 +9,46 @@
     <?php unset($_SESSION['errors']); ?>
 <?php endif; ?>
 
-<form method="post" action="/login">
-    <label>Email :</label>
-    <input
-        type="email"
-        name="email"
-        <?php echo (!empty($_POST['email']) ? "value='" . $_POST['email'] . "'" : "") ?>
-        required>
-    <label>Mot de passe :</label>
-    <input type="password" name="password" required>
+<div class="container">
+    <form method="post" action="/" class="login-form">
+        <div>
+            <label for="email">Email :</label>
+            <input
+                type="email"
+                name="email"
+                id="email"
+                class="input-field"
+                required
+                placeholder="Entrez votre email">
+        </div>
 
-    <label>
-        <input type="checkbox" name="remember" value="1"> Se souvenir de moi
-    </label>
+        <div>
+            <label for="password">Mot de passe :</label>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                class="input-field"
+                required
+                placeholder="Entrez votre mot de passe">
+        </div>
 
-    <a href="/forgotPassword">Mot de passe oublié ?</a>
+        <div class="remember-me">
+            <label>
+                <input type="checkbox" name="remember" value="1"> Se souvenir de moi
+            </label>
+            <a href="/forgotPassword" class="link">Mot de passe oublié ?</a>
+        </div>
 
-    <button type="submit">Se connecter</button>
-</form>
+        <button type="submit" class="button">Se connecter</button>
+    </form>
+</div>
 
-<p>Pas encore de compte ? <a href="/register">Inscrivez-vous ici</a>.</p>
-<p><a href="/">Accueil</a>.</p>
+<p class="text-center">
+    Pas encore de compte ?
+    <a href="/register" class="link">Inscrivez-vous ici</a>.
+</p>
+
+<p class="text-center">
+    <a href="/" class="link">Accueil</a>
+</p>

@@ -20,4 +20,4 @@ $queryBuilder
     )
     ->execute();
 
-
+echo "Table 'users' created successfully.";

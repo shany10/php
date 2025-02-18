@@ -21,6 +21,8 @@ class QueryBuilder
         return $this;
     }
 
+
+
     public function from(string $tableName): self
     {
         $this->sql .= " FROM " . $tableName;
@@ -32,6 +34,7 @@ class QueryBuilder
         $paramName = ":where_" . $columnName;
         $this->sql .= (strpos($this->sql, "WHERE") === false ? " WHERE " : " AND ") . "$columnName = $paramName";
         $this->parameters[$paramName] = $columnValue;
+
         return $this;
     }
 
@@ -49,9 +52,12 @@ class QueryBuilder
         }
 
         $ifNotExistsSQL = $this->ifNotExists ? "IF NOT EXISTS" : "";
+
+
         $optionsSQL = implode(" ", $options);
 
         $this->sql = "CREATE TABLE $ifNotExistsSQL $tableName (" . implode(", ", $columnDefinitions) . ") $optionsSQL";
+
         return $this;
     }
 
@@ -97,6 +103,7 @@ class QueryBuilder
         return $this;
     }
 
+
     public function join(string $table, string $onClause, string $type = "INNER"): self
     {
         $this->sql .= " $type JOIN " . $table . " ON " . $onClause;
@@ -122,6 +129,7 @@ class QueryBuilder
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+
     public function fetchAll(): array
     {
         $stmt = $this->query();
@@ -132,8 +140,8 @@ class QueryBuilder
     public function executeAndGetId(): int
     {
         try {
-            $stmt = $this->query();
-            $stmt->execute($this->parameters);
+
+            $this->query()->execute($this->parameters);
             return (int) $this->db->lastInsertId();
         } catch (\Exception $e) {
             return 0;
@@ -147,7 +155,19 @@ class QueryBuilder
 
     private function query(): PDOStatement
     {
-        return $this->db->prepare($this->sql);
+        $stmt = $this->db->prepare($this->sql);
+        return $stmt;
+    }
+
+    private function getConnection(): PDO
+    {
+        return new PDO(
+            "
+      mysql:host=mariadb;dbname="
+                . $_ENV["DATABASE_NAME"],
+            $_ENV["DATABASE_USER"],
+            $_ENV["DATABASE_PASSWORD"]
+        );
     }
 
     public function reset(): self
@@ -157,16 +177,3 @@ class QueryBuilder
         return $this;
     }
 }
-
-// Exemple d'utilisation
-// $queryBuilder = new QueryBuilder();
-
-// $email = "anairi@esgi.fr";
-
-// $result = $queryBuilder
-//   ->select(["id", "password", "email"])
-//   ->from("users")
-//   ->where("email", $email)
-//   ->fetch();
-
-// print_r($result);

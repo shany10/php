@@ -3,14 +3,13 @@
 require_once __DIR__ . '/../Core/QueryBuilder.php';
 require_once __DIR__ . '/../Core/DatabaseConnection.php';
 
-
 $queryBuilder = new QueryBuilder();
 
 // Création de la table 'users'
 $queryBuilder
     ->ifNotExists(true)
     ->createTable(
-        "users",
+        "users", 
         [
             "id" => "INT AUTO_INCREMENT PRIMARY KEY",
             "email" => "VARCHAR(255) NOT NULL UNIQUE",
@@ -19,6 +18,8 @@ $queryBuilder
             "lastname" => "VARCHAR(255) NOT NULL",
             "country" => "VARCHAR(255) NOT NULL",
             "role" => "ENUM('user', 'admin') DEFAULT 'user'",
+            "verification_code" => "VARCHAR(255)", 
+            "is_verified" => "BOOLEAN DEFAULT FALSE", 
             "created_at" => "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
         ],
         ["ENGINE=InnoDB", "DEFAULT CHARSET=utf8mb4"]

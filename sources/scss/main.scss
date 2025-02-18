@@ -1,11 +1,74 @@
-@use "partials/layers";
-@use "vendor/modern-normalize.css";
-@use "partials/globals";
-@use "partials/utilities";
+// Variables de couleurs
+$primary-color: #2563EB;
+$secondary-color: #4B5563;
+$error-bg: #FEE2E2;
+$error-text: #B91C1C;
+$error-border: #EF4444;
 
-@use "components/container";
-@use "components/button";
-@use "components/banner";
-@use "components/grid";
-@use "components/spinner";
-@use "components/navbar";
+// Global Styles
+body {
+   background-color: #FAFAFA;
+   font-family: Arial, sans-serif;
+}
+
+// Conteneur principal
+.container {
+   margin: 0 15rem;
+}
+
+// Formulaire de connexion
+.login-form {
+   background-color: white;
+   padding: 32px;
+   border-radius: 8px;
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+// Champs de formulaire
+.input-field {
+   width: 100%;
+   padding: 1rem;
+   /* Hérite du padding du parent */
+   border: 1px solid #D1D5DB;
+   border-radius: 8px;
+   margin-bottom: 16px;
+   box-sizing: border-box;
+   /* Assure que le padding ne dépasse pas */
+}
+
+
+// Bouton de connexion
+.button {
+   width: 100%;
+   padding: 12px;
+   background-color: $primary-color;
+   color: white;
+   border-radius: 8px;
+   border: none;
+   cursor: pointer;
+}
+
+// Liens
+.link {
+   color: $primary-color;
+   text-decoration: none;
+
+   &:hover {
+      text-decoration: underline;
+   }
+}
+
+// Messages d'erreur
+.error-list {
+   margin-bottom: 16px;
+   padding: 16px;
+   background-color: $error-bg;
+   color: $error-text;
+   border-left: 4px solid $error-border;
+   border-radius: 8px;
+}
+
+// Texte centré
+.text-center {
+   text-align: center;
+}

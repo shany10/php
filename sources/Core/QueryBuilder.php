@@ -13,11 +13,11 @@ class QueryBuilder
   private $db;
   private bool $ifNotExists = false;
 
-  public function __construct()
-  {
-    $this->reset();
-    $this->db = DatabaseConnection::getInstance();
-  }
+   public function __construct()
+   {
+      $this->reset();
+      $this->db = DatabaseConnection::getInstance();
+   }
 
   public function select(array $columns): self
   {
@@ -45,13 +45,14 @@ class QueryBuilder
     return $this;
   }
 
-  public function createTable(string $tableName, array $columns, array $options = []): self
-  {
-    $columnDefinitions = [];
-    foreach ($columns as $name => $definition) {
-      $columnDefinitions[] = "$name $definition";
-    }
+   public function createTable(string $tableName, array $columns, array $options = []): self
+   {
+      $columnDefinitions = [];
+      foreach ($columns as $name => $definition) {
+         $columnDefinitions[] = "$name $definition";
+      }
 
+      $optionsSQL = implode(" ", $options);
     $ifNotExistsSQL = $this->ifNotExists ? "IF NOT EXISTS" : "";
     $optionsSQL = implode(" ", $options);
 
@@ -59,37 +60,37 @@ class QueryBuilder
     return $this;
   }
 
-  public function delete(string $tableName): self
-  {
-    $this->sql = "DELETE FROM " . $tableName;
-    return $this;
-  }
+   public function delete(string $tableName): self
+   {
+      $this->sql = "DELETE FROM " . $tableName;
+      return $this;
+   }
 
   public function insert(string $tableName, array $data): self
   {
     $columns = array_keys($data);
     $placeholders = array_map(fn($column) => ":" . $column, $columns);
 
-    $this->sql = "INSERT INTO " . $tableName . " (" . implode(", ", $columns) . ")";
-    $this->sql .= " VALUES (" . implode(", ", $placeholders) . ")";
+      $this->sql = "INSERT INTO " . $tableName . " (" . implode(", ", $columns) . ")";
+      $this->sql .= " VALUES (" . implode(", ", $placeholders) . ")";
 
-    foreach ($data as $column => $value) {
-      $this->parameters[":" . $column] = $value;
-    }
+      foreach ($data as $column => $value) {
+         $this->parameters[":" . $column] = $value;
+      }
 
-    return $this;
-  }
+      return $this;
+   }
 
-  public function update(string $tableName, array $data): self
-  {
-    $this->sql = "UPDATE " . $tableName . " SET ";
-    $updates = [];
+   public function update(string $tableName, array $data): self
+   {
+      $this->sql = "UPDATE " . $tableName . " SET ";
+      $updates = [];
 
-    foreach ($data as $column => $value) {
-      $paramName = ":set_" . $column;
-      $updates[] = $column . " = " . $paramName;
-      $this->parameters[$paramName] = $value;
-    }
+      foreach ($data as $column => $value) {
+         $paramName = ":set_" . $column;
+         $updates[] = $column . " = " . $paramName;
+         $this->parameters[$paramName] = $value;
+      }
 
     $this->sql .= implode(", ", $updates);
     return $this;
@@ -149,11 +150,11 @@ class QueryBuilder
     return $this->query()->execute($this->parameters);
   }
 
-  private function query(): PDOStatement
-  {
-    $stmt = $this->db->prepare($this->sql);
-    return $stmt;
-  }
+   private function query(): PDOStatement
+   {
+      $stmt = $this->db->prepare($this->sql);
+      return $stmt;
+   }
 
   private function getConnection(): PDO
   {
@@ -167,23 +168,11 @@ class QueryBuilder
     return $this->db->prepare($this->sql);
   }
 
-  public function reset(): self
-  {
-    $this->sql = "";
-    $this->parameters = [];
-    return $this;
-  }
+   public function reset(): self
+   {
+      $this->sql = "";
+      $this->parameters = [];
+      return $this;
+   }
 }
 
-// Exemple d'utilisation
-// $queryBuilder = new QueryBuilder();
-
-// $email = "anairi@esgi.fr";
-
-// $result = $queryBuilder
-//   ->select(["id", "password", "email"])
-//   ->from("users")
-//   ->where("email", $email)
-//   ->fetch();
-
-// print_r($result);

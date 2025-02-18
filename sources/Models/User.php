@@ -10,8 +10,9 @@ class User
     public int $id,
     public string $email,
     public string $password
-  ) {
-  }
+  ) {}
+
+  
 
   public static function findOneByEmail(string $email): User|null
   {

@@ -38,6 +38,8 @@ services:
     user: php
     volumes:
       - ./sources:$PHP_USER_HOME_DIRECTORY
+    expose:
+      - 9000
 
   migration:
     container_name: migration
@@ -62,7 +64,6 @@ services:
       - ./db/Core/QueryBuilder.php:$PHP_USER_HOME_DIRECTORY/Core/QueryBuilder.php
       - ./db/Core/DatabaseConnection.php:$PHP_USER_HOME_DIRECTORY/Core/DatabaseConnection.php
 
-
   mariadb:
     container_name: mariadb
     restart: unless-stopped
@@ -82,7 +83,7 @@ services:
       MARIADB_DATABASE: $DATABASE_NAME
     volumes:
       - ./database:/var/lib/mysql
-      
+
   phpmyadmin:
     image: phpmyadmin
     restart: on-failure
@@ -93,5 +94,3 @@ services:
       PMA_PASSWORD: $DATABASE_PASSWORD
     ports:
       - "8081:80"
-
-
