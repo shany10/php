@@ -33,6 +33,7 @@ class Router
     ];
   }
 
+
   // Recherche la route correspondant à la requête
   public function __destruct()
   {

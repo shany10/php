@@ -1,6 +1,7 @@
 <?php
 
 use App\Core\Router;
+
 use App\Controllers\RegisterController;
 use App\Controllers\ForgotPasswdController;
 use App\Controllers\ResetPasswdController;
@@ -8,9 +9,11 @@ use App\Controllers\LoginController;
 use App\Controllers\UserVerifyController;
 use App\Controllers\PictureController;
 use App\Controllers\GalleryController;
-
+use App\Controllers\HomeController;
+use App\Controllers\GroupeController;
 
 $router = new Router();
+$router->get("/home", HomeController::class, "index");
 
 $router->get("/register", RegisterController::class, "index");
 $router->post("/register", RegisterController::class, "index");
@@ -32,10 +35,13 @@ $router->post("/upload", PictureController::class, "upload");
 
 $router->post('/delete/{id}', PictureController::class, 'delete');
 
-$router->get("/gallery/{groupId}", GalleryController::class, "show");
-$router->post("/gallery/{groupId}", GalleryController::class, "show");
+$router->get("/gallery", GalleryController::class, "show");
 
+$router->get("/groupe", GroupeController::class, "index");
 
-
+$router->post("/createGroupe", GroupeController::class, "create");
+$router->post("/addUserToGroupe", GroupeController::class, "addUserToGroupe");
+$router->post("/deleteGroupe", GroupeController::class, "delete");
+$router->get("/logout", LoginController::class, "logout");
 
 // die();

@@ -11,7 +11,6 @@ use Exception;
 
 class RegisterController
 {
-
    public static function index(): void
    {
 

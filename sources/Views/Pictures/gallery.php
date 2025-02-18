@@ -3,13 +3,8 @@
     <div class="gallery">
         <?php foreach ($pictures as $picture): ?>
             <div class="photo">
-                <img src="<?= $picture['file_path'] ?>" alt="Photo de groupe">
-                <?php if ($_SESSION['user_id'] == $picture['user_id'] || $_SESSION['user_role'] === 'owner'): ?>
-                    <form action="/delete" method="post">
-                        <input type="hidden" name="photo_id" value="<?= $picture['id'] ?>">
-                        <button type="submit">Supprimer</button>
-                    </form>
-                <?php endif; ?>
+                <img src="<?= "../public/uploads/" . $picture['file_name'] ?>" alt="Photo de groupe">
+               
             </div>
         <?php endforeach; ?>
     </div>

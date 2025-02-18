@@ -11,10 +11,13 @@ class LoginController
 {
     public static function index()
     {
+
         // if (!empty($_SESSION["user"])) {
         //     header("Location: /");
         //     return;
         // }
+
+
         $response = DataPostValidator::validate(
             $_POST,
             [
@@ -38,6 +41,7 @@ class LoginController
                     header("Location: /home");
                     return;
                 }
+
             } else {
                 $response["msg"][] = "Email ou mot de passe incorrect.";
             }
@@ -48,4 +52,10 @@ class LoginController
         $view->addData('errors', $response["msg"]);
         return;
     }
+
+    public static function logout()
+    {
+        session_destroy();
+        header("Location: /login");
+    }   
 }

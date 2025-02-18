@@ -65,7 +65,9 @@ class UserModel
      */
     public function getFirstname(): string|null
     {
+
         return $this->firstname;
+
     }
 
     /**
