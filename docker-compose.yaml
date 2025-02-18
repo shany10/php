@@ -39,6 +39,8 @@ services:
     user: php
     volumes:
       - ./sources:$PHP_USER_HOME_DIRECTORY
+    expose:
+      - "9000"
 
   migration:
     container_name: migration
