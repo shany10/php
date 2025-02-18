@@ -16,7 +16,6 @@ services:
       - ./docker/nginx/templates:/etc/nginx/templates
       - ./sources:$PHP_USER_HOME_DIRECTORY
     ports:
-      - $SERVER_PORT:80
       - 80:$SERVER_PORT
 
   php:
