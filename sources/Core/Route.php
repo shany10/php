@@ -21,6 +21,9 @@ $router->post("/register", RegisterController::class, "index");
 $router->get("/", LoginController::class, "index");
 $router->post("/", LoginController::class, "index");
 
+$router->get("/login", LoginController::class, "index");
+$router->post("/login", LoginController::class, "index");
+
 $router->get("/forgotPassword", ForgotPasswdController::class, "index");
 $router->post("/forgotPassword", ForgotPasswdController::class, "requestReset");
 
