@@ -16,7 +16,7 @@ services:
       - ./docker/nginx/templates:/etc/nginx/templates
       - ./sources:$PHP_USER_HOME_DIRECTORY
     ports:
-      - 80:80
+      - $SERVER_PORT:80
 
   php:
     container_name: php
@@ -92,6 +92,6 @@ services:
       PMA_USER: $DATABASE_USER
       PMA_PASSWORD: $DATABASE_PASSWORD
     ports:
-      - "8081:81"
+      - "8081:80"
 
 
