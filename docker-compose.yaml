@@ -13,11 +13,10 @@ services:
     env_file: .env
     working_dir: $PHP_USER_HOME_DIRECTORY
     volumes:
-      - ./docker/nginx/templates/nginx.conf:/etc/nginx/sites-available/default
+      - ./docker/nginx/templates:/etc/nginx/templates
       - ./sources:$PHP_USER_HOME_DIRECTORY
     ports:
-    - "80:80"
-    - "443:443"
+      - $SERVER_PORT:80
 
   php:
     container_name: php
@@ -39,8 +38,6 @@ services:
     user: php
     volumes:
       - ./sources:$PHP_USER_HOME_DIRECTORY
-    expose:
-      - "9000"
 
   migration:
     container_name: migration
@@ -95,6 +92,6 @@ services:
       PMA_USER: $DATABASE_USER
       PMA_PASSWORD: $DATABASE_PASSWORD
     ports:
-      - "8081:8081"
+      - "8081:80"
 
 
