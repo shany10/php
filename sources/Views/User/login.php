@@ -1,8 +1,5 @@
 <div class="container">
-    <h2 class="text-center">Se connecter</h2>
-
-    <h1>hello</h1>
-
+    <h1 class="text-center">Se connecter</h1>
     <form method="post" action="/login" class="login-form">
         <div class="input-wrapper">
             <i class="fas fa-envelope"></i>
@@ -44,6 +41,4 @@
         Pas encore de compte ?
         <a href="/register" class="link">Inscrivez-vous ici</a>.
     </p>
-
-
 </div>

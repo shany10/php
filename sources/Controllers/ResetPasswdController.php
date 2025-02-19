@@ -30,6 +30,7 @@ class ResetPasswdController
         }
 
         $view = new View("User/resetPasswd.php");
+        $view->addData("title", "Réinitialisation du mot de passe");
         $view->addData("token", $token);
     }
 

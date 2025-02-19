@@ -47,7 +47,7 @@ class LoginController
         }
 
         $view = new View("User/login.php", "front.php");
-        $view->addData("title", "Login");
+        $view->addData("title", "Connexion");
         $view->addData('errors', $response["msg"]);
         return;
     }

@@ -9,7 +9,8 @@ class ForgotPasswdController
 {
     public static function index(): void
     {
-        new View("User/forgotPasswd.php", "front.php");
+        $view = new View("User/forgotPasswd.php", "front.php");
+        $view->addData("title", "Mot de passe oublié");
     }
 
     public static function requestReset(): void
@@ -23,8 +24,6 @@ class ForgotPasswdController
 
             $queryBuilder = new \App\Core\QueryBuilder();
 
-
-
             // Insérer un nouveau token
             $queryBuilder->insert("password_resets", [
                 "email" => $email,
@@ -33,8 +32,7 @@ class ForgotPasswdController
             ])->execute();
 
             // Lien de réinitialisation
-            $resetLink = "http://localhost:8000/resetPassword?token=" . $token;
-
+            $resetLink = "https://phpotographie.ninja/resetPassword?token=" . $token;
 
             // Contenu du mail
             $content = "Bonjour,<br><br>
