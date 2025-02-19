@@ -70,7 +70,7 @@ li {
 
 .input-field {
    width: 100%;
-   padding: 12px 14px 12px 40px;
+   padding: 12px;
    border: 1px solid $input-border;
    border-radius: $border-radius;
    font-size: 16px;
@@ -82,6 +82,12 @@ li {
       outline: none;
       box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
    }
+}
+
+.forgotPwd {
+   display: flex;
+   justify-content: flex-end;
+   /* Aligne à droite */
 }
 
 // Bouton de connexion amélioré
@@ -99,7 +105,6 @@ li {
    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 
    &:hover {
-      background-color: darken($primary-color, 5%);
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
    }
 }
@@ -120,7 +125,6 @@ li {
    display: flex;
    align-items: center;
    gap: 10px;
-   margin-bottom: 16px;
    padding: 12px;
    background-color: $error-bg;
    color: $error-text;
