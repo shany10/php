@@ -22,3 +22,14 @@ $queryBuilder
     ->execute();
 
 echo "Table 'pictures' created successfully with foreign key constraints.";
+
+$queryBuilder
+    ->addForeignKey("groups_keys", "id_user", "users", "id")
+    ->execute();
+
+
+$queryBuilder
+    ->addForeignKey("groups_keys", "id_groupe", "groups", "id")
+    ->execute();
+
+echo "Table 'groups_keys' created successfully with foreign key constraints.";
