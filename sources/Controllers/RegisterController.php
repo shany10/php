@@ -110,6 +110,7 @@ class RegisterController
 
       // Affichage de la vue d'inscription si erreur
       $view = new View("User/register.php", "front.php");
-      $view->addData('response', $response);
+      $view->addData('errors', $response["msg"]);
+
    }
 }

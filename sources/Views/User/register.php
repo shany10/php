@@ -1,10 +1,13 @@
 <?php if (!empty($errors)): ?>
-    <ul>
-        <?php foreach ($errors as $error): ?>
-            <li><?= htmlspecialchars($error) ?></li>
-        <?php endforeach; ?>
-    </ul>
+    <div class="error-messages">
+        <ul>
+            <?php foreach ($errors as $error): ?>
+                <li style="color: red;"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 <?php endif; ?>
+
 
 <form action="/register" method="POST">
     <input
@@ -25,11 +28,11 @@
         placeholder="Lastname..."
         <?php echo (!empty($_POST['lastname']) ? "value='" . $_POST['lastname'] . "'" : "") ?>
         required><br>
-    <input 
-        type="text" 
-        name="country" 
-        placeholder="Country..." 
-        <?php echo (!empty($_POST['country']) ? "value='" . $_POST['country'] . "'" : "") ?>        
+    <input
+        type="text"
+        name="country"
+        placeholder="Country..."
+        <?php echo (!empty($_POST['country']) ? "value='" . $_POST['country'] . "'" : "") ?>
         required><br>
     <input type="password" name="password" placeholder="Votre mot de passe" required minlength="6"><br>
     <input type="password" name="passwordConfirm" placeholder="Confirmation" required minlength="6"><br>
