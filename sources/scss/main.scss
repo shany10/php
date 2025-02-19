@@ -4,54 +4,107 @@ $secondary-color: #4B5563;
 $error-bg: #FEE2E2;
 $error-text: #B91C1C;
 $error-border: #EF4444;
+$border-radius: 10px;
+$input-border: #D1D5DB;
 
 // Global Styles
 body {
-   background-color: #FAFAFA;
-   font-family: Arial, sans-serif;
+   background-color: #F3F4F6;
+   font-family: 'Poppins', sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   margin: 0;
 }
 
 // Conteneur principal
 .container {
-   margin: 0 15rem;
+   width: 100%;
+   max-width: 400px;
+   padding: 30px;
+   background-color: white;
+   border-radius: $border-radius;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+   animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(-20px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }
 
 // Formulaire de connexion
 .login-form {
-   background-color: white;
-   padding: 32px;
-   border-radius: 8px;
-   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
 }
 
-// Champs de formulaire
+// Champs de formulaire avec icône
+.input-wrapper {
+   position: relative;
+   display: flex;
+   align-items: center;
+}
+
+.input-wrapper i {
+   position: absolute;
+   left: 12px;
+   top: 50%;
+   transform: translateY(-50%);
+   color: #9CA3AF;
+   font-size: 16px;
+}
+
 .input-field {
    width: 100%;
-   padding: 1rem;
-   /* Hérite du padding du parent */
-   border: 1px solid #D1D5DB;
-   border-radius: 8px;
-   margin-bottom: 16px;
-   box-sizing: border-box;
-   /* Assure que le padding ne dépasse pas */
+   padding: 12px 14px 12px 40px;
+   border: 1px solid $input-border;
+   border-radius: $border-radius;
+   font-size: 16px;
+   transition: all 0.3s ease-in-out;
+   background-color: #fff;
+
+   &:focus {
+      border-color: $primary-color;
+      outline: none;
+      box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
+   }
 }
 
-
-// Bouton de connexion
+// Bouton de connexion amélioré
 .button {
    width: 100%;
-   padding: 12px;
+   padding: 14px;
    background-color: $primary-color;
    color: white;
-   border-radius: 8px;
+   border-radius: $border-radius;
    border: none;
    cursor: pointer;
+   font-size: 18px;
+   font-weight: bold;
+   transition: all 0.3s ease-in-out;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+   &:hover {
+      background-color: darken($primary-color, 5%);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+   }
 }
 
 // Liens
 .link {
    color: $primary-color;
    text-decoration: none;
+   font-weight: bold;
 
    &:hover {
       text-decoration: underline;
@@ -60,15 +113,50 @@ body {
 
 // Messages d'erreur
 .error-list {
+   display: flex;
+   align-items: center;
+   gap: 10px;
    margin-bottom: 16px;
-   padding: 16px;
+   padding: 12px;
    background-color: $error-bg;
    color: $error-text;
-   border-left: 4px solid $error-border;
-   border-radius: 8px;
+   border-left: 5px solid $error-border;
+   border-radius: $border-radius;
+   font-size: 14px;
+}
+
+.error-list::before {
+   content: '\26A0';
+   font-size: 18px;
+   color: $error-text;
 }
 
 // Texte centré
 .text-center {
    text-align: center;
+   font-size: 14px;
+}
+
+// Animation pour les liensF
+.link {
+   transition: color 0.3s ease-in-out;
+
+   &:hover {
+      color: darken($primary-color, 10%);
+   }
+}
+
+// Animation pour les icônes
+.input-wrapper i {
+   transition: color 0.3s ease-in-out;
+}
+
+.input-field:focus+i {
+   color: $primary-color;
+}
+
+.remember-me {
+   display: flex;
+   // flex-direction: row;
+   gap: 20px;
 }
