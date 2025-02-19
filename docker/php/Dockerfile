@@ -3,7 +3,7 @@ ARG PHP_VERSION=8.0.0
 FROM php:$PHP_VERSION-fpm
 
 # Définition des arguments
-ARG PHP_USER_NAME=php
+ARG PHP_USER_NAME=www-data
 ARG PHP_USER_IDENTIFIER=1000
 ARG PHP_USER_SHELL=/bin/bash
 ARG PHP_USER_HOME_DIRECTORY=/home/php
@@ -18,8 +18,7 @@ RUN apt-get update && apt-get install -y \
    dos2unix \
    && docker-php-ext-install pdo_mysql
 
-RUN mkdir -p /home/php/sources/dist/uploads && \
-chown -R www-data:www-data /home/php
+
 # Set working directory
 WORKDIR /var/www
 
