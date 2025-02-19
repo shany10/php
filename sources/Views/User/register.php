@@ -1,13 +1,12 @@
 <div class="container">
     <h2 class="text-center">Créer un compte</h2>
 
-    <?php if (!empty($errors)): ?>
+    <?php if (!empty($errorse)): ?>
         <ul class="error-list">
             <?php foreach ($errors as $error): ?>
                 <li><?= htmlspecialchars($error) ?></li>
             <?php endforeach; ?>
         </ul>
-        <?php unset($_SESSION['errors']); ?>
     <?php endif; ?>
 
     <form action="/register" method="POST" class="login-form">
@@ -89,7 +88,7 @@
     <p class="text-center">
         Déjà un compte ?
         <a href="/login" class="link">Connectez-vous ici</a>.
-    </p><br>
+    </p>
 
     <p class="text-center">
         <a href="/" class="link">Accueil</a>
