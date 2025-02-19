@@ -9,7 +9,7 @@ class HomeController
 {
     public static function index()
     {
-        if(empty($_SESSION["user"])) {
+        if (empty($_SESSION["user"])) {
             header("Location: /login");
             return;
         }
@@ -17,6 +17,6 @@ class HomeController
         $groupes = GroupModel::getAllGroupeLinked($user->getId());
         $view = new View("home.php", "front.php");
         $view->addData("title", "Home");
-        $view->addData("groupes", $groupes);                
+        $view->addData("groupes", $groupes);
     }
 }
