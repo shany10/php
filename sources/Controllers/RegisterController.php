@@ -91,7 +91,7 @@ class RegisterController
                      if ($mailController->sendMail($email, $subject, $message)) {
                         $_SESSION["verification_code"] = $emailCode;
                         header("Location: /verify?email=" . $emailCode);
-                        // exit();
+                        exit;
                      } else {
                         $response["error"] = true;
                         $response["msg"][] = "Erreur lors de l'envoi du mail de validation.";

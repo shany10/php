@@ -42,9 +42,10 @@ class UserVerifyController
                   if ($user && $user->getVerificationCode() == $code && !$user->isVerified()) {
                      $user->setIsVerified(true); // Utilisateur vérifié
                      $user->update();
+                     $_SESSION["user"] = serialize($user);
                      unset($_SESSION["verification_code"]);
                      header("Location: /home");
-                     exit();
+                     exit;
                   } else {
                      $response["error"] = true;
                      $response["msg"][] = "Code invalide ou utilisateur déjà vérifié.";

@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 body {
   background-color: #F3F4F6;
   font-family: "Poppins", sans-serif;
@@ -8,6 +9,11 @@ body {
   height: 100vh;
   margin: 0;
 }
+
+li {
+  list-style: none !important;
+}
+
 
 .container {
   width: 100%;
@@ -24,11 +30,13 @@ body {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -59,6 +67,7 @@ body {
   transition: all 0.3s ease-in-out;
   background-color: #fff;
 }
+
 .input-field:focus {
   border-color: #2563EB;
   outline: none;
@@ -78,6 +87,7 @@ body {
   transition: all 0.3s ease-in-out;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
+
 .button:hover {
   background-color: rgb(20.7142857143, 84.9285714286, 225.7857142857);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -88,6 +98,7 @@ body {
   text-decoration: none;
   font-weight: bold;
 }
+
 .link:hover {
   text-decoration: underline;
 }
@@ -119,6 +130,7 @@ body {
 .link {
   transition: color 0.3s ease-in-out;
 }
+
 .link:hover {
   color: rgb(18.5714285714, 76.1428571429, 202.4285714286);
 }
@@ -127,7 +139,7 @@ body {
   transition: color 0.3s ease-in-out;
 }
 
-.input-field:focus + i {
+.input-field:focus+i {
   color: #2563EB;
 }
 

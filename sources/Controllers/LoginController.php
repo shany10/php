@@ -12,10 +12,10 @@ class LoginController
     public static function index()
     {
 
-        // if (!empty($_SESSION["user"])) {
-        //     header("Location: /");
-        //     return;
-        // }
+        if (!empty($_SESSION["user"]) && $_SERVER["REQUEST_URI"] !== "/") {
+            header("Location: /");
+            exit;
+        }
 
 
         $response = DataPostValidator::validate(
@@ -26,8 +26,7 @@ class LoginController
             ],
         );
 
-        if ($response["error"] === false) 
-        {
+        if ($response["error"] === false) {
             $email = strtolower(trim(htmlspecialchars($_POST["email"])));
             $password = $_POST["password"];
 
@@ -39,9 +38,9 @@ class LoginController
                 } else {
                     $_SESSION["user"] = serialize($user);
                     header("Location: /home");
+                    exit;
                     return;
                 }
-
             } else {
                 $response["msg"][] = "Email ou mot de passe incorrect.";
             }
@@ -57,5 +56,5 @@ class LoginController
     {
         session_destroy();
         header("Location: /login");
-    }   
+    }
 }
