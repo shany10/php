@@ -10,7 +10,7 @@ class PictureController
     {
         // Vérification si la méthode est POST et si un fichier photo est soumis
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["photo"])) {
-            $uploadDir = __DIR__ . "/../public/uploads/";
+            $uploadDir = __DIR__ . "/../dist/uploads/";
             $groupId = $_POST["groupe"];
             $user = unserialize($_SESSION["user"]);
             $userId = $user->getId();
@@ -96,7 +96,7 @@ class PictureController
     public static function showForm()
     {
         // Récupérer tous les groupes
-        if(empty($_SESSION['user'])) {
+        if (empty($_SESSION['user'])) {
             header("Location: /login");
             return;
         }
