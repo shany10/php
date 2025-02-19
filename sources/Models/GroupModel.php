@@ -30,7 +30,7 @@ class GroupModel
         $queryBuilder = new QueryBuilder();
         return $queryBuilder
             ->insert('groups', ["group_name" => $name, "owner_id" => $idUser])
-            ->execute();
+            ->executeAndGetId();
     }
 
     public static function findFriendIntoGroup(int $id_friend, int $id_groupe)

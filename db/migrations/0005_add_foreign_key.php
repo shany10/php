@@ -22,3 +22,4 @@ $queryBuilder
     ->execute();
 
 echo "Table 'pictures' created successfully with foreign key constraints.";
+
