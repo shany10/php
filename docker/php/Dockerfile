@@ -18,6 +18,8 @@ RUN apt-get update && apt-get install -y \
    dos2unix \
    && docker-php-ext-install pdo_mysql
 
+RUN mkdir -p /home/php/sources/dist/uploads && \
+chown -R www-data:www-data /home/php
 # Set working directory
 WORKDIR /var/www
 
