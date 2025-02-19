@@ -12,7 +12,7 @@ class LoginController
     public static function index()
     {
 
-        if (!empty($_SESSION["user"]) && $_SERVER["REQUEST_URI"] !== "/") {
+        if (!empty($_SESSION["user"])) {
             header("Location: /");
             exit;
         }

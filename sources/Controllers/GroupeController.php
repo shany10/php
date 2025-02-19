@@ -43,11 +43,9 @@ class GroupeController
             else $response["msg"][] = "Erreur lors de la création du groupe";
         }
 
-        $groups = GroupModel::getGroupsByUser($user->getId());
-        $view = new View("Groupe/groupe.php", "front.php");
-        $view->addData("title", "Groupes");
-        $view->addData("groups", $groups);
-        $view->addData("messages", $response["msg"]);
+        // $groups = GroupModel::getGroupsByUser($user->getId());
+        header('Location: /groupe');
+       
     }
 
     public static function addUserToGroupe()

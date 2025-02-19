@@ -2,6 +2,7 @@
 <?php if (!empty($messages)){ foreach($messages as $message) { ?>
     <p class="message"><?= htmlspecialchars($message) ?></p>
 <?php }} ?>
+<a href="/home">HOME</a>
 <form action="/createGroupe" method="post" enctype="multipart/form-data">
     <h2>Création de groupe</h2>
     <label for="photo">Crée votre groupe :</label>

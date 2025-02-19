@@ -25,7 +25,7 @@ class GroupModel
             ->fetchAll();
     }
 
-    public static function creatGroupe(int $idUser, string $name): bool
+    public static function creatGroupe(int $idUser, string $name): int
     {
         $queryBuilder = new QueryBuilder();
         return $queryBuilder

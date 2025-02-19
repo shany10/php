@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Controllers;
+
 use App\Core\View;
 use App\Models\GroupModel;
 use App\Models\Pictures;
@@ -9,8 +11,8 @@ class PictureController
     public static function upload(): void
     {
         // Vérification si la méthode est POST et si un fichier photo est soumis
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["photo"])) {
-            $uploadDir = __DIR__ . "/../sources/dist/uploads/";
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["photo"]) && !empty($_SESSION['user'])) {
+            $uploadDir = __DIR__ . "/../public/uploads/";
             $groupId = $_POST["groupe"];
             $user = unserialize($_SESSION["user"]);
             $userId = $user->getId();
@@ -29,22 +31,17 @@ class PictureController
             }
 
             // Création du dossier si inexistant
-            elseif (!is_dir($uploadDir)) {
-                mkdir($uploadDir, 0777, true);
-            }
-
+            if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
+            
             // Sécurisation du nom du fichier (éviter les collisions de noms)
-            else {
-                $fileExtension = pathinfo($file["name"], PATHINFO_EXTENSION);
-                $fileName = uniqid("photo_") . "." . $fileExtension; // Utilisation d'un nom unique
-                $filePath = $uploadDir . $fileName;
-
-                // Déplacement du fichier
-                if (move_uploaded_file($file["tmp_name"], $filePath)) {
-                    $message = "Upload réussi !";
-                } else {
-                    $message = "Erreur lors de l'upload. Veuillez réessayer.";
-                }
+            $fileExtension = pathinfo($file["name"], PATHINFO_EXTENSION);
+            $fileName = uniqid("photo_") . "." . $fileExtension; // Utilisation d'un nom unique
+            $filePath = $uploadDir . $fileName;
+            // Déplacement du fichier
+            if (move_uploaded_file($file["tmp_name"], $filePath)) {
+                $message = "Upload réussi !";
+            } else {
+                $message = "Erreur lors de l'upload. Veuillez réessayer.";
             }
 
             // Si l'upload a réussi, enregistrer le chemin du fichier dans la base de données
