@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\View;
 use App\Models\GroupModel;
+use App\Models\Pictures;
 use App\Models\UserModel;
 use App\Validator\DataPostValidator;
 
@@ -34,14 +35,18 @@ class GroupeController
 
         if (!$response["error"]) {
             $user = unserialize($_SESSION['user']);
-            $isInserted = GroupModel::creatGroupe($user->getId(), $_POST['group_name']);
-            $isLinked = GroupModel::linkFriendToGroup($user->getId(), $_POST['group_name']);
-            if ($isInserted && $isLinked) $response["msg"][] = "Groupe créé avec succès";
+            $id_groupe = GroupModel::creatGroupe($user->getId(), $_POST['group_name']);
+            if ($id_groupe != 0)  {
+                GroupModel::linkFriendToGroup($user->getId(), $id_groupe);
+                $response["msg"][] = "Groupe créé avec succès";
+            }
             else $response["msg"][] = "Erreur lors de la création du groupe";
         }
 
+        $groups = GroupModel::getGroupsByUser($user->getId());
         $view = new View("Groupe/groupe.php", "front.php");
         $view->addData("title", "Groupes");
+        $view->addData("groups", $groups);
         $view->addData("messages", $response["msg"]);
     }
 
@@ -83,6 +88,7 @@ class GroupeController
         $user = unserialize($_SESSION['user']);
         $response = DataPostValidator::validate($_POST, ['id_groupe']);
         if (!$response["error"]) {
+            Pictures::delete($user->getId(), $_POST['id_groupe']);
             $isDeleted = GroupModel::deleteGroup($user->getId(), $_POST['id_groupe']);
             if ($isDeleted) $response["msg"][] = "Groupe supprimé avec succès";
             else $response["msg"][] = "Erreur lors de la suppression du groupe";

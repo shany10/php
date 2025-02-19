@@ -77,6 +77,14 @@ class Pictures
             ->fetchAll();
     }
 
-
+    public static function delete(int $id_user, int $id_groupe): bool
+    {
+        $queryBuilder = new QueryBuilder();
+        return $queryBuilder
+            ->delete('pictures')
+            ->where('group_id', $id_groupe)
+            ->where('user_id', $id_user)
+            ->execute();
+    }
 
 }

@@ -9,7 +9,7 @@
             </li>
         <?php endforeach; ?>
     </ul>
-    <a href="/gallery" style="display: block;">Gallery</a>
+    <!-- <a href="/gallery" style="display: block;">Gallery</a> -->
     <a href="/groupe" style="display: block;">Groupe</a>
     <a href="/upload" style="display: block;">Upload photo</a>
     <a href="/logout" style="display: block;">Logout</a>
