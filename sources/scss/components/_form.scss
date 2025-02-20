@@ -87,7 +87,9 @@
    transform-origin: left;
 
    &::placeholder {
-      color: lighten(v.$text-muted, 10%);
+      // color: lighten(v.$text-muted, 10%);
+      // color.scale($color, $lightness: 18.5454545455%);
+      // color.adjust($color, $lightness: 10%)
       font-weight: 300;
    }
 

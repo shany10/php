@@ -1,4 +1,3 @@
-<h1>Home page</h1>
 <?php if(!empty($_SESSION['user'])) : ?>
     <h2>Welcome <?= unserialize($_SESSION['user'])->getFirstname() ?></h2>
     <h3>Groupes</h3>

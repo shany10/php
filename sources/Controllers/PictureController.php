@@ -10,6 +10,7 @@ class PictureController
 {
     public static function upload(): void
     {
+        $groups = GroupModel::getAllGroups();
         // Vérification si la méthode est POST et si un fichier photo est soumis
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["photo"]) && !empty($_SESSION['user'])) {
             $uploadDir = __DIR__ . "/../public/uploads/";
@@ -60,16 +61,16 @@ class PictureController
             }
 
             // Passer le message à la vue avec addData
-            $groups = GroupModel::getAllGroups();
             $view = new View("Pictures/upload.php", "front.php");
             $view->addData("message", $message);
             $view->addData("groups", $groups);
+            $view->addData("title", "Upload picture");
             return;
         }
 
         // Si ce n'est pas une requête POST ou aucun fichier n'est soumis, afficher la vue de l'upload
         $view = new View("Pictures/upload.php", "front.php");
-        return;
+        $view->addData("title", "Upload picture");
     }
 
 
@@ -101,6 +102,6 @@ class PictureController
         $groups = GroupModel::getGroupsByUser($user->getId());
         $view = new View("Pictures/upload.php", "front.php");
         $view->addData("groups", $groups);
-        return;
+        $view->addData("title", "Upload picture");
     }
 }

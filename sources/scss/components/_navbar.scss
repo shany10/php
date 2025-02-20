@@ -1,8 +1,10 @@
 @use "../partials/mixins" as m;
 @use "../partials/functions" as f;
+@use "../partials/variables" as v;
+@use "sass:color";
 @layer components {
 	.navbar {
-		background-color: var(--neutral-50);
+		background-color: v.$primary-color;
 		color: var(--neutral-700);
 		padding: f.rem(16) 0;
 		.container {
@@ -14,12 +16,19 @@
 		}
 		a {
 			@include m.resetA;
+			font-size: f.rem(22);
+			color: v.$bg-color;
+			&:hover {
+				color: color.adjust(v.$primary-color, $lightness: 20%);
+			}
 		}
 		ul {
 			@include m.resetList;
 			@include m.flexbox($direction: column, $gap: f.rem(8));
+			justify-content: right;
 			height: 0;
 			overflow: hidden;
+			margin-inline: 1rem;
 			transition: all 0.3s;
 			&.active {
 				margin-top: 1rem;
