@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <?php include "./Views/Compenent/navbar.php"; ?>
     <?php include $this->view; ?>
 </body>
 
