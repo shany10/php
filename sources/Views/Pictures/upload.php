@@ -1,7 +1,7 @@
 <?php if (isset($message)): ?>
     <div class="message"><?= htmlspecialchars($message) ?></div>
 <?php endif; ?>
-<form action="/upload" method="post" enctype="multipart/form-data">
+<form class="standar-form" action="/upload" method="post" enctype="multipart/form-data">
     <label for="photo">Sélectionnez une photo :</label>
     <input type="file" name="photo" id="photo" accept="image/*" required>
 
@@ -19,5 +19,5 @@
         <option value="public">Public</option>
         <option value="prive">Privé</option>
     </select>
-    <button type="submit">Uploader</button>
+    <button class="button" type="submit">Download</button>
 </form>

@@ -1,5 +1,6 @@
 @use "../partials/variables" as v;
 @use "../partials/functions" as f;
+@use "../partials/mixins" as m;
 
 
 // Formulaire de connexion
@@ -112,4 +113,15 @@
    margin-top: f.rem(-10);
    margin-bottom: f.rem(5);
    font-size: f.rem(14);
+}
+
+.standar-form {
+   @include m.form-primary($width: 70%);
+   gap: f.rem(20);
+   margin-left: auto;
+   margin-right: auto;
+   & input, select {
+      padding: f.rem(10) f.rem(15);
+      border-radius: v.$border-radius;
+   }
 }

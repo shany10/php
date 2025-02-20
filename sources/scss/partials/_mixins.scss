@@ -62,3 +62,9 @@
 		@content;
 	}
 }
+
+@mixin form-primary($width) {
+	display: flex;
+   	flex-direction: column;
+   	width: $width;
+}
