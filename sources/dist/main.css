@@ -1,188 +1,3055 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-body {
-  background-color: #F9FAFB;
-  background-image: linear-gradient(135deg, #EFF6FF 0%, #F3F4F6 100%);
-  font-family: "Poppins", sans-serif;
-  color: #1F2937;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-}
-
-.forgot-form {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 85%;
-  margin: 0 auto;
-}
-
-.form-info {
-  color: #6B7280;
-  font-size: 14px;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  background-color: rgba(59, 130, 246, 0.05);
-  border-radius: 10px;
-  padding: 12px 15px;
-  border-left: 3px solid #3B82F6;
-}
-
-.simple-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-}
-.simple-form label {
-  color: #1F2937;
-  font-weight: 500;
-  font-size: 15px;
-  margin-bottom: 5px;
-  display: block;
-}
-.simple-form input[type=email] {
-  width: 100%;
-  padding: 14px;
-  padding-left: 45px;
-  border: 1.5px solid #D1D5DB;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 400;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background-color: #FFFFFF;
-  color: #1F2937;
-}
-.simple-form input[type=email]:focus {
-  border-color: #2563EB;
-  background-color: #F0F5FF;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
-.simple-form .input-container {
-  position: relative;
-}
-.simple-form .input-container:before {
-  content: "\f0e0";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #6B7280;
-  font-size: 18px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
-}
-.simple-form .input-container:focus-within:before {
-  color: #2563EB;
-}
-
-.reset-container {
-  position: relative;
-}
-.reset-container:after {
-  content: "";
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563EB' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='11' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'%3E%3C/path%3E%3C/svg%3E");
-  opacity: 0.1;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 h1 {
-  font-weight: 600;
+  font-weight: 200;
   color: #1D4ED8;
-  margin-bottom: 30px;
-  font-size: 28px;
+  margin-bottom: 1.875rem;
+  font-size: 1.75rem;
   position: relative;
 }
 h1:after {
   content: "";
   position: absolute;
-  bottom: -10px;
+  bottom: -0.625rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 50px;
-  height: 3px;
+  width: 3.125rem;
+  height: 0.1875rem;
   background: linear-gradient(to right, #3B82F6, #1D4ED8);
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 }
 
-.container {
-  width: 100%;
-  max-width: 420px;
-  padding: 30px;
-  background-color: #FFFFFF;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  animation: fadeIn 0.6s ease-out;
-  position: relative;
-  overflow: hidden;
-}
-.container:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(to right, #2563EB, #3B82F6);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
+@layer base, components, utilities;
+@layer base {
+  /*! modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize */
+  /*
+  Document
+  ========
+  */
+  /**
+  Use a better box model (opinionated).
+  */
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
   }
-  to {
+  html {
+    /* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    line-height: 1.15;
+    /* 1. Correct the line height in all browsers. */
+    -webkit-text-size-adjust: 100%;
+    /* 2. Prevent adjustments of font size after orientation changes in iOS. */
+    tab-size: 4;
+    /* 3. Use a more readable tab size (opinionated). */
+  }
+  /*
+  Sections
+  ========
+  */
+  body {
+    margin: 0;
+    /* Remove the margin in all browsers. */
+  }
+  /*
+  Text-level semantics
+  ====================
+  */
+  /**
+  Add the correct font weight in Chrome and Safari.
+  */
+  b,
+  strong {
+    font-weight: bolder;
+  }
+  /**
+  1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+  2. Correct the odd 'em' font sizing in all browsers.
+  */
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    /* 1 */
+    font-size: 1em;
+    /* 2 */
+  }
+  /**
+  Add the correct font size in all browsers.
+  */
+  small {
+    font-size: 80%;
+  }
+  /**
+  Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+  */
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  /*
+  Tabular data
+  ============
+  */
+  /**
+  Correct table border color inheritance in Chrome and Safari. (https://issues.chromium.org/issues/40615503, https://bugs.webkit.org/show_bug.cgi?id=195016)
+  */
+  table {
+    border-color: currentcolor;
+  }
+  /*
+  Forms
+  =====
+  */
+  /**
+  1. Change the font styles in all browsers.
+  2. Remove the margin in Firefox and Safari.
+  */
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    /* 1 */
+    font-size: 100%;
+    /* 1 */
+    line-height: 1.15;
+    /* 1 */
+    margin: 0;
+    /* 2 */
+  }
+  /**
+  Correct the inability to style clickable types in iOS and Safari.
+  */
+  button,
+  [type=button],
+  [type=reset],
+  [type=submit] {
+    -webkit-appearance: button;
+  }
+  /**
+  Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+  */
+  legend {
+    padding: 0;
+  }
+  /**
+  Add the correct vertical alignment in Chrome and Firefox.
+  */
+  progress {
+    vertical-align: baseline;
+  }
+  /**
+  Correct the cursor style of increment and decrement buttons in Safari.
+  */
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  /**
+  1. Correct the odd appearance in Chrome and Safari.
+  2. Correct the outline style in Safari.
+  */
+  [type=search] {
+    -webkit-appearance: textfield;
+    /* 1 */
+    outline-offset: -2px;
+    /* 2 */
+  }
+  /**
+  Remove the inner padding in Chrome and Safari on macOS.
+  */
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  /**
+  1. Correct the inability to style clickable types in iOS and Safari.
+  2. Change font properties to 'inherit' in Safari.
+  */
+  ::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    /* 1 */
+    font: inherit;
+    /* 2 */
+  }
+  /*
+  Interactive
+  ===========
+  */
+  /*
+  Add the correct display in Chrome and Safari.
+  */
+  summary {
+    display: list-item;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter", sans-serif;
+}
+
+p,
+span {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+.h1 {
+  font-size: 2.5rem;
+}
+
+h2,
+.h2 {
+  font-size: 2rem;
+}
+
+h3,
+.h3 {
+  font-size: 1.75rem;
+}
+
+h4,
+.h4 {
+  font-size: 1.5rem;
+}
+
+h5,
+.h5 {
+  font-size: 1.25rem;
+}
+
+h6,
+.h6 {
+  font-size: 1rem;
+}
+
+.display-1 {
+  font-size: 5rem;
+}
+
+.display-2 {
+  font-size: 4.5rem;
+}
+
+.display-3 {
+  font-size: 4rem;
+}
+
+.display-4 {
+  font-size: 3.5rem;
+}
+
+.display-5 {
+  font-size: 3rem;
+}
+
+.display-6 {
+  font-size: 2.5rem;
+}
+
+@layer base {
+  :root {
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+    --primary-color-950: hsl(221.2121212121, 83.1932773109%, 8%);
+    --primary-color-900: hsl(221.2121212121, 83.1932773109%, 16%);
+    --primary-color-800: hsl(221.2121212121, 83.1932773109%, 24%);
+    --primary-color-700: hsl(221.2121212121, 83.1932773109%, 32%);
+    --primary-color-600: hsl(221.2121212121, 83.1932773109%, 40%);
+    --primary-color-500: hsl(221.2121212121, 83.1932773109%, 53.3333333333%);
+    --primary-color-400: hsl(221.2121212121, 83.1932773109%, 56%);
+    --primary-color-300: hsl(221.2121212121, 83.1932773109%, 64%);
+    --primary-color-200: hsl(221.2121212121, 83.1932773109%, 73%);
+    --primary-color-100: hsl(221.2121212121, 83.1932773109%, 82%);
+    --primary-color-50: hsl(221.2121212121, 83.1932773109%, 92%);
+    --primary-light-950: hsl(217.2192513369, 91.2195121951%, 8%);
+    --primary-light-900: hsl(217.2192513369, 91.2195121951%, 16%);
+    --primary-light-800: hsl(217.2192513369, 91.2195121951%, 24%);
+    --primary-light-700: hsl(217.2192513369, 91.2195121951%, 32%);
+    --primary-light-600: hsl(217.2192513369, 91.2195121951%, 40%);
+    --primary-light-500: hsl(217.2192513369, 91.2195121951%, 48%);
+    --primary-light-400: hsl(217.2192513369, 91.2195121951%, 59.8039215686%);
+    --primary-light-300: hsl(217.2192513369, 91.2195121951%, 64%);
+    --primary-light-200: hsl(217.2192513369, 91.2195121951%, 73%);
+    --primary-light-100: hsl(217.2192513369, 91.2195121951%, 82%);
+    --primary-light-50: hsl(217.2192513369, 91.2195121951%, 92%);
+    --primary-dark-950: hsl(224.2780748663, 76.3265306122%, 8%);
+    --primary-dark-900: hsl(224.2780748663, 76.3265306122%, 16%);
+    --primary-dark-800: hsl(224.2780748663, 76.3265306122%, 24%);
+    --primary-dark-700: hsl(224.2780748663, 76.3265306122%, 32%);
+    --primary-dark-600: hsl(224.2780748663, 76.3265306122%, 40%);
+    --primary-dark-500: hsl(224.2780748663, 76.3265306122%, 48.0392156863%);
+    --primary-dark-400: hsl(224.2780748663, 76.3265306122%, 56%);
+    --primary-dark-300: hsl(224.2780748663, 76.3265306122%, 64%);
+    --primary-dark-200: hsl(224.2780748663, 76.3265306122%, 73%);
+    --primary-dark-100: hsl(224.2780748663, 76.3265306122%, 82%);
+    --primary-dark-50: hsl(224.2780748663, 76.3265306122%, 92%);
+    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
+    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
+    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
+    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
+    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
+    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
+    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
+    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
+    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
+    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
+    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --bg-color-950: hsl(210, 20%, 8%);
+    --bg-color-900: hsl(210, 20%, 16%);
+    --bg-color-800: hsl(210, 20%, 24%);
+    --bg-color-700: hsl(210, 20%, 32%);
+    --bg-color-600: hsl(210, 20%, 40%);
+    --bg-color-500: hsl(210, 20%, 48%);
+    --bg-color-400: hsl(210, 20%, 56%);
+    --bg-color-300: hsl(210, 20%, 64%);
+    --bg-color-200: hsl(210, 20%, 73%);
+    --bg-color-100: hsl(210, 20%, 82%);
+    --bg-color-50: hsl(210, 20%, 98.0392156863%);
+    --card-bg-950: hsl(0, 0%, 8%);
+    --card-bg-900: hsl(0, 0%, 16%);
+    --card-bg-800: hsl(0, 0%, 24%);
+    --card-bg-700: hsl(0, 0%, 32%);
+    --card-bg-600: hsl(0, 0%, 40%);
+    --card-bg-500: hsl(0, 0%, 48%);
+    --card-bg-400: hsl(0, 0%, 56%);
+    --card-bg-300: hsl(0, 0%, 64%);
+    --card-bg-200: hsl(0, 0%, 73%);
+    --card-bg-100: hsl(0, 0%, 82%);
+    --card-bg-50: hsl(0, 0%, 100%);
+    --text-color-950: hsl(215, 27.9069767442%, 8%);
+    --text-color-900: hsl(215, 27.9069767442%, 16.862745098%);
+    --text-color-800: hsl(215, 27.9069767442%, 24%);
+    --text-color-700: hsl(215, 27.9069767442%, 32%);
+    --text-color-600: hsl(215, 27.9069767442%, 40%);
+    --text-color-500: hsl(215, 27.9069767442%, 48%);
+    --text-color-400: hsl(215, 27.9069767442%, 56%);
+    --text-color-300: hsl(215, 27.9069767442%, 64%);
+    --text-color-200: hsl(215, 27.9069767442%, 73%);
+    --text-color-100: hsl(215, 27.9069767442%, 82%);
+    --text-color-50: hsl(215, 27.9069767442%, 92%);
+    --text-muted-950: hsl(220, 8.9361702128%, 8%);
+    --text-muted-900: hsl(220, 8.9361702128%, 16%);
+    --text-muted-800: hsl(220, 8.9361702128%, 24%);
+    --text-muted-700: hsl(220, 8.9361702128%, 32%);
+    --text-muted-600: hsl(220, 8.9361702128%, 46.0784313725%);
+    --text-muted-500: hsl(220, 8.9361702128%, 48%);
+    --text-muted-400: hsl(220, 8.9361702128%, 56%);
+    --text-muted-300: hsl(220, 8.9361702128%, 64%);
+    --text-muted-200: hsl(220, 8.9361702128%, 73%);
+    --text-muted-100: hsl(220, 8.9361702128%, 82%);
+    --text-muted-50: hsl(220, 8.9361702128%, 92%);
+    --error-bg-950: hsl(0, 93.3333333333%, 8%);
+    --error-bg-900: hsl(0, 93.3333333333%, 16%);
+    --error-bg-800: hsl(0, 93.3333333333%, 24%);
+    --error-bg-700: hsl(0, 93.3333333333%, 32%);
+    --error-bg-600: hsl(0, 93.3333333333%, 40%);
+    --error-bg-500: hsl(0, 93.3333333333%, 48%);
+    --error-bg-400: hsl(0, 93.3333333333%, 56%);
+    --error-bg-300: hsl(0, 93.3333333333%, 64%);
+    --error-bg-200: hsl(0, 93.3333333333%, 73%);
+    --error-bg-100: hsl(0, 93.3333333333%, 82%);
+    --error-bg-50: hsl(0, 93.3333333333%, 94.1176470588%);
+    --error-text-950: hsl(0, 73.7089201878%, 8%);
+    --error-text-900: hsl(0, 73.7089201878%, 16%);
+    --error-text-800: hsl(0, 73.7089201878%, 24%);
+    --error-text-700: hsl(0, 73.7089201878%, 32%);
+    --error-text-600: hsl(0, 73.7089201878%, 41.7647058824%);
+    --error-text-500: hsl(0, 73.7089201878%, 48%);
+    --error-text-400: hsl(0, 73.7089201878%, 56%);
+    --error-text-300: hsl(0, 73.7089201878%, 64%);
+    --error-text-200: hsl(0, 73.7089201878%, 73%);
+    --error-text-100: hsl(0, 73.7089201878%, 82%);
+    --error-text-50: hsl(0, 73.7089201878%, 92%);
+    --error-border-950: hsl(0, 84.236453202%, 8%);
+    --error-border-900: hsl(0, 84.236453202%, 16%);
+    --error-border-800: hsl(0, 84.236453202%, 24%);
+    --error-border-700: hsl(0, 84.236453202%, 32%);
+    --error-border-600: hsl(0, 84.236453202%, 40%);
+    --error-border-500: hsl(0, 84.236453202%, 48%);
+    --error-border-400: hsl(0, 84.236453202%, 60.1960784314%);
+    --error-border-300: hsl(0, 84.236453202%, 64%);
+    --error-border-200: hsl(0, 84.236453202%, 73%);
+    --error-border-100: hsl(0, 84.236453202%, 82%);
+    --error-border-50: hsl(0, 84.236453202%, 92%);
+    --success-color-950: hsl(160.1183431953, 84.07960199%, 8%);
+    --success-color-900: hsl(160.1183431953, 84.07960199%, 16%);
+    --success-color-800: hsl(160.1183431953, 84.07960199%, 24%);
+    --success-color-700: hsl(160.1183431953, 84.07960199%, 39.4117647059%);
+    --success-color-600: hsl(160.1183431953, 84.07960199%, 40%);
+    --success-color-500: hsl(160.1183431953, 84.07960199%, 48%);
+    --success-color-400: hsl(160.1183431953, 84.07960199%, 56%);
+    --success-color-300: hsl(160.1183431953, 84.07960199%, 64%);
+    --success-color-200: hsl(160.1183431953, 84.07960199%, 73%);
+    --success-color-100: hsl(160.1183431953, 84.07960199%, 82%);
+    --success-color-50: hsl(160.1183431953, 84.07960199%, 92%);
+    --input-border-950: hsl(216, 12.1951219512%, 8%);
+    --input-border-900: hsl(216, 12.1951219512%, 16%);
+    --input-border-800: hsl(216, 12.1951219512%, 24%);
+    --input-border-700: hsl(216, 12.1951219512%, 32%);
+    --input-border-600: hsl(216, 12.1951219512%, 40%);
+    --input-border-500: hsl(216, 12.1951219512%, 48%);
+    --input-border-400: hsl(216, 12.1951219512%, 56%);
+    --input-border-300: hsl(216, 12.1951219512%, 64%);
+    --input-border-200: hsl(216, 12.1951219512%, 73%);
+    --input-border-100: hsl(216, 12.1951219512%, 83.9215686275%);
+    --input-border-50: hsl(216, 12.1951219512%, 92%);
+    --input-focus-bg-950: hsl(220, 100%, 8%);
+    --input-focus-bg-900: hsl(220, 100%, 16%);
+    --input-focus-bg-800: hsl(220, 100%, 24%);
+    --input-focus-bg-700: hsl(220, 100%, 32%);
+    --input-focus-bg-600: hsl(220, 100%, 40%);
+    --input-focus-bg-500: hsl(220, 100%, 48%);
+    --input-focus-bg-400: hsl(220, 100%, 56%);
+    --input-focus-bg-300: hsl(220, 100%, 64%);
+    --input-focus-bg-200: hsl(220, 100%, 73%);
+    --input-focus-bg-100: hsl(220, 100%, 82%);
+    --input-focus-bg-50: hsl(220, 100%, 97.0588235294%);
+  }
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--white);
+    color: var(--black);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  input {
+    border-radius: 0.375rem;
+    padding: 0.625rem 1rem;
+    border: solid thin currentColor;
+  }
+}
+@layer utilities {
+  .text-center {
+    text-align: center;
+  }
+  .h-1 {
+    height: 0.25rem;
+  }
+  .w-1 {
+    width: 0.25rem;
+  }
+  .m-1 {
+    margin: 0.25rem;
+  }
+  .p-1 {
+    padding: 0.25rem;
+  }
+  .radius-1 {
+    border-radius: 0.25rem;
+  }
+  .mt-1 {
+    margin-top: 0.25rem;
+  }
+  .pt-1 {
+    padding-top: 0.25rem;
+  }
+  .mb-1 {
+    margin-bottom: 0.25rem;
+  }
+  .pb-1 {
+    padding-bottom: 0.25rem;
+  }
+  .ml-1 {
+    margin-left: 0.25rem;
+  }
+  .pl-1 {
+    padding-left: 0.25rem;
+  }
+  .mr-1 {
+    margin-right: 0.25rem;
+  }
+  .pr-1 {
+    padding-right: 0.25rem;
+  }
+  .h-2 {
+    height: 0.5rem;
+  }
+  .w-2 {
+    width: 0.5rem;
+  }
+  .m-2 {
+    margin: 0.5rem;
+  }
+  .p-2 {
+    padding: 0.5rem;
+  }
+  .radius-2 {
+    border-radius: 0.5rem;
+  }
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
+  .pt-2 {
+    padding-top: 0.5rem;
+  }
+  .mb-2 {
+    margin-bottom: 0.5rem;
+  }
+  .pb-2 {
+    padding-bottom: 0.5rem;
+  }
+  .ml-2 {
+    margin-left: 0.5rem;
+  }
+  .pl-2 {
+    padding-left: 0.5rem;
+  }
+  .mr-2 {
+    margin-right: 0.5rem;
+  }
+  .pr-2 {
+    padding-right: 0.5rem;
+  }
+  .h-3 {
+    height: 0.75rem;
+  }
+  .w-3 {
+    width: 0.75rem;
+  }
+  .m-3 {
+    margin: 0.75rem;
+  }
+  .p-3 {
+    padding: 0.75rem;
+  }
+  .radius-3 {
+    border-radius: 0.75rem;
+  }
+  .mt-3 {
+    margin-top: 0.75rem;
+  }
+  .pt-3 {
+    padding-top: 0.75rem;
+  }
+  .mb-3 {
+    margin-bottom: 0.75rem;
+  }
+  .pb-3 {
+    padding-bottom: 0.75rem;
+  }
+  .ml-3 {
+    margin-left: 0.75rem;
+  }
+  .pl-3 {
+    padding-left: 0.75rem;
+  }
+  .mr-3 {
+    margin-right: 0.75rem;
+  }
+  .pr-3 {
+    padding-right: 0.75rem;
+  }
+  .h-4 {
+    height: 1rem;
+  }
+  .w-4 {
+    width: 1rem;
+  }
+  .m-4 {
+    margin: 1rem;
+  }
+  .p-4 {
+    padding: 1rem;
+  }
+  .radius-4 {
+    border-radius: 1rem;
+  }
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  .pt-4 {
+    padding-top: 1rem;
+  }
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  .pb-4 {
+    padding-bottom: 1rem;
+  }
+  .ml-4 {
+    margin-left: 1rem;
+  }
+  .pl-4 {
+    padding-left: 1rem;
+  }
+  .mr-4 {
+    margin-right: 1rem;
+  }
+  .pr-4 {
+    padding-right: 1rem;
+  }
+  .h-5 {
+    height: 1.25rem;
+  }
+  .w-5 {
+    width: 1.25rem;
+  }
+  .m-5 {
+    margin: 1.25rem;
+  }
+  .p-5 {
+    padding: 1.25rem;
+  }
+  .radius-5 {
+    border-radius: 1.25rem;
+  }
+  .mt-5 {
+    margin-top: 1.25rem;
+  }
+  .pt-5 {
+    padding-top: 1.25rem;
+  }
+  .mb-5 {
+    margin-bottom: 1.25rem;
+  }
+  .pb-5 {
+    padding-bottom: 1.25rem;
+  }
+  .ml-5 {
+    margin-left: 1.25rem;
+  }
+  .pl-5 {
+    padding-left: 1.25rem;
+  }
+  .mr-5 {
+    margin-right: 1.25rem;
+  }
+  .pr-5 {
+    padding-right: 1.25rem;
+  }
+  .h-6 {
+    height: 1.5rem;
+  }
+  .w-6 {
+    width: 1.5rem;
+  }
+  .m-6 {
+    margin: 1.5rem;
+  }
+  .p-6 {
+    padding: 1.5rem;
+  }
+  .radius-6 {
+    border-radius: 1.5rem;
+  }
+  .mt-6 {
+    margin-top: 1.5rem;
+  }
+  .pt-6 {
+    padding-top: 1.5rem;
+  }
+  .mb-6 {
+    margin-bottom: 1.5rem;
+  }
+  .pb-6 {
+    padding-bottom: 1.5rem;
+  }
+  .ml-6 {
+    margin-left: 1.5rem;
+  }
+  .pl-6 {
+    padding-left: 1.5rem;
+  }
+  .mr-6 {
+    margin-right: 1.5rem;
+  }
+  .pr-6 {
+    padding-right: 1.5rem;
+  }
+  .h-7 {
+    height: 1.75rem;
+  }
+  .w-7 {
+    width: 1.75rem;
+  }
+  .m-7 {
+    margin: 1.75rem;
+  }
+  .p-7 {
+    padding: 1.75rem;
+  }
+  .radius-7 {
+    border-radius: 1.75rem;
+  }
+  .mt-7 {
+    margin-top: 1.75rem;
+  }
+  .pt-7 {
+    padding-top: 1.75rem;
+  }
+  .mb-7 {
+    margin-bottom: 1.75rem;
+  }
+  .pb-7 {
+    padding-bottom: 1.75rem;
+  }
+  .ml-7 {
+    margin-left: 1.75rem;
+  }
+  .pl-7 {
+    padding-left: 1.75rem;
+  }
+  .mr-7 {
+    margin-right: 1.75rem;
+  }
+  .pr-7 {
+    padding-right: 1.75rem;
+  }
+  .h-8 {
+    height: 2rem;
+  }
+  .w-8 {
+    width: 2rem;
+  }
+  .m-8 {
+    margin: 2rem;
+  }
+  .p-8 {
+    padding: 2rem;
+  }
+  .radius-8 {
+    border-radius: 2rem;
+  }
+  .mt-8 {
+    margin-top: 2rem;
+  }
+  .pt-8 {
+    padding-top: 2rem;
+  }
+  .mb-8 {
+    margin-bottom: 2rem;
+  }
+  .pb-8 {
+    padding-bottom: 2rem;
+  }
+  .ml-8 {
+    margin-left: 2rem;
+  }
+  .pl-8 {
+    padding-left: 2rem;
+  }
+  .mr-8 {
+    margin-right: 2rem;
+  }
+  .pr-8 {
+    padding-right: 2rem;
+  }
+  .bg-primary-color {
+    background-color: var(--primary-color);
+  }
+  .border-primary-color {
+    border-color: var(--primary-color);
+  }
+  .bg-primary-light {
+    background-color: var(--primary-light);
+  }
+  .border-primary-light {
+    border-color: var(--primary-light);
+  }
+  .bg-primary-dark {
+    background-color: var(--primary-dark);
+  }
+  .border-primary-dark {
+    border-color: var(--primary-dark);
+  }
+  .bg-secondary-color {
+    background-color: var(--secondary-color);
+  }
+  .border-secondary-color {
+    border-color: var(--secondary-color);
+  }
+  .bg-bg-color {
+    background-color: var(--bg-color);
+  }
+  .border-bg-color {
+    border-color: var(--bg-color);
+  }
+  .bg-card-bg {
+    background-color: var(--card-bg);
+  }
+  .border-card-bg {
+    border-color: var(--card-bg);
+  }
+  .bg-text-color {
+    background-color: var(--text-color);
+  }
+  .border-text-color {
+    border-color: var(--text-color);
+  }
+  .bg-text-muted {
+    background-color: var(--text-muted);
+  }
+  .border-text-muted {
+    border-color: var(--text-muted);
+  }
+  .bg-error-bg {
+    background-color: var(--error-bg);
+  }
+  .border-error-bg {
+    border-color: var(--error-bg);
+  }
+  .bg-error-text {
+    background-color: var(--error-text);
+  }
+  .border-error-text {
+    border-color: var(--error-text);
+  }
+  .bg-error-border {
+    background-color: var(--error-border);
+  }
+  .border-error-border {
+    border-color: var(--error-border);
+  }
+  .bg-success-color {
+    background-color: var(--success-color);
+  }
+  .border-success-color {
+    border-color: var(--success-color);
+  }
+  .bg-input-border {
+    background-color: var(--input-border);
+  }
+  .border-input-border {
+    border-color: var(--input-border);
+  }
+  .bg-input-focus-bg {
+    background-color: var(--input-focus-bg);
+  }
+  .border-input-focus-bg {
+    border-color: var(--input-focus-bg);
+  }
+  .color-color-primary-color {
+    color: #2563EB;
+  }
+  .color-color-primary-light {
+    color: #3B82F6;
+  }
+  .color-color-primary-dark {
+    color: #1D4ED8;
+  }
+  .color-color-secondary-color {
+    color: #4B5563;
+  }
+  .color-color-bg-color {
+    color: #F9FAFB;
+  }
+  .color-color-card-bg {
+    color: #FFFFFF;
+  }
+  .color-color-text-color {
+    color: #1F2937;
+  }
+  .color-color-text-muted {
+    color: #6B7280;
+  }
+  .color-color-error-bg {
+    color: #FEE2E2;
+  }
+  .color-color-error-text {
+    color: #B91C1C;
+  }
+  .color-color-error-border {
+    color: #EF4444;
+  }
+  .color-color-success-color {
+    color: #10B981;
+  }
+  .color-color-input-border {
+    color: #D1D5DB;
+  }
+  .color-color-input-focus-bg {
+    color: #F0F5FF;
+  }
+  .color-color-primary {
+    color: #2563EB;
+  }
+  .color-color-secondary {
+    color: #4B5563;
+  }
+  .color-color-success {
+    color: #10B981;
+  }
+  .color-background-color-primary-color {
+    background-color: #2563EB;
+  }
+  .color-background-color-primary-light {
+    background-color: #3B82F6;
+  }
+  .color-background-color-primary-dark {
+    background-color: #1D4ED8;
+  }
+  .color-background-color-secondary-color {
+    background-color: #4B5563;
+  }
+  .color-background-color-bg-color {
+    background-color: #F9FAFB;
+  }
+  .color-background-color-card-bg {
+    background-color: #FFFFFF;
+  }
+  .color-background-color-text-color {
+    background-color: #1F2937;
+  }
+  .color-background-color-text-muted {
+    background-color: #6B7280;
+  }
+  .color-background-color-error-bg {
+    background-color: #FEE2E2;
+  }
+  .color-background-color-error-text {
+    background-color: #B91C1C;
+  }
+  .color-background-color-error-border {
+    background-color: #EF4444;
+  }
+  .color-background-color-success-color {
+    background-color: #10B981;
+  }
+  .color-background-color-input-border {
+    background-color: #D1D5DB;
+  }
+  .color-background-color-input-focus-bg {
+    background-color: #F0F5FF;
+  }
+  .color-background-color-primary {
+    background-color: #2563EB;
+  }
+  .color-background-color-secondary {
+    background-color: #4B5563;
+  }
+  .color-background-color-success {
+    background-color: #10B981;
+  }
+  .text-font-size-1 {
+    font-size: 2.5rem;
+  }
+  .text-font-size-2 {
+    font-size: 2rem;
+  }
+  .text-font-size-3 {
+    font-size: 1.75rem;
+  }
+  .text-font-size-4 {
+    font-size: 1.5rem;
+  }
+  .text-font-size-5 {
+    font-size: 1.25rem;
+  }
+  .text-font-size-6 {
+    font-size: 1rem;
+  }
+  .text-font-weight-lighter {
+    font-weight: lighter;
+  }
+  .text-font-weight-normal {
+    font-weight: normal;
+  }
+  .text-font-weight-bold {
+    font-weight: bold;
+  }
+  .text-font-weight-bolder {
+    font-weight: bolder;
+  }
+}
+@layer components {
+  .button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, #2563EB, #3B82F6);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .button:hover {
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+  }
+  .button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+  }
+  .button:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.6s ease;
+  }
+  .button:active:after {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%) scale(50);
+    transition: all 0s;
   }
 }
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 6px;
+  margin-bottom: 0.375rem;
 }
 
 .input-wrapper i {
   position: absolute;
-  left: 15px;
+  left: 0.9375rem;
   top: 50%;
   transform: translateY(-50%);
   color: #6B7280;
-  font-size: 18px;
+  font-size: 1.125rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
 }
 
 .input-field {
   width: 100%;
-  padding: 14px;
-  border: 1.5px solid #D1D5DB;
+  padding: 0.875rem;
+  border: 0.09375rem solid #D1D5DB;
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 400;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #FFFFFF;
   color: #1F2937;
+  transform-origin: left;
 }
 .input-field::placeholder {
   color: rgb(132.9914893617, 139.6638297872, 153.0085106383);
@@ -192,7 +3059,8 @@ h1:after {
   border-color: #2563EB;
   background-color: #F0F5FF;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 0 0.1875rem rgba(37, 99, 235, 0.15);
+  animation: pulse 1s;
 }
 .input-field:focus + i {
   color: #2563EB;
@@ -201,52 +3069,9 @@ h1:after {
 .forgotPwd {
   display: flex;
   justify-content: flex-end;
-  margin-top: -10px;
-  margin-bottom: 5px;
-  font-size: 14px;
-}
-
-.button {
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(to right, #2563EB, #3B82F6);
-  color: white;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
-  margin-top: 10px;
-  position: relative;
-  overflow: hidden;
-}
-.button:hover {
-  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
-}
-.button:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
-}
-.button:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  border-radius: 100%;
-  transform: translate(-50%, -50%) scale(1);
-  transition: all 0.6s ease;
-}
-.button:active:after {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(50);
-  transition: all 0s;
+  margin-top: -0.625rem;
+  margin-bottom: 0.3125rem;
+  font-size: 0.875rem;
 }
 
 .link {
@@ -255,13 +3080,13 @@ h1:after {
   font-weight: 500;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  padding-bottom: 2px;
+  padding-bottom: 0.125rem;
 }
 .link:after {
   content: "";
   position: absolute;
   width: 0;
-  height: 1.5px;
+  height: 0.09375rem;
   bottom: 0;
   left: 0;
   background-color: #2563EB;
@@ -275,6 +3100,94 @@ h1:after {
   width: 100%;
 }
 
+.forgot-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.form-info {
+  color: #6B7280;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 0.3125rem;
+  margin-bottom: 0.625rem;
+  background-color: rgba(59, 130, 246, 0.05);
+  border-radius: 10px;
+  padding: 0.75rem 0.9375rem;
+  border-left: 0.1875rem solid #3B82F6;
+}
+
+.simple-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+.simple-form label {
+  color: #1F2937;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  margin-bottom: 0.3125rem;
+  display: block;
+}
+.simple-form input[type=email] {
+  width: 100%;
+  padding: 0.875rem;
+  padding-left: 2.8125rem;
+  border: 0.09375rem solid #D1D5DB;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #FFFFFF;
+  color: #1F2937;
+}
+.simple-form input[type=email]:focus {
+  border-color: #2563EB;
+  background-color: #F0F5FF;
+  outline: none;
+  box-shadow: 0 0 0 0.1875rem rgba(37, 99, 235, 0.15);
+}
+.simple-form .input-container {
+  position: relative;
+}
+.simple-form .input-container:before {
+  content: "\f0e0";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0.9375rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6B7280;
+  font-size: 1.125rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+.simple-form .input-container:focus-within:before {
+  color: #2563EB;
+}
+
+.reset-container {
+  position: relative;
+}
+.reset-container:after {
+  content: "";
+  position: absolute;
+  top: 1.875rem;
+  right: 1.875rem;
+  width: 3.75rem;
+  height: 3.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563EB' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='11' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'%3E%3C/path%3E%3C/svg%3E");
+  opacity: 0.1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
 .error-list {
   padding: 0;
   margin: 0;
@@ -282,15 +3195,15 @@ h1:after {
 .error-list li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
+  gap: 0.625rem;
+  padding: 0.75rem 1rem;
   background-color: #FEE2E2;
   color: #B91C1C;
-  border-left: 4px solid #EF4444;
+  border-left: 0.25rem solid #EF4444;
   border-radius: 10px;
-  font-size: 14px;
-  margin-bottom: 8px;
-  box-shadow: 0 2px 5px rgba(185, 28, 28, 0.1);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 0.125rem 0.3125rem rgba(185, 28, 28, 0.1);
 }
 .error-list li:before {
   content: "\f071";
@@ -299,44 +3212,73 @@ h1:after {
   color: #B91C1C;
 }
 
-.text-center {
-  text-align: center;
-  margin-top: 15px;
-  color: #6B7280;
-  font-size: 15px;
-}
-.text-center .link {
-  font-weight: 600;
-  margin-left: 5px;
-}
-
-.input-field {
-  transform-origin: left;
-}
-.input-field:focus {
-  animation: pulse 1s;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 5px rgba(37, 99, 235, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
-  }
-}
-@media (max-width: 480px) {
+@layer components {
   .container {
-    padding: 30px 20px;
+    width: 100%;
+    max-width: 26.25rem;
+    padding: 1.875rem;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.6s ease-out;
+    position: relative;
+    overflow: hidden;
   }
-  h1 {
-    font-size: 24px;
+  .container:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.3125rem;
+    background: linear-gradient(to right, #2563EB, #3B82F6);
   }
-  .button {
-    padding: 13px;
+  .text-center {
+    text-align: center;
+    margin-top: 0.9375rem;
+    color: #6B7280;
+    font-size: 0.9375rem;
+  }
+  .text-center .link {
+    font-weight: 600;
+    margin-left: 0.3125rem;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 0.3125rem rgba(37, 99, 235, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    }
+  }
+  @media screen and (min-width: 576px) {
+    margin: auto;
+    max-width: calc(576px - 4rem);
+  }
+  @media screen and (min-width: 768px) {
+    max-width: calc(768px - 4rem);
+  }
+  @media screen and (min-width: 992px) {
+    max-width: calc(992px - 4rem);
+  }
+  @media screen and (min-width: 1200px) {
+    max-width: calc(1200px - 4rem);
+  }
+  @media screen and (min-width: 1400px) {
+    max-width: calc(1400px - 4rem);
   }
 }
 

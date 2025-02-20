@@ -9,9 +9,9 @@ class HomeController
 {
     public static function index()
     {
-        if (empty($_SESSION["user"])) {
-            header("Location: /login");
-            return;
+        if (!empty($_SESSION["user"]) && $_SERVER["REQUEST_URI"] !== "/") {
+            header("Location: /");
+            exit;
         }
         $user = unserialize($_SESSION["user"]);
         $groupes = GroupModel::getAllGroupeLinked($user->getId());

@@ -1,79 +1,81 @@
-// Colors
-
 @use "sass:color";
 @use "sass:map";
 
+// Définition des couleurs sous forme de map
 $colors: (
-	"red": #dc3545,
-	"grey": #6c757d,
-	"blue": #0d6efd,
-	"white": #fff,
-	"black": #000,
-	"purple": #c026d3,
-	"yellow": #f7f023,
-	"green": #09cb2c,
-	"primary": #0d6efd,
-	"secondary": #6c757d,
-	"accent": #dc3545,
-	"text-color": #3f3f46,
-	"shadow-color": rgba(0, 0, 0, 0.1),
-	// pour l'exo...
-	"neutral": #f8f9fa,
+  "primary-color": #2563EB,
+  "primary-light": #3B82F6,
+  "primary-dark": #1D4ED8,
+  "secondary-color": #4B5563,
+  "bg-color": #F9FAFB,
+  "card-bg": #FFFFFF,
+  "text-color": #1F2937,
+  "text-muted": #6B7280,
+  "error-bg": #FEE2E2,
+  "error-text": #B91C1C,
+  "error-border": #EF4444,
+  "success-color": #10B981,
+  "input-border": #D1D5DB,
+  "input-focus-bg": #F0F5FF
 );
 
-
-// Theme colors
-
-$primary: map.get($colors, "primary");
-$secondary: map.get($colors, "secondary");
-$success: map.get($colors, "green");
-$info: map.get($colors, "blue");
-$warning: map.get($colors, "yellow");
-$danger: map.get($colors, "red");
-$light: map.get($colors, "white");
-$dark: map.get($colors, "black");
-
+// Extraction des couleurs de la map en variables individuelles
+$primary-color: map.get($colors, "primary-color");
+$primary-light: map.get($colors, "primary-light");
+$primary-dark: map.get($colors, "primary-dark");
+$secondary-color: map.get($colors, "secondary-color");
+$bg-color: map.get($colors, "bg-color");
+$card-bg: map.get($colors, "card-bg");
+$text-color: map.get($colors, "text-color");
+$text-muted: map.get($colors, "text-muted");
+$error-bg: map.get($colors, "error-bg");
+$error-text: map.get($colors, "error-text");
+$error-border: map.get($colors, "error-border");
+$success-color: map.get($colors, "success-color");
+$input-border: map.get($colors, "input-border");
+$input-focus-bg: map.get($colors, "input-focus-bg");
 
 $theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "success": $success,
-  "info": $info,
-  "warning": $warning,
-  "danger": $danger,
-  "light": $light,
-  "dark": $dark,
+  "primary": $primary-color,
+  "secondary": $secondary-color,
+  "success": $success-color,
 );
 
-// Shades
 
+// Variables supplémentaires qui ne sont pas des couleurs
+$box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+$border-radius: 12px;
+$input-radius: 10px;
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+
+
+// Shades
 $shades: (
-	950: 8%,
-	900: 16%,
-	800: 24%,
-	700: 32%,
-	600: 40%,
-	500: 48%,
-	400: 56%,
-	300: 64%,
-	200: 73%,
-	100: 82%,
-	50: 92%,
+  950: 8%,
+  900: 16%,
+  800: 24%,
+  700: 32%,
+  600: 40%,
+  500: 48%,
+  400: 56%,
+  300: 64%,
+  200: 73%,
+  100: 82%,
+  50: 92%,
 );
 
 // Breakpoints
-
 $breakpoints: (
-	"sm": 576px,
-	"md": 768px,
-	"lg": 992px,
-	"xl": 1200px,
-	"xxl": 1400px,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1400px,
 );
 
-
 // Spacing
-
 $spacer: 1rem;
 $spacers: (
   0: 0,
@@ -84,9 +86,7 @@ $spacers: (
   5: $spacer * 3,
 );
 
-
 // Icons font sizes
-
 $icons-font-sizes: (
   "10": 10px,
   "12": 12px,
@@ -101,7 +101,6 @@ $icons-font-sizes: (
 );
 
 // Typography
-
 $font-size-base: 1rem;
 $h1-font-size: $font-size-base * 2.5;
 $h2-font-size: $font-size-base * 2;
@@ -119,7 +118,6 @@ $letter-font-sizes: (
 );
 
 // Display font sizes
-
 $display-font-sizes: (
   1: 5rem,
   2: 4.5rem,
@@ -129,34 +127,26 @@ $display-font-sizes: (
   6: 2.5rem,
 );
 
-
-
 // Color utilities
-
 $color-utilities: (
-	"color": (
-		color,
-		"text",
-		map.merge($colors, $theme-colors),
-	),
-	"background-color": (
-		background-color,
-		"bg",
-		map.merge($colors, $theme-colors),
-	),
+  "color": (color,
+    "text",
+    map.merge($colors, $theme-colors),
+  ),
+  "background-color": (background-color,
+    "bg",
+    map.merge($colors, $theme-colors),
+  ),
 );
 
 $text-utilities: (
-  "font-size": (
-    font-size,
+  "font-size": (font-size,
     "font-size",
     $letter-font-sizes,
   ),
-  "font-weight": (
-    font-weight,
+  "font-weight": (font-weight,
     "font-weight",
-    (
-      "lighter": lighter,
+    ("lighter": lighter,
       "normal": normal,
       "bold": bold,
       "bolder": bolder,

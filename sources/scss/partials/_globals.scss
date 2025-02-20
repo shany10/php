@@ -1,5 +1,6 @@
 @use "fonts";
 @use "variables" as v;
+@use "mixins" as m;
 @use "sass:color";
 @use "functions" as f;
 @layer base {
@@ -37,6 +38,12 @@
 		font-family: fonts.$primary-font;
 		background-color: var(--white);
 		color: var(--black);
+		margin: 0;
+		min-height: 100vh;
+		@include m.flex-center;
+
+
+
 	}
 
 	input {

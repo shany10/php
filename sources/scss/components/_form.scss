@@ -1,0 +1,67 @@
+@use "../partials/variables" as v;
+@use "../partials/functions" as f;
+
+
+// Formulaire de connexion
+.login-form {
+   display: flex;
+   flex-direction: column;
+   gap: f.rem(10);
+}
+
+// Champs de formulaire avec icône
+.input-wrapper {
+   position: relative;
+   display: flex;
+   align-items: center;
+   margin-bottom: f.rem(6);
+}
+
+.input-wrapper i {
+   position: absolute;
+   left: f.rem(15);
+   top: 50%;
+   transform: translateY(-50%);
+   color: v.$text-muted;
+   font-size: f.rem(18);
+   transition: v.$transition;
+   z-index: 1;
+}
+
+.input-field {
+   width: 100%;
+   padding: f.rem(14);
+   border: f.rem(1.5) solid v.$input-border;
+   border-radius: v.$input-radius;
+   font-size: f.rem(15);
+   font-weight: 400;
+   transition: v.$transition;
+   background-color: v.$card-bg;
+   color: v.$text-color;
+   transform-origin: left;
+
+   &::placeholder {
+      color: lighten(v.$text-muted, 10%);
+      font-weight: 300;
+   }
+
+   &:focus {
+      border-color: v.$primary-color;
+      background-color: v.$input-focus-bg;
+      outline: none;
+      box-shadow: 0 0 0 f.rem(3) rgba(v.$primary-color, 0.15);
+      animation: pulse 1s;
+
+      &+i {
+         color: v.$primary-color;
+      }
+   }
+}
+
+.forgotPwd {
+   display: flex;
+   justify-content: flex-end;
+   margin-top: f.rem(-10);
+   margin-bottom: f.rem(5);
+   font-size: f.rem(14);
+}
