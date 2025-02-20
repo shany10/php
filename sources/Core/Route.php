@@ -44,4 +44,3 @@ $router->post("/addUserToGroupe", GroupeController::class, "addUserToGroupe");
 $router->post("/deleteGroupe", GroupeController::class, "delete");
 $router->get("/logout", LoginController::class, "logout");
 
-// die();

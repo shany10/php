@@ -7,7 +7,52 @@
    display: flex;
    flex-direction: column;
    gap: f.rem(10);
+   width: f.rem(420);
+   padding: f.rem(30);
+   background-color: v.$card-bg;
+   border-radius: v.$border-radius;
+   box-shadow: v.$box-shadow;
+   animation: fadeIn 0.6s ease-out;
+   position: relative;
+   overflow: hidden;
+
+   &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: f.rem(5);
+      background: linear-gradient(to right, v.$primary-color, v.$primary-light);
+   }
 }
+
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(f.rem(-20));
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+@keyframes pulse {
+   0% {
+      box-shadow: 0 0 0 0 rgba(v.$primary-color, 0.4);
+   }
+
+   70% {
+      box-shadow: 0 0 0 f.rem(5) rgba(v.$primary-color, 0);
+   }
+
+   100% {
+      box-shadow: 0 0 0 0 rgba(v.$primary-color, 0);
+   }
+}
+
 
 // Champs de formulaire avec icône
 .input-wrapper {
@@ -18,6 +63,7 @@
 }
 
 .input-wrapper i {
+   width: 100%;
    position: absolute;
    left: f.rem(15);
    top: 50%;

@@ -1,9 +1,10 @@
 <div class="container">
-    <h1 class="text-center">Créer un compte</h1>
 
 
 
     <form action="/register" method="POST" class="login-form">
+        <h1 class="text-center">Créer un compte</h1>
+
         <div class="input-wrapper">
             <i class="fas fa-user"></i>
             <input
@@ -78,9 +79,10 @@
             </ul>
         <?php endif; ?>
         <button type="submit" class="button">S'inscrire</button>
+        <p class="text-center">
+            Déjà un compte ?
+            <a href="/login" class="link">Connectez-vous ici</a>.
+        </p>
     </form>
-    <p class="text-center">
-        Déjà un compte ?
-        <a href="/login" class="link">Connectez-vous ici</a>.
-    </p>
+
 </div>
