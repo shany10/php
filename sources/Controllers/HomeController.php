@@ -9,8 +9,8 @@ class HomeController
 {
     public static function index()
     {
-        if (!empty($_SESSION["user"]) && $_SERVER["REQUEST_URI"] !== "/") {
-            header("Location: /");
+        if (empty($_SESSION["user"])) {
+            header("Location: /login");
             exit;
         }
         $user = unserialize($_SESSION["user"]);
