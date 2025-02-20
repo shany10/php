@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Core\View;
 use App\Models\UserModel;
 use App\Validator\DataPostValidator;
-use App\Core\QueryBuilder;
 
 class LoginController
 {
@@ -13,10 +12,9 @@ class LoginController
     {
 
         if (!empty($_SESSION["user"])) {
-            header("Location: /");
+            header("Location: /home");
             exit;
         }
-
 
         $response = DataPostValidator::validate(
             $_POST,
@@ -47,7 +45,7 @@ class LoginController
         }
 
         $view = new View("User/login.php", "front.php");
-        $view->addData("title", "Login");
+        $view->addData("title", "Connexion");
         $view->addData('errors', $response["msg"]);
         return;
     }

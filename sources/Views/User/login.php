@@ -1,9 +1,7 @@
 <div class="container">
-    <h2 class="text-center">Se connecter</h2>
-
-
-
     <form method="post" action="/login" class="login-form">
+        <h1 class="text-center">Se connecter</h1>
+
         <div class="input-wrapper">
             <i class="fas fa-envelope"></i>
             <input
@@ -39,11 +37,10 @@
         </div>
 
         <button type="submit" class="button">Se connecter</button>
+        <p class="text-center">
+            Pas encore de compte ?
+            <a href="/register" class="link">Inscrivez-vous ici</a>.
+        </p>
     </form>
-    <p class="text-center">
-        Pas encore de compte ?
-        <a href="/register" class="link">Inscrivez-vous ici</a>.
-    </p>
-
 
 </div>

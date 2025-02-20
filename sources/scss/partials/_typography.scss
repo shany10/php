@@ -1,0 +1,24 @@
+@use "functions" as f;
+@use "variables" as v;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+h1 {
+   font-weight: 200;
+   color: v.$primary-dark;
+   margin-bottom: f.rem(30);
+   font-size: f.rem(28);
+   position: relative;
+
+   &:after {
+      content: '';
+      position: absolute;
+      bottom: f.rem(-10);
+      left: 50%;
+      transform: translateX(-50%);
+      width: f.rem(50);
+      height: f.rem(3);
+      background: linear-gradient(to right, v.$primary-light, v.$primary-dark);
+      border-radius: f.rem(5);
+   }
+}

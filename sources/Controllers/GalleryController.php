@@ -19,5 +19,6 @@ class GalleryController
         }
         $view = new View("Pictures/gallery.php", "front.php");
         $view->addData("pictures", $pictures);
+        $view->addData("title", "Gallery");
     }
 }

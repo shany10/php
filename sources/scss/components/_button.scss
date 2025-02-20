@@ -1,49 +1,51 @@
+@use "../partials/variables" as v;
 @use "../partials/functions" as f;
-@use "../partials/mixins" as m;
+
 @layer components {
-	body .button {
-		@include m.resetA;
-		@include m.resetButton;
-		padding: f.rem(10) f.rem(16);
-		display: inline-block;
-		background-color: var(--black);
-		color: var(--white);
-		font-size: f.rem(16);
-		line-height: f.rem(18);
+	.button {
+		width: 100%;
+		padding: 15px;
+		background: linear-gradient(to right, v.$primary-color, v.$primary-light);
+		color: white;
+		border-radius: v.$input-radius;
+		border: none;
+		cursor: pointer;
+		font-size: 17px;
 		font-weight: 600;
-		border-radius: f.rem(6);
-		transition: all 0.3s;
+		letter-spacing: 0.5px;
+		transition: v.$transition;
+		box-shadow: 0 4px 10px rgba(v.$primary-color, 0.3);
+		margin-top: 10px;
+		position: relative;
+		overflow: hidden;
 
 		&:hover {
-			background-color: var(--black-hover);
+			box-shadow: 0 6px 15px rgba(v.$primary-color, 0.4);
 		}
-		// classes modificatrices de couleur
-		&--primary {
-			background-color: var(--blue-500);
-			&:hover {
-				background-color: var(--blue-400);
-			}
+
+		&:active {
+			transform: translateY(1px);
+			box-shadow: 0 2px 8px rgba(v.$primary-color, 0.3);
 		}
-		&--secondary {
-			background-color: var(--grey-500);
-			&:hover {
-				background-color: var(--grey-400);
-			}
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 5px;
+			height: 5px;
+			background: rgba(255, 255, 255, 0.5);
+			opacity: 0;
+			border-radius: 100%;
+			transform: translate(-50%, -50%) scale(1);
+			transition: all 0.6s ease;
 		}
-		&--danger {
-			background-color: var(--red-500);
-			&:hover {
-				background-color: var(--red-400);
-			}
-		}
-		// classes modificatrices de taille
-		&--lg {
-			padding: f.rem(16) f.rem(24);
-		}
-		&--sm {
-			padding: f.rem(8) f.rem(12);
-			font-size: f.rem(14);
-			line-height: f.rem(16);
+
+		&:active:after {
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(50);
+			transition: all 0s;
 		}
 	}
 }

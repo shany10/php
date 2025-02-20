@@ -1,9 +1,17 @@
-<h2>Réinitialisation du mot de passe</h2>
-<form method="POST">
-   <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
-
-   <label>Nouveau mot de passe :</label>
-   <input type="password" name="new_password" required>
-
-   <button type="submit">Réinitialiser</button>
-</form>
+<div class="container reset-container">
+   <h1 class="text-center">Réinitialisation du mot de passe</h1>
+   <form method="POST" class="login-form">
+      <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
+      <div class="input-wrapper">
+         <i class="fas fa-envelope"></i>
+         <input
+            type="password"
+            id="password"
+            name="new_password"
+            class="input-field"
+            placeholder="Entrez votre nouveau mot de passe"
+            required>
+      </div>
+      <button type="submit" class="button">Réinitialiser</button>
+   </form>
+</div>

@@ -18,9 +18,6 @@ $router->get("/home", HomeController::class, "index");
 $router->get("/register", RegisterController::class, "index");
 $router->post("/register", RegisterController::class, "index");
 
-$router->get("/", LoginController::class, "index");
-$router->post("/", LoginController::class, "index");
-
 $router->get("/login", LoginController::class, "index");
 $router->post("/login", LoginController::class, "index");
 
@@ -47,4 +44,3 @@ $router->post("/addUserToGroupe", GroupeController::class, "addUserToGroupe");
 $router->post("/deleteGroupe", GroupeController::class, "delete");
 $router->get("/logout", LoginController::class, "logout");
 
-// die();

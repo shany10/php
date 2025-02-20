@@ -1,4 +1,5 @@
 <h2>Galerie du groupe</h2>
+<a href="/home">HOME</a>
 <?php if (!empty($pictures)): ?>
     <div class="gallery">
         <?php foreach ($pictures as $picture): ?>

@@ -1,26 +1,9 @@
 <div class="container">
-    <h2 class="text-center">Créer un compte</h2>
 
-    <?php if (!empty($errorse)): ?>
-        <ul class="error-list">
-            <?php foreach ($errors as $error): ?>
-                <li><?= htmlspecialchars($error) ?></li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
+
 
     <form action="/register" method="POST" class="login-form">
-        <div class="input-wrapper">
-            <i class="fas fa-envelope"></i>
-            <input
-                type="email"
-                name="email"
-                id="email"
-                class="input-field"
-                required
-                placeholder="Votre email"
-                value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
-        </div>
+        <h1 class="text-center">Créer un compte</h1>
 
         <div class="input-wrapper">
             <i class="fas fa-user"></i>
@@ -33,7 +16,6 @@
                 placeholder="Prénom"
                 value="<?= htmlspecialchars($_POST['firstname'] ?? '') ?>">
         </div>
-
         <div class="input-wrapper">
             <i class="fas fa-user"></i>
             <input
@@ -45,7 +27,6 @@
                 placeholder="Nom"
                 value="<?= htmlspecialchars($_POST['lastname'] ?? '') ?>">
         </div>
-
         <div class="input-wrapper">
             <i class="fas fa-globe"></i>
             <input
@@ -57,7 +38,17 @@
                 placeholder="Pays"
                 value="<?= htmlspecialchars($_POST['country'] ?? '') ?>">
         </div>
-
+        <div class="input-wrapper">
+            <i class="fas fa-envelope"></i>
+            <input
+                type="email"
+                name="email"
+                id="email"
+                class="input-field"
+                required
+                placeholder="Votre email"
+                value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+        </div>
         <div class="input-wrapper">
             <i class="fas fa-lock"></i>
             <input
@@ -69,7 +60,6 @@
                 placeholder="Mot de passe"
                 minlength="6">
         </div>
-
         <div class="input-wrapper">
             <i class="fas fa-lock"></i>
             <input
@@ -81,16 +71,18 @@
                 placeholder="Confirmez le mot de passe"
                 minlength="6">
         </div>
-
+        <?php if (!empty($errors)): ?>
+            <ul class="error-list">
+                <?php foreach ($errors as $error): ?>
+                    <li><?= htmlspecialchars($error) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
         <button type="submit" class="button">S'inscrire</button>
+        <p class="text-center">
+            Déjà un compte ?
+            <a href="/login" class="link">Connectez-vous ici</a>.
+        </p>
     </form>
 
-    <p class="text-center">
-        Déjà un compte ?
-        <a href="/login" class="link">Connectez-vous ici</a>.
-    </p>
-
-    <p class="text-center">
-        <a href="/" class="link">Accueil</a>
-    </p>
 </div>

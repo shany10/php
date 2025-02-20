@@ -1,0 +1,31 @@
+@use "../partials/variables" as v;
+@use "../partials/functions" as f;
+
+.link {
+   color: v.$primary-color;
+   text-decoration: none;
+   font-weight: 500;
+   transition: v.$transition;
+   position: relative;
+   padding-bottom: f.rem(2);
+
+   &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: f.rem(1.5);
+      bottom: 0;
+      left: 0;
+      background-color: v.$primary-color;
+      transition: width 0.3s ease;
+   }
+
+   &:hover {
+      color: v.$primary-dark;
+      text-decoration: none;
+
+      &:after {
+         width: 100%;
+      }
+   }
+}

@@ -11,7 +11,7 @@ class HomeController
     {
         if (empty($_SESSION["user"])) {
             header("Location: /login");
-            return;
+            exit;
         }
         $user = unserialize($_SESSION["user"]);
         $groupes = GroupModel::getAllGroupeLinked($user->getId());
