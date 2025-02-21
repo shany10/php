@@ -1,5 +1,7 @@
 @use "../partials/mixins" as m;
 
-ol {
-    @include m.resetList;
+@layer components {
+    ol {
+        @include m.resetList;
+    }
 }

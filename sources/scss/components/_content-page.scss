@@ -1,7 +1,15 @@
 @use "../partials/functions" as f;
 @use "../partials/variables" as v;
 @use "sass:color";
-.content-page {
-    width: 50%;
-    padding-inline: f.rem(12);
+
+@layer components {
+    .content-page {
+        width: 50%;
+        padding-inline: f.rem(12);
+    }
+    @media screen and (max-width: 800px) {
+        .content-page {
+            width: 80%;
+        }   
+    }
 }

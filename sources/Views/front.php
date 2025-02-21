@@ -13,7 +13,7 @@
         $_SERVER["REQUEST_URI"] != "/login" &&
         $_SERVER["REQUEST_URI"] != "/register" &&
         $_SERVER["REQUEST_URI"] != "/forgotPassword" &&
-        $_SERVER["REQUEST_URI"] != "/resetPassword" &&
+        !strpos($_SERVER["REQUEST_URI"], "/resetPassword") &&
         $_SERVER["REQUEST_URI"] != "/verify"
     ): ?>
         <?php include "./Views/Compenent/navbar.php"; ?>
