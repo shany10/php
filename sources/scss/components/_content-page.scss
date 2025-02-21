@@ -1,6 +1,7 @@
 @use "../partials/functions" as f;
 @use "../partials/variables" as v;
 @use "sass:color";
+
 .content-page {
     width: 50%;
     padding-inline: f.rem(12);

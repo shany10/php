@@ -3944,4 +3944,19 @@ ol {
   margin-inline-end: 0.5rem;
 }
 
+.gallery .photo {
+  display: flex;
+  justify-content: center;
+  border-bottom: solid 0.0625rem rgb(160.770212766, 165.9234042553, 176.229787234);
+  padding-bottom: 0.875rem;
+  margin-top: 0.875rem;
+}
+.gallery .photo img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 31.25rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /*# sourceMappingURL=main.css.map */

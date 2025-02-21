@@ -10,7 +10,7 @@
 
             <label for="groupe">Choisissez un groupe :</label>
             <select name="groupe" required>
-                <?php foreach ($groups as $group): ?>
+                <?php foreach ($groupes as $group): ?>
                     <option value="<?= $group['id'] ?>"><?= htmlspecialchars($group['group_name']) ?></option>
                 <?php endforeach; ?>
                 <option value="0">Aucun groupe</option>
