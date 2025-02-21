@@ -208,6 +208,17 @@ h6 {
   font-style: italic;
 }
 
+@media (prefers-color-scheme: dark) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+  }
+}
 p,
 span {
   font-family: "Roboto", sans-serif;
@@ -302,17 +313,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -467,17 +478,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -632,17 +643,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -797,17 +808,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -962,17 +973,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -1127,17 +1138,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -1292,17 +1303,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -1457,17 +1468,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -1622,17 +1633,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -1787,17 +1798,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -1952,17 +1963,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -2117,17 +2128,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -2282,17 +2293,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -2447,17 +2458,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -2612,17 +2623,17 @@ h6,
     --primary-dark-200: hsl(107.619047619, 30.7317073171%, 73%);
     --primary-dark-100: hsl(107.619047619, 30.7317073171%, 82%);
     --primary-dark-50: hsl(107.619047619, 30.7317073171%, 92%);
-    --secondary-color-950: hsl(215, 13.7931034483%, 8%);
-    --secondary-color-900: hsl(215, 13.7931034483%, 16%);
-    --secondary-color-800: hsl(215, 13.7931034483%, 24%);
-    --secondary-color-700: hsl(215, 13.7931034483%, 34.1176470588%);
-    --secondary-color-600: hsl(215, 13.7931034483%, 40%);
-    --secondary-color-500: hsl(215, 13.7931034483%, 48%);
-    --secondary-color-400: hsl(215, 13.7931034483%, 56%);
-    --secondary-color-300: hsl(215, 13.7931034483%, 64%);
-    --secondary-color-200: hsl(215, 13.7931034483%, 73%);
-    --secondary-color-100: hsl(215, 13.7931034483%, 82%);
-    --secondary-color-50: hsl(215, 13.7931034483%, 92%);
+    --secondary-color-950: hsl(216, 31.914893617%, 8%);
+    --secondary-color-900: hsl(216, 31.914893617%, 16%);
+    --secondary-color-800: hsl(216, 31.914893617%, 24%);
+    --secondary-color-700: hsl(216, 31.914893617%, 32%);
+    --secondary-color-600: hsl(216, 31.914893617%, 40%);
+    --secondary-color-500: hsl(216, 31.914893617%, 48%);
+    --secondary-color-400: hsl(216, 31.914893617%, 56%);
+    --secondary-color-300: hsl(216, 31.914893617%, 64%);
+    --secondary-color-200: hsl(216, 31.914893617%, 73%);
+    --secondary-color-100: hsl(216, 31.914893617%, 82%);
+    --secondary-color-50: hsl(216, 31.914893617%, 92%);
     --bg-color-950: hsl(188, 78.9473684211%, 8%);
     --bg-color-900: hsl(188, 78.9473684211%, 16%);
     --bg-color-800: hsl(188, 78.9473684211%, 24%);
@@ -2750,6 +2761,12 @@ h6,
     background-color: #EEFBFD;
     color: var(--black);
     margin: 0;
+  }
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #33353a;
+      color: #e0e6ef;
+    }
   }
   input {
     border-radius: 0.375rem;
@@ -3277,7 +3294,7 @@ h6,
     color: #86b879;
   }
   .color-color-secondary-color {
-    color: #4B5563;
+    color: #e0e6ef;
   }
   .color-color-bg-color {
     color: #EEFBFD;
@@ -3316,7 +3333,7 @@ h6,
     color: #2563EB;
   }
   .color-color-secondary {
-    color: #4B5563;
+    color: #e0e6ef;
   }
   .color-color-success {
     color: #10B981;
@@ -3331,7 +3348,7 @@ h6,
     background-color: #86b879;
   }
   .color-background-color-secondary-color {
-    background-color: #4B5563;
+    background-color: #e0e6ef;
   }
   .color-background-color-bg-color {
     background-color: #EEFBFD;
@@ -3370,7 +3387,7 @@ h6,
     background-color: #2563EB;
   }
   .color-background-color-secondary {
-    background-color: #4B5563;
+    background-color: #e0e6ef;
   }
   .color-background-color-success {
     background-color: #10B981;

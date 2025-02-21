@@ -41,6 +41,13 @@
 		margin: 0;
 	}
 
+	@media (prefers-color-scheme: dark) {
+		body {
+		  background-color: v.$bg-color-dark; 
+		  color: v.$secondary-color;
+		}
+	}
+
 	input {
 		border-radius: f.rem(6);
 		padding: f.rem(10) f.rem(16);
