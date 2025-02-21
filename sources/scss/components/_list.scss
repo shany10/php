@@ -1,5 +1,5 @@
 @use "../partials/mixins" as m;
 
-ul, ol {
+ol {
     @include m.resetList;
 }

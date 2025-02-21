@@ -17,12 +17,11 @@ class GroupeController
             header('Location: /login');
             return;
         }
-
         $user = unserialize($_SESSION['user']);
         $groups = GroupModel::getGroupsByUser($user->getId());
         $view = new View("Groupe/groupe.php", "front.php");
         $view->addData("title", "Groupes");
-        $view->addData("groups", $groups);
+        $view->addData("groupes", $groups);
     }
 
     public static function create()
@@ -43,9 +42,13 @@ class GroupeController
             else $response["msg"][] = "Erreur lors de la création du groupe";
         }
 
-        // $groups = GroupModel::getGroupsByUser($user->getId());
-        header('Location: /groupe');
-       
+        $user = unserialize($_SESSION['user']);
+        $groups = GroupModel::getGroupsByUser($user->getId());
+        $view = new View("Groupe/groupe.php", "front.php");
+        $view->addData("title", "Groupes");
+        $view->addData("groupes", $groups);
+        $view->addData("messages", $response["msg"]);
+        unset($_POST['id_groupe']);
     }
 
     public static function addUserToGroupe()
@@ -72,8 +75,9 @@ class GroupeController
         $groups = GroupModel::getGroupsByUser($user->getId());
         $view = new View("Groupe/groupe.php", "front.php");
         $view->addData("title", "Groupes");
-        $view->addData("groups", $groups);
+        $view->addData("groupes", $groups);
         $view->addData("messages", $response["msg"]);
+        unset($_POST['id_groupe']);
     }
 
     public static function delete () 
@@ -95,7 +99,8 @@ class GroupeController
         $groups = GroupModel::getGroupsByUser($user->getId());
         $view = new View("Groupe/groupe.php", "front.php");
         $view->addData("title", "Groupes");
-        $view->addData("groups", $groups);
+        $view->addData("groupes", $groups);
         $view->addData("messages", $response["msg"]);
+        unset($_POST['id_groupe']);
     }
 }

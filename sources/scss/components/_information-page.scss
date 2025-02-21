@@ -1,0 +1,9 @@
+@use "../partials/functions" as f;
+@use "../partials/variables" as v;
+@use "sass:color";
+
+.information-page {
+    width: 25%;
+    border-right: solid f.rem(1.8) color.adjust(v.$text-muted, $lightness: 20%);
+    padding-inline: f.rem(12);
+}
