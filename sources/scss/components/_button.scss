@@ -1,5 +1,6 @@
 @use "../partials/variables" as v;
 @use "../partials/functions" as f;
+@use "sass:color";
 
 @layer components {
 	.button {
@@ -47,5 +48,32 @@
 			transform: translate(-50%, -50%) scale(50);
 			transition: all 0s;
 		}
+
+		&.button-danger {
+			background: linear-gradient(to right, v.$error-text, v.$error-border);
+			box-shadow: 0 4px 10px rgba(v.$error-text, 0.3);
+	
+			&:hover {
+				box-shadow: 0 6px 15px rgba(v.$error-text, 0.4);
+			}
+	
+			&:active {
+				box-shadow: 0 2px 8px rgba(v.$error-text, 0.3);
+			}
+		}
+
+		&.button-success {
+			background: v.$success-color;
+			box-shadow: 0 4px 10px rgba(v.$success-color, 0.3);
+	
+			&:hover {
+				box-shadow: 0 6px 15px rgba(v.$success-color, 0.4);
+			}
+	
+			&:active {
+				box-shadow: 0 2px 8px rgba(v.$success-color, 0.3);
+			}
+		}
+
 	}
 }

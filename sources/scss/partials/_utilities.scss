@@ -15,6 +15,10 @@
 		r: right,
 	);
 
+	.hidden {
+		display: none !important;
+	}
+
 // spacing
 @for $i from 1 through 8 {
 	.h-#{$i} {
@@ -27,6 +31,22 @@
 
 	.m-#{$i} {
 		margin: $i * $increment;
+	}
+
+	.m-left-#{$i} {
+		margin-left: $i * $increment;
+	}
+
+	.m-right-#{$i} {
+		margin-right: $i * $increment;
+	}
+
+	.m-top-#{$i} {
+		margin-top: $i * $increment;
+	}
+
+	.m-bottom-#{$i} {
+		margin-bottom: $i * $increment;
 	}
 
 	.p-#{$i} {
