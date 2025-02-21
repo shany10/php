@@ -3134,9 +3134,6 @@ h6,
   .button.button-success:active {
     box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
   }
-  .button.active {
-    background-color: rgb(121.8620689655, 135.3103448276, 154.1379310345) !important;
-  }
 }
 .login-form {
   display: flex;

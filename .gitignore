@@ -2,3 +2,4 @@
 **/.env
 **/database
 **/uploads
+**/node_modules
