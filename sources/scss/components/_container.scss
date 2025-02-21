@@ -11,7 +11,7 @@
 
 				@if ($name =="sm") {
 					margin: auto;
-					margin-top: f.rem(50);
+					margin-top: f.rem(0);
 				}
 
 				max-width: calc(#{$value} - 4rem);

@@ -114,7 +114,7 @@
    }
 
    .standar-form {
-      @include m.form-primary($width: 70%);
+      @include m.form-primary($width: 80%);
       gap: f.rem(20);
       margin-left: auto;
       margin-right: auto;

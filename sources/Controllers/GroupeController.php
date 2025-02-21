@@ -18,10 +18,10 @@ class GroupeController
             return;
         }
         $user = unserialize($_SESSION['user']);
-        $groups = GroupModel::getGroupsByUser($user->getId());
+        $groupes = GroupModel::getGroupsByUser($user->getId());
         $view = new View("Groupe/groupe.php", "front.php");
         $view->addData("title", "Groupes");
-        $view->addData("groupes", $groups);
+        $view->addData("groupes", $groupes);
     }
 
     public static function create()
@@ -43,10 +43,10 @@ class GroupeController
         }
 
         $user = unserialize($_SESSION['user']);
-        $groups = GroupModel::getGroupsByUser($user->getId());
+        $groupes = GroupModel::getGroupsByUser($user->getId());
         $view = new View("Groupe/groupe.php", "front.php");
         $view->addData("title", "Groupes");
-        $view->addData("groupes", $groups);
+        $view->addData("groupes", $groupes);
         $view->addData("messages", $response["msg"]);
         unset($_POST['id_groupe']);
     }
@@ -72,10 +72,10 @@ class GroupeController
         }
 
         $user = unserialize($_SESSION['user']);
-        $groups = GroupModel::getGroupsByUser($user->getId());
+        $groupes = GroupModel::getGroupsByUser($user->getId());
         $view = new View("Groupe/groupe.php", "front.php");
         $view->addData("title", "Groupes");
-        $view->addData("groupes", $groups);
+        $view->addData("groupes", $groupes);
         $view->addData("messages", $response["msg"]);
         unset($_POST['id_groupe']);
     }
@@ -96,10 +96,10 @@ class GroupeController
             else $response["msg"][] = "Erreur lors de la suppression du groupe";
         }
 
-        $groups = GroupModel::getGroupsByUser($user->getId());
+        $groupes = GroupModel::getGroupsByUser($user->getId());
         $view = new View("Groupe/groupe.php", "front.php");
         $view->addData("title", "Groupes");
-        $view->addData("groupes", $groups);
+        $view->addData("groupes", $groupes);
         $view->addData("messages", $response["msg"]);
         unset($_POST['id_groupe']);
     }
