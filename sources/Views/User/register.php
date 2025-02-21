@@ -1,10 +1,6 @@
 <div class="container">
-
-
-
     <form action="/register" method="POST" class="login-form">
         <h1 class="text-center">Créer un compte</h1>
-
         <div class="input-wrapper">
             <i class="fas fa-user"></i>
             <input
@@ -58,7 +54,7 @@
                 class="input-field"
                 required
                 placeholder="Mot de passe"
-                minlength="6">
+                minlength="8">
         </div>
         <div class="input-wrapper">
             <i class="fas fa-lock"></i>
@@ -72,7 +68,7 @@
                 minlength="6">
         </div>
         <?php if (!empty($errors)): ?>
-            <ul class="error-list">
+            <ul class="message-box danger-color">
                 <?php foreach ($errors as $error): ?>
                     <li><?= htmlspecialchars($error) ?></li>
                 <?php endforeach; ?>
@@ -84,5 +80,4 @@
             <a href="/login" class="link">Connectez-vous ici</a>.
         </p>
     </form>
-
 </div>

@@ -1,0 +1,35 @@
+@use "../partials/variables" as v;
+@use "../partials/functions" as f;
+
+// Messages
+
+.message-box {
+   list-style: none;
+   color: v.$text-muted;
+   font-size: f.rem(14);
+   text-align: center;
+   margin-top: f.rem(5);
+   margin-bottom: f.rem(5);
+   border-radius: v.$input-radius;
+   padding: f.rem(12) f.rem(15);
+   border-left: f.rem(3) solid;
+
+   &.info-color {
+      background-color: rgba(v.$primary-light, 0.05);
+      box-shadow: 0 f.rem(2) f.rem(5) rgba(v.$primary-light, 0.1);
+      border-left-color: v.$primary-light;
+   }
+
+   &.success-color {
+      background-color: rgba(v.$success-color, 0.05);
+      box-shadow: 0 f.rem(2) f.rem(5) rgba(v.$success-color, 0.1);
+      border-left-color: v.$success-color;
+   }
+
+   &.danger-color {
+      background-color: rgba(v.$error-text, 0.05);
+      border-left-color: v.$error-text;
+      box-shadow: 0 f.rem(2) f.rem(5) rgba(v.$error-text, 0.1);
+      color: v.$error-text;
+   }
+}

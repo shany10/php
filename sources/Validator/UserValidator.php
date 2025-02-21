@@ -38,8 +38,6 @@ class UserValidator
         }
     }
 
-
-
     /**
      * @return array
      */
