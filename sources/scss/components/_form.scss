@@ -118,19 +118,24 @@
    gap: f.rem(20);
    margin-left: auto;
    margin-right: auto;
-   & input, select {
+
+   & input,
+   select {
       padding: f.rem(10) f.rem(15);
       border-radius: v.$border-radius;
    }
 }
 
 @media (prefers-color-scheme: dark) {
-   .standar-form {
-      color: v.$primary-color;
-      & input, select {
+
+   .standar-form,
+   .login-form {
+      background-color: v.$bg-color-dark;
+
+      & input,
+      select {
          background-color: v.$bg-color-dark;
          color: v.$primary-color;
       }
    }
 }
-

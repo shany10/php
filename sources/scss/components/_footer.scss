@@ -1,0 +1,69 @@
+@use "../partials/mixins" as m;
+@use "../partials/functions" as f;
+@use "../partials/variables" as v;
+@use "sass:color";
+
+// Permet de pousser le footer en bas
+html,
+body {
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.content {
+   flex: 1; // Prend tout l'espace restant pour pousser le footer en bas
+   padding: 20px;
+}
+
+@layer components {
+   .footer {
+      background-color: v.$primary-color;
+      color: var(--neutral-700);
+      padding: f.rem(16) 0;
+      margin-top: auto; // Garde le footer en bas
+
+
+
+      &__text {
+         font-size: f.rem(14);
+         text-align: center;
+      }
+
+      &__nav {
+         ul {
+            @include m.resetList;
+            @include m.flexbox($direction: column, $align: center, $gap: f.rem(8));
+
+            @media (width >=f.screen(md)) {
+               @include m.flexbox($direction: row, $gap: f.rem(18));
+            }
+         }
+
+         a {
+            @include m.resetA;
+            font-size: f.rem(16);
+            color: v.$bg-color;
+
+            &:hover {
+               color: color.adjust(v.$primary-color, $lightness: 20%);
+            }
+         }
+      }
+   }
+
+   @media (prefers-color-scheme: dark) {
+      .footer {
+         background-color: v.$primary-dark;
+         color: var(--neutral-300);
+
+         a {
+            color: v.$bg-color-dark;
+
+            &:hover {
+               color: color.adjust(v.$primary-dark, $lightness: 20%);
+            }
+         }
+      }
+   }
+}

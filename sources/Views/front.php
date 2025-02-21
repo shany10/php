@@ -9,16 +9,23 @@
 </head>
 
 <body>
-    <?php if (
-        $_SERVER["REQUEST_URI"] != "/login" &&
-        $_SERVER["REQUEST_URI"] != "/register" &&
-        $_SERVER["REQUEST_URI"] != "/forgotPassword" &&
-        $_SERVER["REQUEST_URI"] != "/resetPassword" &&
-        $_SERVER["REQUEST_URI"] != "/verify"
-    ): ?>
+    <?php
+    // Condition pour afficher la navbar 
+    $excludedRoutes = ["/login", "/register", "/forgotPassword", "/resetPassword", "/verify"];
+    if (!in_array($_SERVER["REQUEST_URI"], $excludedRoutes)):
+    ?>
         <?php include "./Views/Compenent/navbar.php"; ?>
     <?php endif; ?>
+
+    <!-- Contenu de la page -->
     <?php include $this->view; ?>
+
+    <!-- Footer toujours affiché après la vue -->
+    <?php
+    if (!in_array($_SERVER["REQUEST_URI"], $excludedRoutes)):
+    ?>
+        <?php include "./Views/Compenent/footer.php"; ?>
+    <?php endif; ?>
 </body>
 
 </html>
