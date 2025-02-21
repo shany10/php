@@ -40,7 +40,7 @@ class Router
     $method = $_SERVER["REQUEST_METHOD"];
     $url = $_SERVER["REQUEST_URI"];
     if($url === "/"){
-      $url = "/login";
+      header("Location: /login");
     }
 
     // Extraction du chemin de l'URL (avant le ?)
