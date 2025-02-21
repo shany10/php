@@ -216,7 +216,6 @@ h6 {
   h5,
   h6 {
     font-family: "Roboto", sans-serif;
-    font-style: italic;
   }
 }
 p,
@@ -3629,6 +3628,15 @@ h6,
   border-radius: 12px;
 }
 
+@media (prefers-color-scheme: dark) {
+  .standar-form {
+    color: #2563EB;
+  }
+  .standar-form input, .standar-form select {
+    background-color: #33353a;
+    color: #2563EB;
+  }
+}
 .link {
   color: #2563EB;
   font-weight: 500;
