@@ -4,18 +4,16 @@
 @layer components {
 	.container {
 		display: flex;
-		justify-content: center; 
-		
+		justify-content: center;
+
 		@each $name, $value in v.$breakpoints {
 			@media screen and (min-width: $value) {
 
 				@if ($name =="sm") {
 					margin: auto;
-					margin-top: f.rem(50);
 				}
-
 				max-width: calc(#{$value} - 4rem);
 			}
-		}	
+		}
 	}
 }

@@ -2,8 +2,15 @@
 @use "../partials/variables" as v;
 @use "sass:color";
 
-.information-page {
-    width: 25%;
-    border-right: solid f.rem(1.8) color.adjust(v.$text-muted, $lightness: 20%);
-    padding-inline: f.rem(12);
+@layer components {
+    .information-page {
+        width: 25%;
+        border-right: solid f.rem(1.8) color.adjust(v.$text-muted, $lightness: 20%);
+        padding-inline: f.rem(12);
+    }
+    @media screen and (max-width: 800px) {
+        .information-page {
+            display: none;
+        }   
+    }
 }

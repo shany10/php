@@ -3,139 +3,143 @@
 @use "../partials/mixins" as m;
 @use "../partials/typography" as t;
 
-
 // Formulaire de connexion
-.login-form {
-   display: flex;
-   flex-direction: column;
-   gap: f.rem(10);
-   width: f.rem(420);
-   padding: f.rem(30);
-   background-color: v.$card-bg;
-   border-radius: v.$border-radius;
-   box-shadow: v.$box-shadow;
-   animation: fadeIn 0.6s ease-out;
-   position: relative;
-   overflow: hidden;
 
-   &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: f.rem(5);
-      background: linear-gradient(to right, v.$primary-color, v.$primary-light);
-   }
-}
+@layer components {
+   .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: f.rem(10);
+      width: f.rem(420);
+      padding: f.rem(30);
+      background-color: v.$card-bg;
+      border-radius: v.$border-radius;
+      box-shadow: v.$box-shadow;
+      animation: fadeIn 0.6s ease-out;
+      position: relative;
+      overflow: hidden;
 
-@keyframes fadeIn {
-   from {
-      opacity: 0;
-      transform: translateY(f.rem(-20));
-   }
-
-   to {
-      opacity: 1;
-      transform: translateY(0);
-   }
-}
-
-@keyframes pulse {
-   0% {
-      box-shadow: 0 0 0 0 rgba(v.$primary-color, 0.4);
-   }
-
-   70% {
-      box-shadow: 0 0 0 f.rem(5) rgba(v.$primary-color, 0);
-   }
-
-   100% {
-      box-shadow: 0 0 0 0 rgba(v.$primary-color, 0);
-   }
-}
-
-
-// Champs de formulaire avec icône
-.input-wrapper {
-   position: relative;
-   display: flex;
-   align-items: center;
-   margin-bottom: f.rem(6);
-}
-
-.input-wrapper i {
-   width: 100%;
-   position: absolute;
-   left: f.rem(15);
-   top: 50%;
-   transform: translateY(-50%);
-   color: v.$text-muted;
-   font-size: f.rem(18);
-   transition: v.$transition;
-   z-index: 1;
-}
-
-.input-field {
-   width: 100%;
-   padding: f.rem(14);
-   border: f.rem(1.5) solid v.$input-border;
-   border-radius: v.$input-radius;
-   font-size: f.rem(15);
-   font-weight: 400;
-   transition: v.$transition;
-   background-color: v.$card-bg;
-   color: v.$text-color;
-   transform-origin: left;
-
-   &::placeholder {
-      font-weight: 300;
-   }
-
-   &:focus {
-      border-color: v.$primary-color;
-      background-color: v.$input-focus-bg;
-      outline: none;
-      box-shadow: 0 0 0 f.rem(3) rgba(v.$primary-color, 0.15);
-      animation: pulse 1s;
-
-      &+i {
-         color: v.$primary-color;
+      &:before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: f.rem(5);
+         background: linear-gradient(to right, v.$primary-color, v.$primary-light);
       }
    }
-}
 
-.forgotPwd {
-   display: flex;
-   justify-content: flex-end;
-   margin-top: f.rem(-10);
-   margin-bottom: f.rem(5);
-   font-size: f.rem(14);
-}
+   @keyframes fadeIn {
+      from {
+         opacity: 0;
+         transform: translateY(f.rem(-20));
+      }
 
-.standar-form {
-   @include m.form-primary($width: 70%);
-   gap: f.rem(20);
-   margin-left: auto;
-   margin-right: auto;
-
-   & input,
-   select {
-      padding: f.rem(10) f.rem(15);
-      border-radius: v.$border-radius;
+      to {
+         opacity: 1;
+         transform: translateY(0);
+      }
    }
-}
 
-@media (prefers-color-scheme: dark) {
+   @keyframes pulse {
+      0% {
+         box-shadow: 0 0 0 0 rgba(v.$primary-color, 0.4);
+      }
 
-   .standar-form,
-   .login-form {
-      background-color: v.$bg-color-dark;
+      70% {
+         box-shadow: 0 0 0 f.rem(5) rgba(v.$primary-color, 0);
+      }
+
+      100% {
+         box-shadow: 0 0 0 0 rgba(v.$primary-color, 0);
+      }
+   }
+
+
+   // Champs de formulaire avec icône
+   .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: f.rem(6);
+   }
+
+   .input-wrapper i {
+      width: 100%;
+      position: absolute;
+      left: f.rem(15);
+      top: 50%;
+      transform: translateY(-50%);
+      color: v.$text-muted;
+      font-size: f.rem(18);
+      transition: v.$transition;
+      z-index: 1;
+   }
+
+   .input-field {
+      width: 100%;
+      padding: f.rem(14);
+      border: f.rem(1.5) solid v.$input-border;
+      border-radius: v.$input-radius;
+      font-size: f.rem(15);
+      font-weight: 400;
+      transition: v.$transition;
+      background-color: v.$card-bg;
+      color: v.$text-color;
+      transform-origin: left;
+
+      &::placeholder {
+         font-weight: 300;
+      }
+
+      &:focus {
+         border-color: v.$primary-color;
+         background-color: v.$input-focus-bg;
+         outline: none;
+         box-shadow: 0 0 0 f.rem(3) rgba(v.$primary-color, 0.15);
+         animation: pulse 1s;
+
+         &+i {
+            color: v.$primary-color;
+         }
+      }
+   }
+
+   .forgotPwd {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: f.rem(-10);
+      margin-bottom: f.rem(5);
+      font-size: f.rem(14);
+   }
+
+   .standar-form {
+      @include m.form-primary($width: 80%);
+      gap: f.rem(20);
+      margin-left: auto;
+      margin-right: auto;
 
       & input,
       select {
-         background-color: v.$bg-color-dark;
+         padding: f.rem(10) f.rem(15);
+         border-radius: v.$border-radius;
+      }
+   }
+
+   @media (prefers-color-scheme: dark) {
+      .standar-form {
          color: v.$primary-color;
+
+         & input,
+         select {
+            background-color: v.$bg-color-dark;
+            color: v.$primary-color;
+         }
+      }
+
+      .login-form {
+         background-color: v.$bg-color-dark;
       }
    }
 }

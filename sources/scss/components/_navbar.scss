@@ -2,58 +2,75 @@
 @use "../partials/functions" as f;
 @use "../partials/variables" as v;
 @use "sass:color";
+
 @layer components {
 	.navbar {
 		background-color: v.$primary-color;
 		color: var(--neutral-700);
 		padding: f.rem(16) 0;
+
 		.container {
 			@include m.flexbox($direction: column, $align: flex-start);
 			position: relative;
-			@media (width >= f.screen(md)) {
+
+			@media (width >=f.screen(md)) {
 				@include m.flexbox($direction: row, $gap: f.rem(30), $align: center);
 			}
 		}
+
 		a {
 			@include m.resetA;
-			font-size: f.rem(22);
+			font-size: f.rem(16);
 			color: v.$bg-color;
+
 			&:hover {
 				color: color.adjust(v.$primary-color, $lightness: 20%);
 			}
 		}
+
 		ul {
 			@include m.resetList;
 			@include m.flexbox($direction: column, $gap: f.rem(8));
 			justify-content: right;
-			height: 0;
+			// height: 0;
 			overflow: hidden;
 			margin-inline: 1rem;
 			transition: all 0.3s;
+
 			&.active {
 				margin-top: 1rem;
 			}
-			@media (width >= f.screen(md)) {
+
+			@media (width >=f.screen(md)) {
 				@include m.flexbox($direction: row, $gap: f.rem(18));
 				flex-grow: 1;
 				height: auto !important;
+
 				&.active {
 					margin-top: 0;
 				}
+
+				& a {
+					font-size: f.rem(22);
+				}
 			}
 		}
+
 		form {
 			display: none;
-			@media (width >= f.screen(lg)) {
+
+			@media (width >=f.screen(lg)) {
 				@include m.flexbox($gap: f.rem(10));
 			}
 		}
+
 		&__button {
 			@include m.resetButton;
 			position: absolute;
 			top: 0;
 			right: 0;
-			@media (width >= f.screen(md)) {
+
+			@media (width >=f.screen(md)) {
 				display: none;
 			}
 		}
@@ -61,14 +78,16 @@
 
 	@media (prefers-color-scheme: dark) {
 		.navbar {
-		  background-color: v.$primary-dark; 
-		  color: var(--neutral-300); 
-		  a {
-			color: v.$bg-color-dark; 
-			&:hover {
-			  color: color.adjust(v.$primary-dark, $lightness: 20%);
+			background-color: v.$primary-dark;
+			color: var(--neutral-300);
+
+			a {
+				color: v.$bg-color-dark;
+
+				&:hover {
+					color: color.adjust(v.$primary-dark, $lightness: 20%);
+				}
 			}
-		  }
 		}
 	}
 }

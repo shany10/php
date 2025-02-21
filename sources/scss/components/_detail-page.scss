@@ -1,23 +1,35 @@
 @use "../partials/functions" as f;
 @use "../partials/variables" as v;
 @use "sass:color";
-.detail-page {
-    width: 25%;
-    border-left: solid f.rem(1.8) color.adjust(v.$text-muted, $lightness: 20%);
-    padding-inline: f.rem(12);
-    & a {
-        color: v.$text-muted;
-        font-size: f.rem(20);
-        &:hover {
-            color: v.$text-color;
+
+@layer components {
+    .detail-page {
+        width: 25%;
+        border-left: solid f.rem(1.8) color.adjust(v.$text-muted, $lightness: 20%);
+        padding-inline: f.rem(12);
+
+        & a {
+            color: v.$text-muted;
+            font-size: f.rem(20);
+
+            &:hover {
+                color: v.$text-color;
+            }
+        }
+
+        & li {
+            margin-bottom: f.rem(8);
+
+            &::before {
+                content: "•";
+                color: v.$text-muted;
+                margin-inline-end: f.rem(8);
+            }
         }
     }
-    & li {
-        margin-bottom: f.rem(8);
-        &::before {
-            content: "•";
-            color: v.$text-muted;
-            margin-inline-end: f.rem(8);
-        }
+    @media screen and (max-width: 800px) {
+        .detail-page {
+            display: none;
+        }   
     }
 }

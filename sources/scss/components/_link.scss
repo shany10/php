@@ -2,36 +2,38 @@
 @use "../partials/functions" as f;
 @use "../partials/mixins" as m;
 
-.link {
-   color: v.$primary-color;
-   font-weight: 500;
-   transition: v.$transition;
-   position: relative;
-   padding-bottom: f.rem(2);
-
-   &:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: f.rem(1.5);
-      bottom: 0;
-      left: 0;
-      background-color: v.$primary-color;
-      transition: width 0.3s ease;
-   }
-
-   &:hover {
-      color: v.$primary-dark;
+@layer components {
+   .link {
+      color: v.$primary-color;
+      font-weight: 500;
+      transition: v.$transition;
+      position: relative;
+      padding-bottom: f.rem(2);
 
       &:after {
-         width: 100%;
+         content: '';
+         position: absolute;
+         width: 0;
+         height: f.rem(1.5);
+         bottom: 0;
+         left: 0;
+         background-color: v.$primary-color;
+         transition: width 0.3s ease;
+      }
+
+      &:hover {
+         color: v.$primary-dark;
+
+         &:after {
+            width: 100%;
+         }
       }
    }
-}
 
-a,
-a:hover,
-a:focus,
-a:active {
-  @include m.resetA;
+   a,
+   a:hover,
+   a:focus,
+   a:active {
+      @include m.resetA;
+   }
 }
