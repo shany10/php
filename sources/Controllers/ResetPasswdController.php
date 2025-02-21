@@ -84,7 +84,7 @@ class ResetPasswdController
         }
 
         if($updateSuccess && $deleteSuccess) {
-            header("Location: /");
+            header("Location: /login");
         }
     }
 }

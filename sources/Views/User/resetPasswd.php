@@ -1,6 +1,6 @@
-<div class="container reset-container">
-   <h1 class="text-center">Réinitialisation du mot de passe</h1>
+<div class="container">
    <form method="POST" class="login-form">
+   <h1 class="text-center">Réinitialisation du mot de passe</h1>
       <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
       <div class="input-wrapper">
          <i class="fas fa-envelope"></i>

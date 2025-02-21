@@ -22,10 +22,10 @@ class RegisterController
       $emailCode = generateUUID();
 
 
-      // if (!empty($_SESSION["user"])) {
-      //    header("Location: /");
-      //    return;
-      // }
+      if (!empty($_SESSION["user"])) {
+         header("Location: /home");
+         return;
+      }
 
       $response = [
          "error" => false,
@@ -112,6 +112,5 @@ class RegisterController
       $view = new View("User/register.php", "front.php");
       $view->addData("title", "Inscription");
       $view->addData('errors', $response["msg"]);
-
    }
 }
