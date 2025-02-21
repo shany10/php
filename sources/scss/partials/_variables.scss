@@ -5,9 +5,10 @@
 $colors: (
   "primary-color": #2563EB,
   "primary-light": #3B82F6,
-  "primary-dark": #1D4ED8,
+  "primary-dark": #86b879,
   "secondary-color": #4B5563,
   "bg-color": #F9FAFB,
+  "bg-color-dark": #33353a,
   "card-bg": #FFFFFF,
   "text-color": #1F2937,
   "text-muted": #6B7280,
@@ -25,6 +26,7 @@ $primary-light: map.get($colors, "primary-light");
 $primary-dark: map.get($colors, "primary-dark");
 $secondary-color: map.get($colors, "secondary-color");
 $bg-color: map.get($colors, "bg-color");
+$bg-color-dark: map.get($colors, "bg-color-dark");
 $card-bg: map.get($colors, "card-bg");
 $text-color: map.get($colors, "text-color");
 $text-muted: map.get($colors, "text-muted");
@@ -127,6 +129,7 @@ $display-font-sizes: (
   6: 2.5rem,
 );
 
+
 // Color utilities
 $color-utilities: (
   "color": (color,
@@ -153,3 +156,28 @@ $text-utilities: (
     ),
   ),
 );
+
+//z-index
+
+$z-indexes: (
+	"0": 0,
+	"1": 100,
+	"2": 200,
+	"3": 300,
+	"4": 400,
+	"5": 500,
+	"6": 600,
+	"7": 700,
+);
+
+$border-colors: (
+  "primary": $primary-color,
+  "secondary": $secondary-color,
+  "success": $success-color,
+  "error": $error-text,
+);
+
+$primary-border-color: map.get($border-colors, "primary");
+$secondary-border-color: map.get($border-colors, "secondary");
+$success-border-color: map.get($border-colors, "success");
+$error-border-color: map.get($border-colors, "error");

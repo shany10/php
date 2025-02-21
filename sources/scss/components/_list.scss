@@ -1,0 +1,5 @@
+@use "../partials/mixins" as m;
+
+ul, ol {
+    @include m.resetList;
+}

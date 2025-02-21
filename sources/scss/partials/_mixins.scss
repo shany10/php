@@ -1,14 +1,17 @@
+// Mixin to reset anchor styles
 @mixin resetA {
 	text-decoration: none;
 	color: inherit;
 }
 
+// Mixin to reset list styles
 @mixin resetList {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
+// Mixin to reset button styles
 @mixin resetButton {
 	border: none;
 	background-color: transparent;
@@ -16,13 +19,14 @@
 	cursor: pointer;
 }
 
+// Mixin to center content using flexbox
 @mixin flex-center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-
+// Mixin to create a flexible box layout with optional parameters
 @mixin flexbox($direction: null,
 	$justify: null,
 	$align: null,
@@ -51,20 +55,48 @@
 	}
 }
 
-@mixin flex-center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
+// Mixin to apply responsive styles based on a breakpoint
 @mixin responsive($breakpoint) {
 	@media (max-width: screen($breakpoint)) {
 		@content;
 	}
 }
 
+// Mixin for primary form styles with a specified width
 @mixin form-primary($width) {
 	display: flex;
-   	flex-direction: column;
-   	width: $width;
+	flex-direction: column;
+	width: $width;
 }
+
+// Mixin to hide an input field
+@mixin hide-input {
+	opacity: 0;
+	height: 0;
+	width: 0;
+}
+
+// Mixin to create a gradient background
+@mixin gradient-bg($start, $end) {
+	background: linear-gradient(to right, $start, $end);
+}
+
+// Mixin to create a pulse animation
+@mixin pulse {
+	@keyframes pulse {
+		0% {
+			box-shadow: 0 0 0 0 rgba($primary-color, 0.4);
+		}
+
+		70% {
+			box-shadow: 0 0 0 5px rgba($primary-color, 0);
+		}
+
+		100% {
+			box-shadow: 0 0 0 0 rgba($primary-color, 0);
+		}
+	}
+}
+
+
+

@@ -104,3 +104,9 @@
 }
 
 }
+
+@each $number, $value in v.$z-indexes {
+	.z-#{$number} {
+	  z-index: $value;
+	}
+}

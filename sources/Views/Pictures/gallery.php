@@ -2,7 +2,7 @@
     <div class="gallery">
         <?php foreach ($pictures as $picture): ?>
             <div class="photo">
-                <img src="<?= "../public/uploads/" . $picture['file_name'] ?>" alt="Photo de groupe">
+                <img class="rounded-top" src="<?= "../public/uploads/" . $picture['file_name'] ?>" alt="Photo de groupe">
                
             </div>
         <?php endforeach; ?>

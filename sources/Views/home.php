@@ -1,15 +1,13 @@
-<?php if(!empty($_SESSION['user'])) : ?>
-    <h2>Welcome <?= unserialize($_SESSION['user'])->getFirstname() ?></h2>
-    <h3>Groupes</h3>
-    <ul>
-        <?php foreach($groupes as $groupe) : ?>
-            <li>
-                <a href="/gallery?groupe_id=<?= $groupe['id'] ?>"><?= $groupe['group_name'] ?></a>
-            </li>
-        <?php endforeach; ?>
+<?php if (!empty($_SESSION['user'])): ?>
+    <h2>Bienvenue <?= ucfirst(unserialize($_SESSION['user'])->getFirstname()) ?></h2>
+    <p>Vous êtes connecté en tant que <?= unserialize($_SESSION['user'])->getRole() ?></p>
+    <p>Votre email est <?= unserialize($_SESSION['user'])->getEmail() ?></p>
+    <h3>Sur cette application, vous pouvez :</h3>
+    <ul class="container">
+        <li>Créer des groupes</li>
+        <li>Ajouter des utilisateurs à un groupe</li>
+        <li>Supprimer un groupe</li>
+        <li>Consulter les photos d'un groupe</li>
+        <li>Uploader des photos</li>
     </ul>
-    <!-- <a href="/gallery" style="display: block;">Gallery</a> -->
-    <a href="/groupe" style="display: block;">Groupe</a>
-    <a href="/upload" style="display: block;">Upload photo</a>
-    <a href="/logout" style="display: block;">Logout</a>
-<?php endif; ?>  
+<?php endif; ?>

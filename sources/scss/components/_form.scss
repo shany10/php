@@ -1,6 +1,7 @@
 @use "../partials/variables" as v;
 @use "../partials/functions" as f;
 @use "../partials/mixins" as m;
+@use "../partials/typography" as t;
 
 
 // Formulaire de connexion
@@ -88,9 +89,6 @@
    transform-origin: left;
 
    &::placeholder {
-      // color: lighten(v.$text-muted, 10%);
-      // color.scale($color, $lightness: 18.5454545455%);
-      // color.adjust($color, $lightness: 10%)
       font-weight: 300;
    }
 

@@ -36,7 +36,7 @@
 			@media (width >= f.screen(md)) {
 				@include m.flexbox($direction: row, $gap: f.rem(18));
 				flex-grow: 1;
-				height: auto !important; // pour ne pas être supplanté par le style ajouté par js
+				height: auto !important;
 				&.active {
 					margin-top: 0;
 				}
@@ -58,4 +58,17 @@
 			}
 		}
 	}
+
+	@media (prefers-color-scheme: dark) {
+		.navbar {
+		  background-color: v.$primary-dark; 
+		  color: var(--neutral-300); 
+		  a {
+			color: v.$bg-color-dark; 
+			&:hover {
+			  color: color.adjust(v.$primary-dark, $lightness: 20%);
+			}
+		  }
+		}
+	  }
 }

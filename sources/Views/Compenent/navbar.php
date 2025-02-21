@@ -1,10 +1,10 @@
 <header>
     <nav class="navbar">
         <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/groupe">Groupe</a></li>
-            <li><a href="/upload">Upload</a></li>
-            <li><a href="/logout">Logout</a></li>
+            <li><a class="text-font-size-4" href="/home">Home</a></li>
+            <li><a class="text-font-size-4" href="/groupe">Groupe</a></li>
+            <li><a class="text-font-size-4" href="/upload">Upload</a></li>
+            <li><a class="text-font-size-4" href="/logout">Logout</a></li>
         </ul>
     </nav>
     <h1 class="text-center"><?php echo $title; ?></h1>

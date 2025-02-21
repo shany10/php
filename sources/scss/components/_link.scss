@@ -1,9 +1,9 @@
 @use "../partials/variables" as v;
 @use "../partials/functions" as f;
+@use "../partials/mixins" as m;
 
 .link {
    color: v.$primary-color;
-   text-decoration: none;
    font-weight: 500;
    transition: v.$transition;
    position: relative;
@@ -22,10 +22,16 @@
 
    &:hover {
       color: v.$primary-dark;
-      text-decoration: none;
 
       &:after {
          width: 100%;
       }
    }
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  @include m.resetA;
 }

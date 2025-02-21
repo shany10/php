@@ -49,7 +49,7 @@
 			transition: all 0s;
 		}
 
-		&.button-danger {
+		&__danger {
 			background: linear-gradient(to right, v.$error-text, v.$error-border);
 			box-shadow: 0 4px 10px rgba(v.$error-text, 0.3);
 	
@@ -62,7 +62,7 @@
 			}
 		}
 
-		&.button-success {
+		&__success {
 			background: v.$success-color;
 			box-shadow: 0 4px 10px rgba(v.$success-color, 0.3);
 	
@@ -74,6 +74,6 @@
 				box-shadow: 0 2px 8px rgba(v.$success-color, 0.3);
 			}
 		}
-
+		
 	}
 }
